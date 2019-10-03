@@ -5,12 +5,44 @@
     <link>https://vjg28.github.io/project/</link>
       <atom:link href="https://vjg28.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 03 Oct 2019 04:11:01 +0530</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 04 Oct 2019 02:15:11 +0530</lastBuildDate>
     <image>
       <url>https://vjg28.github.io/img/index.png</url>
       <title>Projects</title>
       <link>https://vjg28.github.io/project/</link>
     </image>
+    
+    <item>
+      <title>Device for Ship Detection</title>
+      <link>https://vjg28.github.io/project/device-for-ship-detection/</link>
+      <pubDate>Fri, 04 Oct 2019 02:15:11 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/device-for-ship-detection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BERT on NarrativeQA</title>
+      <link>https://vjg28.github.io/project/bert-on-narrativeqa/</link>
+      <pubDate>Fri, 04 Oct 2019 02:10:38 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/bert-on-narrativeqa/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fake News Detector</title>
+      <link>https://vjg28.github.io/project/fake-news-detector/</link>
+      <pubDate>Fri, 04 Oct 2019 02:03:16 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/fake-news-detector/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lunar Lander using Policy Gradient Algorithms</title>
+      <link>https://vjg28.github.io/project/lunar-lander-rl/</link>
+      <pubDate>Fri, 04 Oct 2019 00:49:00 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/lunar-lander-rl/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ARLE- Autonomous Robot for Library Enhancement</title>
@@ -33,6 +65,14 @@
       <link>https://vjg28.github.io/project/linear-inverse-rl/</link>
       <pubDate>Thu, 03 Oct 2019 03:29:44 +0530</pubDate>
       <guid>https://vjg28.github.io/project/linear-inverse-rl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Huffman Coding in ARM-v8</title>
+      <link>https://vjg28.github.io/project/huffman-coding-arm/</link>
+      <pubDate>Wed, 02 Oct 2019 01:05:22 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/huffman-coding-arm/</guid>
       <description></description>
     </item>
     

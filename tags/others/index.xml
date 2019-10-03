@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Others | Varshil Gandhi</title>
+    <link>https://vjg28.github.io/tags/others/</link>
+      <atom:link href="https://vjg28.github.io/tags/others/index.xml" rel="self" type="application/rss+xml" />
+    <description>Others</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 04 Oct 2019 02:15:11 +0530</lastBuildDate>
+    <image>
+      <url>https://vjg28.github.io/img/index.png</url>
+      <title>Others</title>
+      <link>https://vjg28.github.io/tags/others/</link>
+    </image>
+    
+    <item>
+      <title>Device for Ship Detection</title>
+      <link>https://vjg28.github.io/project/device-for-ship-detection/</link>
+      <pubDate>Fri, 04 Oct 2019 02:15:11 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/device-for-ship-detection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Huffman Coding in ARM-v8</title>
+      <link>https://vjg28.github.io/project/huffman-coding-arm/</link>
+      <pubDate>Wed, 02 Oct 2019 01:05:22 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/huffman-coding-arm/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

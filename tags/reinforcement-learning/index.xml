@@ -5,12 +5,20 @@
     <link>https://vjg28.github.io/tags/reinforcement-learning/</link>
       <atom:link href="https://vjg28.github.io/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
     <description>Reinforcement Learning</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 03 Oct 2019 03:29:44 +0530</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 04 Oct 2019 00:49:00 +0530</lastBuildDate>
     <image>
       <url>https://vjg28.github.io/img/index.png</url>
       <title>Reinforcement Learning</title>
       <link>https://vjg28.github.io/tags/reinforcement-learning/</link>
     </image>
+    
+    <item>
+      <title>Lunar Lander using Policy Gradient Algorithms</title>
+      <link>https://vjg28.github.io/project/lunar-lander-rl/</link>
+      <pubDate>Fri, 04 Oct 2019 00:49:00 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/lunar-lander-rl/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Linear Inverse RL Algorithms</title>
