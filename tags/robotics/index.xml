@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Varshil Gandhi</title>
-    <link>https://vjg28.github.io/</link>
-      <atom:link href="https://vjg28.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <description>Varshil Gandhi</description>
+    <title>Robotics | Varshil Gandhi</title>
+    <link>https://vjg28.github.io/tags/robotics/</link>
+      <atom:link href="https://vjg28.github.io/tags/robotics/index.xml" rel="self" type="application/rss+xml" />
+    <description>Robotics</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 03 Oct 2019 04:11:01 +0530</lastBuildDate>
     <image>
       <url>https://vjg28.github.io/img/index.png</url>
-      <title>Varshil Gandhi</title>
-      <link>https://vjg28.github.io/</link>
+      <title>Robotics</title>
+      <link>https://vjg28.github.io/tags/robotics/</link>
     </image>
     
     <item>
@@ -25,14 +25,6 @@
       <link>https://vjg28.github.io/project/robotic-palm/</link>
       <pubDate>Thu, 03 Oct 2019 03:54:18 +0530</pubDate>
       <guid>https://vjg28.github.io/project/robotic-palm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linear Inverse RL Algorithms</title>
-      <link>https://vjg28.github.io/project/linear-inverse-rl/</link>
-      <pubDate>Thu, 03 Oct 2019 03:29:44 +0530</pubDate>
-      <guid>https://vjg28.github.io/project/linear-inverse-rl/</guid>
       <description></description>
     </item>
     

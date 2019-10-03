@@ -5,12 +5,20 @@
     <link>https://vjg28.github.io/authors/</link>
       <atom:link href="https://vjg28.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 03 Oct 2019 03:29:44 +0530</lastBuildDate>
     <image>
       <url>https://vjg28.github.io/img/index.png</url>
       <title>Authors</title>
       <link>https://vjg28.github.io/authors/</link>
     </image>
+    
+    <item>
+      <title>Varshil Gandhi</title>
+      <link>https://vjg28.github.io/authors/varshil-gandhi/</link>
+      <pubDate>Thu, 03 Oct 2019 03:29:44 +0530</pubDate>
+      <guid>https://vjg28.github.io/authors/varshil-gandhi/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title></title>

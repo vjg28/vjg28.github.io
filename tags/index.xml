@@ -5,12 +5,28 @@
     <link>https://vjg28.github.io/tags/</link>
       <atom:link href="https://vjg28.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 03 Oct 2019 04:11:01 +0530</lastBuildDate>
     <image>
       <url>https://vjg28.github.io/img/index.png</url>
       <title>Tags</title>
       <link>https://vjg28.github.io/tags/</link>
     </image>
+    
+    <item>
+      <title>Robotics</title>
+      <link>https://vjg28.github.io/tags/robotics/</link>
+      <pubDate>Thu, 03 Oct 2019 04:11:01 +0530</pubDate>
+      <guid>https://vjg28.github.io/tags/robotics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reinforcement Learning</title>
+      <link>https://vjg28.github.io/tags/reinforcement-learning/</link>
+      <pubDate>Thu, 03 Oct 2019 03:29:44 +0530</pubDate>
+      <guid>https://vjg28.github.io/tags/reinforcement-learning/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

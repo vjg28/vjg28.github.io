@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reinforcement Learning | Varshil Gandhi</title>
+    <link>https://vjg28.github.io/tags/reinforcement-learning/</link>
+      <atom:link href="https://vjg28.github.io/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Reinforcement Learning</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 03 Oct 2019 03:29:44 +0530</lastBuildDate>
+    <image>
+      <url>https://vjg28.github.io/img/index.png</url>
+      <title>Reinforcement Learning</title>
+      <link>https://vjg28.github.io/tags/reinforcement-learning/</link>
+    </image>
+    
+    <item>
+      <title>Linear Inverse RL Algorithms</title>
+      <link>https://vjg28.github.io/project/linear-inverse-rl/</link>
+      <pubDate>Thu, 03 Oct 2019 03:29:44 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/linear-inverse-rl/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
