@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slides | Varshil Gandhi</title>
+    <link>https://vjg28.github.io/slides/</link>
+      <atom:link href="https://vjg28.github.io/slides/index.xml" rel="self" type="application/rss+xml" />
+    <description>Slides</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Inverse RL on Mountain Car Slides</title>
+      <link>https://vjg28.github.io/slides/irl-slides/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://vjg28.github.io/slides/irl-slides/</guid>
+      <description>
+
+&lt;h1 id=&#34;irl-experiment-on-mountain-car&#34;&gt;IRL Experiment on Mountain Car&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/vjg28/Linear-Inverse-RL-algorithms&#34; target=&#34;_blank&#34;&gt;Code Application&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Inverse reinforcement learning&lt;/strong&gt; deals with the case of learning the reward function for a situation or an activity where the optimum behavior is known.
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vjg28.github.io/project/Linear-Inverse-RL/irl.png&#34; &gt;
+&lt;img src=&#34;https://vjg28.github.io/project/Linear-Inverse-RL/irl.png&#34; alt=&#34;&#34; &gt;&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;environment-details&#34;&gt;Environment Details&lt;/h2&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vjg28.github.io/project/Linear-Inverse-RL/car.png&#34; &gt;
+&lt;img src=&#34;https://vjg28.github.io/project/Linear-Inverse-RL/car.png&#34; alt=&#34;&#34; &gt;&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mountain car env&lt;/strong&gt; : A car (agent) learning how to get to the top of the cliff in the least timesteps.&lt;/li&gt;
+&lt;li&gt;The goal of the agent is to reach the goal position , represented by the flag at position = 0.5 units.&lt;/li&gt;
+&lt;li&gt;The state space is a vector  [position, velocity] with
+
+&lt;ul&gt;
+&lt;li&gt;1.2 ≤ position ≤ 0.6&lt;/li&gt;
+&lt;li&gt;velocity∈[-0.07, 0.07]&lt;/li&gt;
+&lt;li&gt;The above implies that the state space is continuous and infinite.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The agent can perform 3 actions 0 ,1 ,2 :
+
+&lt;ul&gt;
+&lt;li&gt;0: accelerate in the left&lt;/li&gt;
+&lt;li&gt;1: zero acceleration&lt;/li&gt;
+&lt;li&gt;2: accelerate in the right&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Acceleration = 0.001 units&lt;/li&gt;
+&lt;li&gt;The reward function inbuilt the environment is $R(s,a) = -1$ for each timestep and 0 if it reaches the goal.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;experiment-details&#34;&gt;Experiment Details&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;ng-abbel-paper-vs-ours-similarities&#34;&gt;NG- Abbel paper vs Ours (Similarities)&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+A linear function approximator for reward function with 26 basis functions.
+&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+A penalty function with penalty constant = 2 in the updates of linear programming.
+&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+Equally spaced Gaussian functions as their reward basis functions.
+&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+Reward function depend only on the ‘position’ feature of state.
+&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;differences&#34;&gt;Differences:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+Test in the paper was a naive approach (Algo 2). While ours in Algo 3.
+&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+The paper discretized the state space $s= [position,~ velocity]$ into $120*120$  discrete states. This makes the number of states finite.
+&lt;/span&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+They created a model based on the discretization of state space. We didn&amp;rsquo;t.
+&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+They evaluated the Linear programming maximization for a bunch of 5000 states.
+&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;To be added&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://discourse.gohugo.io&#34; target=&#34;_blank&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

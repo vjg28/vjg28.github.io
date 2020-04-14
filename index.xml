@@ -5,12 +5,168 @@
     <link>https://vjg28.github.io/</link>
       <atom:link href="https://vjg28.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Varshil Gandhi</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 04 Oct 2019 02:15:11 +0530</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://vjg28.github.io/img/index.png</url>
       <title>Varshil Gandhi</title>
       <link>https://vjg28.github.io/</link>
     </image>
+    
+    <item>
+      <title>Inverse RL on Mountain Car Slides</title>
+      <link>https://vjg28.github.io/slides/irl-slides/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://vjg28.github.io/slides/irl-slides/</guid>
+      <description>
+
+&lt;h1 id=&#34;irl-experiment-on-mountain-car&#34;&gt;IRL Experiment on Mountain Car&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/vjg28/Linear-Inverse-RL-algorithms&#34; target=&#34;_blank&#34;&gt;Code Application&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Inverse reinforcement learning&lt;/strong&gt; deals with the case of learning the reward function for a situation or an activity where the optimum behavior is known.
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vjg28.github.io/project/Linear-Inverse-RL/irl.png&#34; &gt;
+&lt;img src=&#34;https://vjg28.github.io/project/Linear-Inverse-RL/irl.png&#34; alt=&#34;&#34; &gt;&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;environment-details&#34;&gt;Environment Details&lt;/h2&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;https://vjg28.github.io/project/Linear-Inverse-RL/car.png&#34; &gt;
+&lt;img src=&#34;https://vjg28.github.io/project/Linear-Inverse-RL/car.png&#34; alt=&#34;&#34; &gt;&lt;/a&gt;
+
+
+
+&lt;/figure&gt;
+
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mountain car env&lt;/strong&gt; : A car (agent) learning how to get to the top of the cliff in the least timesteps.&lt;/li&gt;
+&lt;li&gt;The goal of the agent is to reach the goal position , represented by the flag at position = 0.5 units.&lt;/li&gt;
+&lt;li&gt;The state space is a vector  [position, velocity] with
+
+&lt;ul&gt;
+&lt;li&gt;1.2 ≤ position ≤ 0.6&lt;/li&gt;
+&lt;li&gt;velocity∈[-0.07, 0.07]&lt;/li&gt;
+&lt;li&gt;The above implies that the state space is continuous and infinite.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The agent can perform 3 actions 0 ,1 ,2 :
+
+&lt;ul&gt;
+&lt;li&gt;0: accelerate in the left&lt;/li&gt;
+&lt;li&gt;1: zero acceleration&lt;/li&gt;
+&lt;li&gt;2: accelerate in the right&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Acceleration = 0.001 units&lt;/li&gt;
+&lt;li&gt;The reward function inbuilt the environment is $R(s,a) = -1$ for each timestep and 0 if it reaches the goal.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;experiment-details&#34;&gt;Experiment Details&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;ng-abbel-paper-vs-ours-similarities&#34;&gt;NG- Abbel paper vs Ours (Similarities)&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+A linear function approximator for reward function with 26 basis functions.
+&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+A penalty function with penalty constant = 2 in the updates of linear programming.
+&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+Equally spaced Gaussian functions as their reward basis functions.
+&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+Reward function depend only on the ‘position’ feature of state.
+&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;differences&#34;&gt;Differences:&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+Test in the paper was a naive approach (Algo 2). While ours in Algo 3.
+&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+The paper discretized the state space $s= [position,~ velocity]$ into $120*120$  discrete states. This makes the number of states finite.
+&lt;/span&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+They created a model based on the discretization of state space. We didn&amp;rsquo;t.
+&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;fragment &#34; &gt;
+They evaluated the Linear programming maximization for a bunch of 5000 states.
+&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;results&#34;&gt;Results&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;To be added&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://discourse.gohugo.io&#34; target=&#34;_blank&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Device for Ship Detection</title>
@@ -65,7 +221,210 @@
       <link>https://vjg28.github.io/project/linear-inverse-rl/</link>
       <pubDate>Thu, 03 Oct 2019 03:29:44 +0530</pubDate>
       <guid>https://vjg28.github.io/project/linear-inverse-rl/</guid>
-      <description></description>
+      <description>
+
+&lt;h2 id=&#34;inverse-reinforcement-learning&#34;&gt;Inverse Reinforcement Learning:&lt;/h2&gt;
+
+&lt;p&gt;The core concept of reinforcement learning in Markov decision process revolves around the definition of &lt;strong&gt;reward values&lt;/strong&gt;. The agent observes a state, proceed with an action and the environment provides the reward and the next state.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;RL_env.png&#34; data-caption=&#34;Agent-Environment interaction&#34;&gt;
+&lt;img src=&#34;RL_env.png&#34; alt=&#34;&#34; &gt;&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Agent-Environment interaction
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;However, there are numerous cases where designing reward functions are complicated or &amp;lsquo;Mission Impossible&amp;rsquo;. For example, we want to train an RL agent to drive a car autonomously. The reward function can be hand-engineered, but creating such functions is often time consuming and sub-optimal. Given such reward functions, the agent may not be able to train for the given task.&lt;/p&gt;
+
+&lt;p&gt;In numerous scenarios like the one mentioned above, the human knows the optimal way to perform the task (Expert policy) but do not understand the underlying reward function behind the task. So, we instead think of ways to use expert human policies instead of reward functions for an agent.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;The simplest of all is just copying the expert behaviour. Given expert trajectories, we design the learning process from a supervised learning perspective: Learn direct mapping from state to actions. This method is known as &lt;strong&gt;Behavior Cloning&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Instead of naive copying, can we recreate the reward function of the environment given expert behaviours? Yes. This approach of imitating an expert through learning the reward functions is known as &lt;strong&gt;Inverse Reinforcement Learning&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;irl.png&#34; data-caption=&#34;RL vs Inverse RL&#34;&gt;
+&lt;img src=&#34;irl.png&#34; alt=&#34;&#34; &gt;&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    &lt;strong&gt;RL vs Inverse RL&lt;/strong&gt;
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+
+&lt;p&gt;The first IRL algorithm (known as Linear Inverse RL) was published in a paper &lt;a href=&#34;https://ai.stanford.edu/~ang/papers/icml00-irl.pdf&#34; target=&#34;_blank&#34;&gt;Algorithms for IRL&lt;/a&gt; (Ng &amp;amp; Russel 2000) in which they proposed an iterative algorithm to extract the reward function given optimal/expert behaviour policy for obtaining the goal in that particular environment. We will discuss in short what are the significant problems that Inverse RL algorithms face. But, notations first.&lt;/p&gt;
+
+&lt;h3 id=&#34;notations&#34;&gt;Notations:&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Markov decision process : $&amp;lt; S, А, P_{sa}, γ, R &amp;gt;$
+
+&lt;ul&gt;
+&lt;li&gt;Where $S$ = finite/infinite set of states&lt;/li&gt;
+&lt;li&gt;$A$ = action set&lt;/li&gt;
+&lt;li&gt;$P_{sa}$ = transition probability matrix&lt;/li&gt;
+&lt;li&gt;γ = discount factor&lt;/li&gt;
+&lt;li&gt;R = reward function&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;$π : S➝A $ is th policy function.&lt;/li&gt;
+&lt;li&gt;$ V^{\pi}(s_t)=E[R(s_t)+R(s_{t+1})] $ Value function&lt;/li&gt;
+&lt;li&gt;$ Q^π(s, a) = R(s) + γ * E_{s&amp;rsquo; \sim  P_{sa}}[ V^π(s’) ] $ Action value function&lt;/li&gt;
+&lt;li&gt;$V^*(s)$ : optimal value function&lt;/li&gt;
+&lt;li&gt;$Q^*(s, a)$ : optimal state value function&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The problem is to find a reward function for an environment given optimal behavior/policy. Now, given certain basic conditions, we can easily prove the theorm mentioned below.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theorem 1&lt;/strong&gt;: Let $〈S, А, { Pa }, γ〉$ is known. Then, $π(s)≡a1$ is optimal if and only if for all $a∈ A-a1$ , the reward satisfies the equation
+$$ (P_{a1} - P_a)(I - γ P_{a1})^{-1} R ≽ 0 $$&lt;/p&gt;
+
+&lt;p&gt;See the problem in the above equation?&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s the &lt;strong&gt;degeneracy of reward functions&lt;/strong&gt;. Each policy has a large set of reward function for which the policy is optimal. The set even includes $R=0 ∀s∈S$. There are even more solutions other than these trivial ones. We do not want these trivial reward functions, as the agent will spend its entire lifetime iterating with 0 reward function and will not learn a thing. So how can we choose reward function from such a vast set of solutions?&lt;/p&gt;
+
+&lt;h3 id=&#34;heuristics&#34;&gt;Heuristics :&lt;/h3&gt;
+
+&lt;p&gt;We use some specific heuristics.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The natural way is to choose a reward function such that deviating from the policy on any single step must be as costly as possible. This intuition is represented in mathematical terms, as mentioned below. $$ ∑_{s∈S}( Q^π(s,a_1) -  max_{a∈A-a_1}Q^π(s,a) ) $$&lt;/li&gt;
+&lt;li&gt;If the above condition does give degenerate results, the second condition is to add a penalty coefficient,  $-λ || R ||_1$ . It will make sure that the reward function remains zero in most places and non-zero at only some states with high profit.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The net reward search equation becomes:
+$$
+Maximize ∑_i min_{π∈丌} ~ { p( V^{π*}(s’) - V^{π_i}(s’) ) } $$
+    $$s.t ~~ |α_i| ≤ 1,  ~~~~ i =1,2,..d $$
+    $$ p(x)=x~when~x&amp;gt;0, ~else ~penalty*x $$
+which can be solved with linear programming methods if reward functions are assumed to be linear.&lt;/p&gt;
+
+&lt;p&gt;The paper explained three possible algorithms varying only w.r.t the underlying conditions.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Expert policy function $\pi(s)$ is known, state space $S$ is finite, and transition probabilities $P_{sa}$ are known. (&lt;strong&gt;Too ideal case&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Expert policy function $\pi(s)$ is known, state space $S$ is infinite, and transition probabilities $P_{sa}$ are known. (&lt;strong&gt;Too ideal case&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;m expert demonstrations/ trajectories are known. Transition probabilities are not known. (&lt;strong&gt;The realistic case&lt;/strong&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;algorithm-flowchart&#34;&gt;Algorithm flowchart:&lt;/h3&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;IRL_algo_layout.png&#34; data-caption=&#34;LIRL algorithm flowchart&#34;&gt;
+&lt;img src=&#34;IRL_algo_layout.png&#34; alt=&#34;&#34; &gt;&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    LIRL algorithm flowchart
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+
+&lt;h3 id=&#34;experiments&#34;&gt;Experiments:&lt;/h3&gt;
+
+&lt;p&gt;I used the MountainCar-v0 environment of OpenAI gym for training and testing the algorithm.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Expert Agent&lt;/strong&gt;: Used Q-learning algorithm with linear approximators to train the agent for generating expert policy.(This approach is used in numerous imitation learning problems as it becomes difficult for humans to generate expert policies in simulated environments as Mountain Car.)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Specifics&lt;/strong&gt;: Detailed specs can be found in the &lt;a href=&#34;https://vjg28.github.io/slides/irl-slides/&#34; target=&#34;_blank&#34;&gt;slides&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Refer to the &lt;a href=&#34;https://github.com/vjg28/Linear-Inverse-RL-algorithms&#34; target=&#34;_blank&#34;&gt;github repository&lt;/a&gt; for code and more details.&lt;/p&gt;
+
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+
+  &lt;a data-fancybox=&#34;&#34; href=&#34;learnt_reward.png&#34; data-caption=&#34;Learned Reward function&#34;&gt;
+&lt;img src=&#34;learnt_reward.png&#34; alt=&#34;&#34; &gt;&lt;/a&gt;
+
+
+  
+  
+  &lt;figcaption&gt;
+    Learned Reward function
+  &lt;/figcaption&gt;
+
+
+&lt;/figure&gt;
+
+This was solely for educational purposes, so I didn&amp;rsquo;t try to exactly match the results of the paper. Mentioned in the slides are the differences and similarities of the experiment with the paper. Do let me know by mail or create an issue on github if you find any discrepancy in the code or any other issues.&lt;/p&gt;
+</description>
     </item>
     
     <item>
