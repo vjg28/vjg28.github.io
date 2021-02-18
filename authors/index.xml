@@ -5,7 +5,7 @@
     <link>https://vjg28.github.io/authors/</link>
       <atom:link href="https://vjg28.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 03 Oct 2019 03:29:44 +0530</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 24 Jun 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://vjg28.github.io/img/index.png</url>
       <title>Authors</title>
@@ -13,24 +13,24 @@
     </image>
     
     <item>
+      <title></title>
+      <link>https://vjg28.github.io/authors/admin/</link>
+      <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://vjg28.github.io/authors/admin/</guid>
+      <description>&lt;p&gt;I work as a Data &amp;amp; Applied Scientist at Microsoft Ads team (AI + R division), where I work on deep learning models that map relevant ads to a query. Models deployed by me are serving ads in many international markets across the world. My research interests span a variety of domains, from robotics &amp;amp; reinforcement learning to speech and text.&lt;/p&gt;
+
+&lt;p&gt;In my undergrad days at &lt;strong&gt;IIT Guwahati&lt;/strong&gt;, I worked on problems at the intersection of deep reinforcement learning, imitation learning, and robotics. Both my research internships were focused on the same, where I worked under &lt;a href=&#34;https://www.cse.iitm.ac.in/~ravi/&#34; target=&#34;_blank&#34;&gt;Prof. Balaraman Ravindran&lt;/a&gt; at RISE Labs, IIT Madras and with &lt;a href=&#34;https://www.linkedin.com/in/venkat-natarajan-a9923414/?originalSubdomain=in&#34; target=&#34;_blank&#34;&gt;Dr. Venkat Natarajan&lt;/a&gt; at Intel Labs, Bengaluru. Apart from this, my bachelor thesis was in the speech domain, where I worked with &lt;a href=&#34;https://www.iitg.ac.in/eee/emstlab/profiles/rsinha/aboutme.php&#34; target=&#34;_blank&#34;&gt;Prof Rohit Sinha&lt;/a&gt; on developing universal self-supervised representations for multilingual speech systems.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Aim for the stars and lie with the soil&lt;/em&gt; - summarises my free time I spend with my telescope and in gardening. Please do ping me if you got some excellent astrophotography plans or gardening suggestions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Varshil Gandhi</title>
       <link>https://vjg28.github.io/authors/varshil-gandhi/</link>
       <pubDate>Thu, 03 Oct 2019 03:29:44 +0530</pubDate>
       <guid>https://vjg28.github.io/authors/varshil-gandhi/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://vjg28.github.io/authors/admin/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://vjg28.github.io/authors/admin/</guid>
-      <description>&lt;p&gt;I am a final year undergraduate student with a major in Electronics &amp;amp; Electrical Engineering and minor in Computer Science &amp;amp; Engineering at &lt;strong&gt;IIT Guwahati&lt;/strong&gt;. I work on problems at the intersection of &lt;strong&gt;reinforcement learning&lt;/strong&gt; (RL) and &lt;strong&gt;imitation learning&lt;/strong&gt;, finding new approaches and methods to combine both and solve challenging Robotics problems. Following my research interests, I did both summer research internships in 2018 and 2019 in the field of Deep RL and Imitation Learning, where I worked under &lt;a href=&#34;https://www.cse.iitm.ac.in/~ravi/&#34; target=&#34;_blank&#34;&gt;Prof. Balaraman Ravindran&lt;/a&gt; at RISE Labs, IIT Madras and earlier with &lt;a href=&#34;https://www.linkedin.com/in/venkat-natarajan-a9923414/?originalSubdomain=in&#34; target=&#34;_blank&#34;&gt;Dr. Venkat Natarajan&lt;/a&gt; at Intel Labs, Bengaluru.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Aim for the stars&lt;/em&gt; - summarises my free time I spend with my telescope. Sports has remained an integral part of my life, especially &lt;strong&gt;Speed Skating&lt;/strong&gt;. In my 9 years of roller skating career, I stood out as a two times National Champion &amp;amp; five times consecutive State champion.&lt;/p&gt;
-
-&lt;p&gt;I also love trekking, cycling trips &amp;amp; going to unknown places. Although I don&amp;rsquo;t do it that often anymore, please do ping me if you got some excellent trekking plans or suggestions. :)&lt;/p&gt;
-</description>
     </item>
     
   </channel>

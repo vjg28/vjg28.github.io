@@ -5,12 +5,97 @@
     <link>https://vjg28.github.io/</link>
       <atom:link href="https://vjg28.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Varshil Gandhi</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 01 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 24 Jun 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://vjg28.github.io/img/index.png</url>
       <title>Varshil Gandhi</title>
       <link>https://vjg28.github.io/</link>
     </image>
+    
+    <item>
+      <title>Placement Experience | Microsoft Data Science</title>
+      <link>https://vjg28.github.io/post/getting-started/</link>
+      <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://vjg28.github.io/post/getting-started/</guid>
+      <description>
+
+&lt;p&gt;Hi, I am Varshil. I recently graduated from EEE dept, IIT Guwahati and am currently working as a Data &amp;amp; Applied Scientist at Microsoft. While documenting my placement experience, I realized that my story may not fit in the standard experience catalogue of people. I had varying priorities regarding placements &amp;amp; higher education, and the latter usually remained on the top all the time. Nevertheless, this article includes my personal story and lessons I learned throughout the placement season, which would be helpful for students applying for data science profiles in the upcoming placement season.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-data-science&#34;&gt;Why Data Science:&lt;/h2&gt;
+
+&lt;p&gt;Coming to my experience with the placement process, starting with a clear view of the profiles to apply for is critical. The first question that needs answering is: Why pursue Data Science? And what do these roles fulfil? I personally think anyone having a knack for innovating &amp;amp; engineering products using data through recent advances in machine learning should definitely try. In short, data scientists are the middlemen that bring in state-of-the-art research and engineers it for the product improvisation. Moreover, for students interested in the research aspects of ML, these positions require keeping up with the state-of-the-art techniques and collaborating with research scientists, thus keeping up one’s exposure into the domain &amp;amp; assisting in higher studies.&lt;/p&gt;
+
+&lt;h2 id=&#34;pre-test-preparations&#34;&gt;Pre-Test preparations:&lt;/h2&gt;
+
+&lt;p&gt;When I started out, I was clear on which companies I would be targeting, and I directed my preparations accordingly. With my decision to go forward with both higher education &amp;amp; placement preparations, I went ahead only with companies having Data Science job profiles &amp;amp; targeted some individual companies working in ML even though the job position doesn’t explicitly mention Data Science. Before the tests, I majorly focused on revising &amp;amp; revisiting machine learning concepts (especially its application aspects), probability &amp;amp; linear algebra, solving puzzles and reviewing ML libraries in Python. Moreover, I also practised some coding problems covering the basics of data structures &amp;amp; algorithms from InterviewBit &amp;amp; GeeksForGeeks. I wasn’t able to devote a lot of time towards coding. Still, it is always better to practice more coding, as there are companies with Data Science profiles that conduct coding tests only. While my preparation in ML was based on 2+ years of experience in the same; it may not be the case for everyone. So, in the points below, I will go over some ‘before test preparation’ tips briefly.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Resume:
+
+&lt;ul&gt;
+&lt;li&gt;It is a critical part of the placement process. Some go-to tips I followed: Start your resume early on and always try keeping it concise, brief and explanatory; in one-page if possible. Describe your internships and projects such that even a layman can grasp the idea with little understanding of the topic. Avoid using complex terms, code names, etc unless it’s absolutely necessary. If one has multiple projects, only include those on which you can emphasize and show your contribution.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Portfolio:
+
+&lt;ul&gt;
+&lt;li&gt;For Data Science profiles, projects and internships in ML related domains matter a lot. Having great (personal &amp;amp; internship) projects, open-source contributions in famous ML libraries or packages, excellent Kaggle profile, and research papers will definitely help stand out of the crowd.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Machine Learning:
+
+&lt;ul&gt;
+&lt;li&gt;One would need a thorough understanding of machine learning algorithms, their theoretical aspects and applications. Along with it, basic knowledge of deep learning would also be a good addition. I used this &lt;a href=&#34;http://index-of.es/Varios-2/Hands%20on%20Machine%20Learning%20with%20Scikit%20Learn%20and%20Tensorflow.pdf&#34; target=&#34;_blank&#34;&gt;book&lt;/a&gt; as my go-to reference for ML concepts and applications. Apart from this, some companies ask coding problems on simple ML models based on regression and time-series data. For those, one should also require familiarity with machine learning libraries like pandas, scikit-learn, etc.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;test&#34;&gt;Test:&lt;/h2&gt;
+
+&lt;p&gt;For Microsoft’s Data Scientist role, the test was MCQ based, consisting of around 60+ MCQs in 60 minutes. The test covered theoretical &amp;amp; application aspects of several topics in machine learning, such as regression, classification, decision trees, random forests, SVM, neural networks, generative/discriminative models and dimensionality reduction algorithms. Furthermore, it included some questions based on skip connections and language models, thus requiring a brief idea of essential concepts in deep learning. While the Microsoft test was solely MCQ based, some other tests actually needed us to code up solutions for ML problems in a short time frame. I also encountered questions on SQL and R language, but they are occasional and can be anticipated beforehand through the job description. For test preparation, I have shared a brief list of topics at the end of this article that covers up a vast majority of test &amp;amp; interview topics.&lt;/p&gt;
+
+&lt;p&gt;Two days before the interviews, around 11 students were shortlisted for the interview process. For the SDE profile, Microsoft has a standard ‘Group Fly’ round a day before the interviews, where they give coding questions to solve and select a handful of students for the interviews. While in my case, we were informed that the ‘group fly’ round was not meant for Data Scientist profiles, and we moved forward to the interview process directly. 12 hours before the interviews, I revisited all my notes on ML algorithms, reviewed my resume and focused primarily on previous interview questions and case studies. Apart from that, I relaxed, chilled out and ate a lot of chocolates. :P&lt;/p&gt;
+
+&lt;h2 id=&#34;interview&#34;&gt;Interview:&lt;/h2&gt;
+
+&lt;p&gt;Coming to the interviews, the process had 3 rounds, all technical interviews and no HR round. In the first round, the interviewer asked me to choose any machine learning algorithm I liked and inquired more on its theoretical aspects. For some specific questions, he was expecting answers understandable to a layman. Below are some of the questions that were asked:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;How would you explain information gain in decision trees?
+How would you design an anomaly detection algorithm using variants of decision trees?
+Neural Networks &amp;amp; weight matrices, backpropagation
+Questions related to Ensemble models and stacking.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The second round was more of a case study. Firstly the interviewer asked me if I have worked on any projects that involve feature engineering. Then, he presented a problem, where one is expected to build a classification system that detects faults or bone cracks in high-resolution X-ray images while optimizing several other factors like time delay, cloud processing, scalability, need for local compute etc. With each idea I propose, he corrected and directed me towards a different aspect. The round went on for about 30 minutes or more on the same question. Though my final answer was not what he had expected, he was happy that I reached pretty close and kept churning out viable solutions.&lt;/p&gt;
+
+&lt;p&gt;In the third round, the interviewer focused more on my projects &amp;amp; internships. The interviewer was observant &amp;amp; inquisitive towards my internships. As most of my projects involved reinforcement learning, he asked me about some mathematical formulations regarding the same. Moreover, he was curious about the motivation behind those projects. Finally, he started asking questions on ML algorithms &amp;amp; data pipelines, each more difficult than the last till I wasn’t able to answer. The final question where the interview ended was:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;How would you design a clustering algorithm using decision trees?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Overall, all the interviewers were extremely friendly, polite and always entertained questions from my side. What I feel helped me a lot during the interview, apart from the core ML knowledge is my past experience on multiple related projects &amp;amp; internships. Revisiting those learning pathways during interviews adds practicality &amp;amp; strong support for the solution I propose. Apart from all that, keep your interview priorities straight and clear, be attentive &amp;amp; confident, and last but not least, be curious and learn from every experience.&lt;/p&gt;
+
+&lt;p&gt;There is no foolproof way to crack data science interviews, but it is with one’s own experience and of others before that can help navigate the unknown. Enjoy the placements, learn from it, help your friends and don’t forget to smile throughout the process. &lt;strong&gt;May the force be with you!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;list-of-ml-topics-to-review&#34;&gt;List of ML topics to review:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Naive Bayes (Decision boundary)&lt;/li&gt;
+&lt;li&gt;Linear &amp;amp; Logistic Regression&lt;/li&gt;
+&lt;li&gt;Multi-class vs Multi-Label Classification&lt;/li&gt;
+&lt;li&gt;SVM&lt;/li&gt;
+&lt;li&gt;Decision Trees&lt;/li&gt;
+&lt;li&gt;Random Forests&lt;/li&gt;
+&lt;li&gt;Bias Variance Trade-Offs&lt;/li&gt;
+&lt;li&gt;Time-Series Data Handling&lt;/li&gt;
+&lt;li&gt;k-Means Clustering&lt;/li&gt;
+&lt;li&gt;PCA, LDA, t-Sne&lt;/li&gt;
+&lt;li&gt;L[1-inf] losses and their behaviours&lt;/li&gt;
+&lt;li&gt;Metrics (Precision, Recall, ROC AUC, F1 Score, PR AUC)&lt;/li&gt;
+&lt;li&gt;Regularization&lt;/li&gt;
+&lt;li&gt;Backpropagation&lt;/li&gt;
+&lt;li&gt;Ensemble Models&lt;/li&gt;
+&lt;li&gt;Skip connections&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Inverse RL on Mountain Car Slides</title>
@@ -169,10 +254,18 @@ They evaluated the Linear programming maximization for a bunch of 5000 states.
     </item>
     
     <item>
-      <title>Device for Ship Detection</title>
-      <link>https://vjg28.github.io/project/device-for-ship-detection/</link>
-      <pubDate>Fri, 04 Oct 2019 02:15:11 +0530</pubDate>
-      <guid>https://vjg28.github.io/project/device-for-ship-detection/</guid>
+      <title>AnimalAI - Imitation Learning</title>
+      <link>https://vjg28.github.io/project/animal-ai/</link>
+      <pubDate>Wed, 05 Feb 2020 04:11:01 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/animal-ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ARLE- Autonomous Robot for Library Enhancement</title>
+      <link>https://vjg28.github.io/project/arle/</link>
+      <pubDate>Tue, 03 Dec 2019 04:11:01 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/arle/</guid>
       <description></description>
     </item>
     
@@ -193,18 +286,10 @@ They evaluated the Linear programming maximization for a bunch of 5000 states.
     </item>
     
     <item>
-      <title>Lunar Lander using Policy Gradient Algorithms</title>
+      <title>Policy Gradient Algorithms</title>
       <link>https://vjg28.github.io/project/lunar-lander-rl/</link>
       <pubDate>Fri, 04 Oct 2019 00:49:00 +0530</pubDate>
       <guid>https://vjg28.github.io/project/lunar-lander-rl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ARLE- Autonomous Robot for Library Enhancement</title>
-      <link>https://vjg28.github.io/project/arle/</link>
-      <pubDate>Thu, 03 Oct 2019 04:11:01 +0530</pubDate>
-      <guid>https://vjg28.github.io/project/arle/</guid>
       <description></description>
     </item>
     
@@ -432,6 +517,14 @@ This was solely for educational purposes, so I didn&amp;rsquo;t try to exactly m
       <link>https://vjg28.github.io/project/huffman-coding-arm/</link>
       <pubDate>Wed, 02 Oct 2019 01:05:22 +0530</pubDate>
       <guid>https://vjg28.github.io/project/huffman-coding-arm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Device for Ship Detection</title>
+      <link>https://vjg28.github.io/project/device-for-ship-detection/</link>
+      <pubDate>Thu, 04 Oct 2018 02:15:11 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/device-for-ship-detection/</guid>
       <description></description>
     </item>
     

@@ -2,8 +2,8 @@
   "name": "Varshil Gandhi",
   "short_name": "Varshil Gandhi",
   "lang": "en-us",
-  "theme_color": "#328cc1",
-  "background_color": "#328cc1",
+  "theme_color": "hsl(339, 90%, 68%)",
+  "background_color": "hsl(339, 90%, 68%)",
   "icons": [{
     "src": "img/icon-192.png",
     "sizes": "192x192",

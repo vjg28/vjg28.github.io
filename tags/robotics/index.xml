@@ -5,7 +5,7 @@
     <link>https://vjg28.github.io/tags/robotics/</link>
       <atom:link href="https://vjg28.github.io/tags/robotics/index.xml" rel="self" type="application/rss+xml" />
     <description>Robotics</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 03 Oct 2019 04:11:01 +0530</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 05 Feb 2020 04:11:01 +0530</lastBuildDate>
     <image>
       <url>https://vjg28.github.io/img/index.png</url>
       <title>Robotics</title>
@@ -13,9 +13,17 @@
     </image>
     
     <item>
+      <title>AnimalAI - Imitation Learning</title>
+      <link>https://vjg28.github.io/project/animal-ai/</link>
+      <pubDate>Wed, 05 Feb 2020 04:11:01 +0530</pubDate>
+      <guid>https://vjg28.github.io/project/animal-ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>ARLE- Autonomous Robot for Library Enhancement</title>
       <link>https://vjg28.github.io/project/arle/</link>
-      <pubDate>Thu, 03 Oct 2019 04:11:01 +0530</pubDate>
+      <pubDate>Tue, 03 Dec 2019 04:11:01 +0530</pubDate>
       <guid>https://vjg28.github.io/project/arle/</guid>
       <description></description>
     </item>
