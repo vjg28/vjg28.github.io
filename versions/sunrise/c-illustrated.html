@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>C · Illustrated · Sunrise</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="../../css/fonts.css"><link rel="stylesheet" href="../../css/site.css"><link rel="stylesheet" href="../../css/closing.css">
+<style>.spacer{height:130vh;display:grid;place-items:center;color:var(--dim)} .lab{position:fixed;top:10px;left:10px;z-index:9;font:12px/1.4 monospace;color:#98a1bb;background:rgba(0,0,0,.5);padding:6px 9px;border-radius:4px}.lab a{color:#ffb260}</style>
+</head><body>
+<div class="lab"><a href="index.html">&larr; variants</a> · C · Illustrated · rise <span id="riseOut">0</span></div>
+<main><div class="spacer"><p>Smaller sun, ~60% up, 20 alternating long/short rays, crisper rim.<br>Scroll down. Add ?rise=0.5 to pin.</p></div>
+<footer id="contact" class="contact">
+  <canvas id="sunrise" aria-hidden="true"></canvas>
+  <div class="wrap contact-inner"><div class="closing">
+    <h2>Say hello</h2>
+    <p class="invite">I'm always up for a conversation about agents, robots, CAD, or what's up in the night sky.</p>
+    <button type="button" class="say email-btn"><span>Show my email</span></button>
+    <p class="where-now">Bengaluru · 09:41 IST</p>
+  </div></div>
+  <p class="fine">© 2026 Varshil Gandhi</p>
+</footer></main>
+<script src="lab.js"></script>
+<script>labSunrise({ x:0.62, notch:false, size:0.08, sizeN:0.095, start:1.2, end:0.0, seat:3.5, rays:28, rayW:0.5, rayA:0.15, rayLen:0.7, rayOver:0.08, alt:true, wash:0.26, washR:0.5, washEx:1.5, corona:0.5, coronaR:8, coronaEx:1.1, bloom:0.6, warm:0.6, rim:[1.1,0,0], rimR:0.25, rimW:4 });</script>
+</body></html>

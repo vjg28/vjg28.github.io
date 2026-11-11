@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Experience B · First light</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/site.css">
+  <style>
+
+    .vnote { color: var(--dim); font-size: .9rem; padding-top: 28px; }
+    .vnote a { color: var(--sun); }
+    .rg .what { padding-bottom: 64px; gap: 14px; }
+    .rg.air .job-lede { font-style: italic; }
+    .rg .promo { display: none; }
+    .roles li { position: relative; }
+    .roles li + li::before { content: ""; position: absolute; z-index: 2; left: -53.5px; top: -14.5px; width: 11px; height: 11px;
+      background: var(--night); border: 2px solid #7fba00; border-radius: 50%; }
+    .roles li + li::after { content: "2023"; position: absolute; right: calc(100% + 96px); top: -16px;
+      font: 400 0.86rem/1 var(--sans); color: var(--faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .rg .interns { gap: 12px; margin-top: 6px; max-width: 52rem; }
+    .rg .interns b { white-space: nowrap; }
+    .rg .interns p { margin: 0; font-size: 0.92rem; }
+    .rg .interns span { margin: 0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    @media (max-width: 640px) {
+      .roles li + li::before { left: -41.5px; }
+      .roles li + li::after { display: none; }
+      .rg .what { padding-bottom: 44px; }
+    }
+
+    .rg { min-height: calc(var(--yrs) * 84px); }
+    .roles { gap: 18px; }
+    .roles li { display: block; }
+    .roles .ry { margin-left: 10px; display: inline-block; white-space: nowrap; }
+    .roles p { margin-top: 2px; }
+    /* internships: name and date together, then the line */
+    .rg .interns li { grid-template-columns: 28px 16.5rem minmax(0, 1fr); gap: 0 14px; align-items: center; }
+    .rg .interns p { grid-column: auto; }
+    .rg .interns .nm { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+    @media (max-width: 900px) {
+      .rg .interns li { grid-template-columns: 28px minmax(0, 1fr); gap: 2px 12px; }
+      .rg .interns img { grid-row: 1 / 3; align-self: start; }
+      .rg .interns p { grid-column: 2; }
+    }
+    /* first light: the rail thins and fades into a small star at 2016 */
+    .rg:last-child .bar { bottom: 30px; background: linear-gradient(rgba(169, 188, 255, 0.8) 0%, rgba(169, 188, 255, 0.45) 70%, rgba(169, 188, 255, 0.08)); }
+    .rg:last-child .rail::before { content: ""; position: absolute; left: 50%; bottom: 4px; width: 34px; height: 34px; margin-left: -17px; border-radius: 50%;
+      background: radial-gradient(closest-side, rgba(169, 188, 255, 0.45), rgba(169, 188, 255, 0)); }
+    .rg:last-child .rail::after { content: ""; position: absolute; left: 50%; bottom: 11px; width: 20px; height: 20px; margin-left: -10px; background: #dfe6ff;
+      clip-path: polygon(50% 0, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0 50%, 42% 42%); }
+    .rg:last-child .when { padding-bottom: 10px; }
+    .rg:last-child .what { padding-bottom: 44px; }
+
+  </style>
+</head>
+<body>
+  <main>
+    <p class="wrap vnote"><a href="./">All variants</a> · B: inline dates, rail fades into a small star at 2016</p>
+    <section id="experience" class="block wrap">
+      <h2><span><i>Experience</i></span></h2>
+
+      <ol class="ranges">
+        <li class="rg air" style="--yrs:2.6">
+          <div class="when"><span>2024</span><span>now</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="../../assets/logos/airmdr.svg" alt=""></span></div>
+          <div class="what">
+            <h3><img src="../../assets/logos/airmdr.svg" alt="AirMDR" class="wordmark"></h3>
+            <p class="job-meta"><span class="yrs-inline">2024 – now · </span><b>Sr Applied Scientist</b> · Bengaluru</p>
+            <p class="job-lede">Tokenmaxxing, professionally.</p>
+            <ul class="points">
+              <li>Built <b>FAST</b>, our self-serve AI SOC. Plug in your stack and Darryl, our AI analyst, investigates every alert in minutes.</li>
+              <li>Building the agent harness for security operations, and redefining the SOC workflow for an AI-first world.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="rg ms" style="--yrs:3.6">
+          <div class="when"><span>2020</span><span>2024</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="../../assets/logos/microsoft.svg" alt=""></span></div>
+          <div class="what">
+            <h3>Microsoft</h3>
+            <p class="job-lede">Trained ad relevance models for a living, then got LLMs to grade their homework.</p>
+            <ol class="roles">
+              <li><span class="rl">Data &amp; Applied Scientist 2</span><span class="ry">2023 – 2024</span><p>Led short-text relevance for the Ads stack. In-house LLM labelling saved $500K a year.</p></li>
+              <li><span class="rl">Data &amp; Applied Scientist</span><span class="ry">2020 – 2023</span><p>Took relevance models to 70+ languages, at a third of the compute.</p></li>
+            </ol>
+          </div>
+        </li>
+        <li class="rg edu" style="--yrs:4">
+          <div class="when"><span>2016</span><span>2020</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="../../assets/logos/iitg.svg" alt=""></span></div>
+          <div class="what">
+            <h3>IIT Guwahati</h3>
+            <p class="job-meta"><span class="yrs-inline">2016 – 2020 · </span><b>B.Tech, Electronics &amp; Electrical</b> · minor in Computer Science</p>
+            <p class="job-lede">Mostly spent my time building robots at the Robotics Club, and my summers at some very cool places.</p>
+            <ul class="interns">
+              <li><img src="../../assets/logos/iitm.svg" alt=""><span class="nm"><b>RISE Lab, IIT Madras</b><span>Summer 2019</span></span><p>Helped self-driving models cope with roads they had never seen.</p></li>
+              <li><img src="../../assets/logos/mila.png" alt=""><span class="nm"><b>MILA</b><span>2019</span></span><p>Used language models to help AI agents play text adventure games.</p></li>
+              <li><img src="../../assets/logos/intel.svg" alt=""><span class="nm"><b>Intel Labs</b><span>Summer 2018</span></span><p>Taught robot arms new moves by copying expert demonstrations.</p></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

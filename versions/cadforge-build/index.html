@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>CADForge build · variants</title>
+  <meta name="theme-color" content="#04060d">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="cfb.css?v=1794500000">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #04060d; color: #e2e5ee; font: 400 16px/1.55 "IBM Plex Sans", system-ui, sans-serif; }
+    main { width: min(1560px, calc(100vw - 32px)); margin: 0 auto; padding: 48px 0 96px; }
+    h1 { font-weight: 500; font-size: 1.7rem; margin: 0 0 8px; color: #fff; }
+    h2 { font-weight: 500; font-size: 1.15rem; margin: 0 0 4px; color: #fff; }
+    p { margin: 0; color: #9aa1b5; max-width: 72ch; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 40px 28px; margin-top: 36px; }
+    .v figure { margin: 14px 0 0; }
+    .v figcaption { font-size: .88rem; color: #9aa1b5; margin-top: 10px; }
+    .pick { color: #ffb260; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; margin-left: 8px; }
+    .phones { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 20px; }
+    .phones div { display: grid; gap: 6px; font-size: .8rem; color: #8d94a8; }
+    .phones iframe { width: 390px; max-width: 100%; height: 360px; border: 1px solid #1d2233; border-radius: 12px; background: #04060d; }
+    section + section { margin-top: 64px; }
+    body.solo main { width: 100%; padding: 18px; }
+    body.solo h1, body.solo .intro, body.solo .phonesec { display: none; }
+    body.solo .grid { margin: 0; }
+    body.solo .v:not(.only) { display: none; }
+    body.solo .v > h2, body.solo .v > p { display: none; }
+    body.solo .v figure { margin: 0; }
+  </style>
+</head>
+<body>
+<main>
+  <section class="intro">
+    <h1>CADForge: watch the part get built</h1>
+    <p>Hero animation for the CADForge write-up. A flanged bearing housing (Ø100 flange, six M8 holes on a 75 mm bolt circle) built feature by feature in real CadQuery. Every frame shows a true intermediate solid from the OpenCASCADE kernel. Rendered in Blender 5 EEVEE at 1440×1080 (4:3, the hero's crop), 30 fps, 18.4 s loop. Captions are HTML, timed from <code>video.currentTime</code>. Click a video to pause it.</p>
+  </section>
+
+  <section>
+    <div class="grid">
+      <div class="v" id="A">
+        <h2>A · Chips</h2>
+        <p>Reference-style caption chip: red eyebrow, words fading in. Exact B-rep edges drawn as thin dark lines.</p>
+        <figure><div class="cfb" data-style="chip"><video autoplay muted loop playsinline preload="metadata" poster="a.jpg"><source src="a.webm" type="video/webm"><source src="a.mp4" type="video/mp4"></video></div>
+          <figcaption>MP4 <span data-size="a.mp4"></span> · WebM <span data-size="a.webm"></span></figcaption></figure>
+      </div>
+      <div class="v" id="B">
+        <h2>B · Chips + code <span class="pick">applied to the page</span></h2>
+        <p>Same video. The chip also types the CadQuery line behind each feature, a history bar tracks the rewind and replay, and an "agent" tag follows the action.</p>
+        <figure><div class="cfb" data-style="code" data-anchors="anchors.json"><video autoplay muted loop playsinline preload="metadata" poster="a.jpg"><source src="a.webm" type="video/webm"><source src="a.mp4" type="video/mp4"></video></div>
+          <figcaption>Same files as A, plus anchors.json for the agent tag</figcaption></figure>
+      </div>
+      <div class="v" id="C">
+        <h2>C · No edge lines</h2>
+        <p>Shading only, no edge lines, closer to the reference's viewer. Same chips as A.</p>
+        <figure><div class="cfb" data-style="chip"><video autoplay muted loop playsinline preload="metadata" poster="c.jpg"><source src="c.webm" type="video/webm"><source src="c.mp4" type="video/mp4"></video></div>
+          <figcaption>MP4 <span data-size="c.mp4"></span> · WebM <span data-size="c.webm"></span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="phonesec">
+    <h2>At phone width (390 px)</h2>
+    <div class="phones">
+      <div><iframe src="?solo=A" title="Variant A at 390 px" loading="lazy"></iframe>A</div>
+      <div><iframe src="?solo=B" title="Variant B at 390 px" loading="lazy"></iframe>B</div>
+      <div><iframe src="?solo=C" title="Variant C at 390 px" loading="lazy"></iframe>C</div>
+    </div>
+  </section>
+</main>
+<script>
+  (function () {
+    var solo = new URLSearchParams(location.search).get("solo");
+    if (solo) {
+      document.body.classList.add("solo");
+      var el = document.getElementById(solo);
+      if (el) el.classList.add("only");
+      document.querySelectorAll(".v:not(.only) video").forEach(function (v) { v.removeAttribute("autoplay"); v.preload = "none"; v.innerHTML = ""; });
+    }
+    document.querySelectorAll("[data-size]").forEach(function (s) {
+      fetch(s.getAttribute("data-size"), { method: "HEAD" }).then(function (r) {
+        var b = +r.headers.get("content-length");
+        if (b) s.textContent = (b / 1048576).toFixed(2) + " MB";
+      }).catch(function () {});
+    });
+  })();
+</script>
+<script src="../../assets/projects/cadforge-build.js?v=1794500000"></script>
+</body>
+</html>

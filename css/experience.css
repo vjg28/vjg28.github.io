@@ -1,0 +1,61 @@
+/* experience section refinements */
+
+/* Rhythm: rows still scale with years, but gently, so the content fills each row */
+#experience .rg { min-height: calc(var(--yrs) * 84px); }
+#experience .rg .what { padding-bottom: 64px; gap: 14px; }
+
+/* Microsoft: role dates sit beside the title; the promotion marker sits on the rail
+   exactly between the two roles, with its year in the year column */
+#experience .rg .promo { display: none; }
+#experience .roles { gap: 18px; }
+#experience .roles li { display: block; position: relative; }
+#experience .roles .ry { margin-left: 10px; display: inline-block; white-space: nowrap; }
+#experience .roles p { margin-top: 2px; }
+#experience .roles li + li::before {
+  content: ""; position: absolute; z-index: 2; left: -53.5px; top: -14.5px; width: 11px; height: 11px;
+  background: var(--night); border: 2px solid #7fba00; border-radius: 50%;
+}
+#experience .roles li + li::after {
+  content: "2023"; position: absolute; right: calc(100% + 96px); top: -16px;
+  font: 400 0.86rem/1 var(--sans); color: var(--faint); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+
+/* Internships: logo, name and date, then one plain line */
+#experience .rg .interns { gap: 12px; margin-top: 6px; max-width: 52rem; }
+#experience .rg .interns li { grid-template-columns: 28px 16.5rem minmax(0, 1fr); gap: 0 14px; align-items: center; }
+#experience .rg .interns .nm { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; margin: 0; }
+#experience .rg .interns b { white-space: nowrap; }
+#experience .rg .interns p { grid-column: auto; margin: 0; font-size: 0.92rem; }
+#experience .rg .interns span { margin: 0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* First light: the rail fades into a small star at 2016, level with the year */
+#experience .rg:last-child .bar {
+  bottom: 30px;
+  background: linear-gradient(rgba(169, 188, 255, 0.8) 0%, rgba(169, 188, 255, 0.45) 70%, rgba(169, 188, 255, 0.08));
+}
+#experience .rg:last-child .rail::before {
+  content: ""; position: absolute; left: 50%; bottom: 4px; width: 34px; height: 34px; margin-left: -17px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(169, 188, 255, 0.45), rgba(169, 188, 255, 0));
+}
+#experience .rg:last-child .rail::after {
+  content: ""; position: absolute; left: 50%; bottom: 11px; width: 20px; height: 20px; margin-left: -10px; background: #dfe6ff;
+  clip-path: polygon(50% 0, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0 50%, 42% 42%);
+}
+#experience .rg:last-child .when { padding-bottom: 10px; }
+#experience .rg:last-child .what { padding-bottom: 44px; }
+
+@media (max-width: 900px) {
+  #experience .rg .interns li { grid-template-columns: 28px minmax(0, 1fr); gap: 2px 12px; }
+  #experience .rg .interns img { grid-row: 1 / 3; align-self: start; }
+  #experience .rg .interns p { grid-column: 2; }
+}
+@media (max-width: 640px) {
+  #experience .rg .what { padding-bottom: 44px; }
+  #experience .roles li + li::before { left: -41.5px; }
+  #experience .roles li + li::after { display: none; }
+}
+
+/* AirMDR points use the same small size as the Microsoft role lines, so every entry reads at one scale */
+#experience .rg.air .points { gap: 8px; }
+#experience .rg.air .points li { font-size: 0.95rem; line-height: 1.65; }
+#experience .rg.air .points li::before { top: 0.82em; }

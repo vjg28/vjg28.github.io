@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; font-src 'self'; media-src 'self'; img-src 'self' data: https://varshilgandhi.goatcounter.com; connect-src 'self' https://varshilgandhi.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Astrophotography · Varshil Gandhi</title>
+  <meta name="description" content="An observing log from my rooftop at home: Andromeda, the Pleiades, the Orion Nebula and more, shot with a phone through a Celestron AstroMaster 130EQ.">
+  <meta name="theme-color" content="#04060d">
+  <meta property="og:title" content="Astrophotography · Varshil Gandhi">
+  <meta property="og:description" content="An observing log from my rooftop at home, plotted on a real sky chart.">
+  <meta property="og:url" content="https://varshilgandhi.com/hobbies/astro/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Varshil Gandhi">
+  <meta property="og:image" content="https://varshilgandhi.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Astrophotography · Varshil Gandhi">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@varshilgandhi28">
+  <meta name="twitter:creator" content="@varshilgandhi28">
+  <link rel="canonical" href="https://varshilgandhi.com/hobbies/astro/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/site.css?v=1794600200">
+  <link rel="stylesheet" href="../../css/page.css?v=20261103033346">
+  <link rel="stylesheet" href="astro.css?v=1794950100">
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+
+  <nav class="nav scrolled" aria-label="Main">
+    <a class="home" href="../../">Varshil Gandhi</a>
+    <div class="links">
+      <a href="../../#about">About</a>
+      <a href="../../#experience">Experience</a>
+      <a href="../../#projects">Projects</a>
+      <a href="../../#life">Life</a>
+    </div>
+  </nav>
+
+  <main class="wrap page astro">
+    <header class="page-head">
+      <a class="crumb" href="../../#life">← Life</a>
+      <h1>Astrophotography</h1>
+      <p class="dek">During COVID I spent clear nights on the roof at home in Gujarat with a Celestron AstroMaster 130EQ, a 130 mm reflector telescope. I didn't have a proper camera for it, so I held my phone up to the eyepiece and hoped the stars would line up. These are the ones that came out.</p>
+    </header>
+
+    <section class="section" aria-labelledby="chart-h">
+      <h2 id="chart-h">Where they are</h2>
+      <p>Everything I photographed, drawn where it really sits in the winter sky from home. Tap or hover over one to jump to its photos.</p>
+      <div class="chart-wrap">
+        <canvas id="chart" role="img" aria-label="Star chart of the winter sky with six things I photographed marked: the Andromeda Galaxy, the Pleiades, the Orion Nebula, Betelgeuse, Sirius and the Beehive Cluster. The same list is below."></canvas>
+      </div>
+      <p class="targets-label">Stars, star clusters and a galaxy</p>
+      <ul class="targets" id="targets">
+        <li><button type="button" data-id="m31"><i></i>Andromeda Galaxy</button></li>
+        <li><button type="button" data-id="m45"><i></i>Pleiades</button></li>
+        <li><button type="button" data-id="m42"><i></i>Orion Nebula</button></li>
+        <li><button type="button" data-id="betelgeuse"><i></i>Betelgeuse</button></li>
+        <li><button type="button" data-id="sirius"><i></i>Sirius</button></li>
+        <li><button type="button" data-id="m44"><i></i>Beehive Cluster</button></li>
+      </ul>
+      <p class="targets-label">Closer to home (these move around, so they're not on the chart)</p>
+      <ul class="targets">
+        <li><button type="button" class="ss" data-id="halo"><i></i>Moon halo</button></li>
+        <li><button type="button" class="ss" data-id="m31"><i></i>Mars</button></li>
+        <li><button type="button" class="ss" data-id="moon"><i></i>Moon</button></li>
+        <li><button type="button" class="ss" data-id="venus"><i></i>Venus</button></li>
+      </ul>
+      <p class="chart-note">Brighter stars are drawn bigger, and the lines join them into constellations like Orion, Taurus and Gemini.</p>
+    </section>
+
+    <section class="section" aria-labelledby="log-h">
+      <h2 id="log-h">The photos</h2>
+      <ol class="log" id="log">
+
+        <li class="entry" id="t-conjunction">
+          <div class="shots">
+            <button type="button" class="wide" data-full="../../assets/photos/sky/sky-019-2020-12-23.jpg" data-cap="23 Dec 2020 · Jupiter and Saturn, two days after their closest pass"><img src="../../assets/photos/sky/thumb/sky-019-2020-12-23.jpg" alt="Saturn with its rings at lower left and Jupiter with a line of its moons at upper right, in one frame" loading="lazy" width="640" height="582"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2020-12-23">23 Dec 2020</time>
+            <h3>Jupiter and Saturn, together</h3>
+            <p>Two days after the great conjunction, the two planets were still close enough to fit in one frame. Saturn's rings are visible, and so are Jupiter's moons, strung out in a line.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>The two biggest planets, side by side in the sky</dd></div>
+              <div><dt>Last this close</dt><dd>1623</dd></div>
+              <div><dt>Taken with</dt><dd>Phone held to the telescope</dd></div>
+            </dl>
+          </div>
+        </li>
+
+        <li class="entry" id="t-first">
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-000-2020-12-29.jpg" data-cap="29 Dec 2020 · A first test frame of the night sky"><img src="../../assets/photos/sky/thumb/sky-000-2020-12-29.jpg" alt="A dark frame scattered with faint stars, captioned 'Countably infinite'" loading="lazy" width="270" height="480"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2020-12-29">29 Dec 2020</time>
+            <h3>First frames</h3>
+            <p>Before aiming at anything, I just wanted to see if my phone could pick up stars at all. Countably infinite, it turns out.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>A patch of stars</dd></div>
+              <div><dt>Taken with</dt><dd>My phone</dd></div>
+            </dl>
+          </div>
+        </li>
+
+        <li class="entry" id="t-m31">
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-002-2020-12-31.jpg" data-cap="31 Dec 2020 · Can you find the Andromeda Galaxy?"><img src="../../assets/photos/sky/thumb/sky-002-2020-12-31.jpg" alt="A blue-tinted star field posed as a puzzle: can you find the Andromeda Galaxy?" loading="lazy" width="270" height="480"></button>
+            <button type="button" data-full="../../assets/photos/sky/sky-003-2020-12-31.jpg" data-cap="31 Dec 2020 · The answer: Andromeda, with Mars nearby"><img src="../../assets/photos/sky/thumb/sky-003-2020-12-31.jpg" alt="The same star field with the Andromeda Galaxy and Mars circled" loading="lazy" width="270" height="480"></button>
+            <button type="button" data-full="../../assets/photos/sky/sky-004-2020-12-31.jpg" data-cap="31 Dec 2020 · A closer frame, arrow on the galaxy's core"><img src="../../assets/photos/sky/thumb/sky-004-2020-12-31.jpg" alt="A closer star field with an arrow pointing at the faint oval smudge of Andromeda" loading="lazy" width="270" height="480"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2020-12-31">31 Dec 2020</time>
+            <h3>Andromeda Galaxy</h3>
+            <p>I posted this one as a puzzle first: can you find the galaxy? It's the faint oval smudge, and Mars happened to be in the shot too. The light in that smudge left Andromeda about 2.5 million years ago.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>Our nearest big galaxy</dd></div>
+              <div><dt>How far</dt><dd>About 2.5 million light-years</dd></div>
+              <div><dt>Also in the shot</dt><dd>Mars</dd></div>
+            </dl>
+          </div>
+        </li>
+
+        <li class="entry" id="t-m45">
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-005-2020-12-31.jpg" data-cap="31 Dec 2020 · The Pleiades?"><img src="../../assets/photos/sky/thumb/sky-005-2020-12-31.jpg" alt="A very dark frame with a faint knot of stars, captioned 'The Pleiades??'" loading="lazy" width="270" height="480"></button>
+            <button type="button" data-full="../../assets/photos/sky/sky-006-2020-12-31.jpg" data-cap="31 Dec 2020 · Circled"><img src="../../assets/photos/sky/thumb/sky-006-2020-12-31.jpg" alt="A star field with a red circle around a small cluster" loading="lazy" width="270" height="480"></button>
+            <button type="button" data-full="../../assets/photos/sky/sky-015-2021-03-04.jpg" data-cap="4 Mar 2021 · Expectation versus what I got"><img src="../../assets/photos/sky/thumb/sky-015-2021-03-04.jpg" alt="A meme comparing a reference image of the Pleiades with my much fainter capture" loading="lazy" width="270" height="480"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2020-12-31">31 Dec 2020 · again 4 Mar 2021</time>
+            <h3>Pleiades</h3>
+            <p>The Seven Sisters are easy to see with your own eyes and surprisingly hard to catch on a phone. I tried twice. The second try came out so faint that I turned it into a meme.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>A cluster of young stars</dd></div>
+              <div><dt>How far</dt><dd>About 444 light-years</dd></div>
+            </dl>
+          </div>
+        </li>
+
+        <li class="entry" id="t-halo">
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-007-2020-12-31.jpg" data-cap="31 Dec 2020 · A 22° halo around the Moon"><img src="../../assets/photos/sky/thumb/sky-007-2020-12-31.jpg" alt="The full Moon surrounded by a wide pale ring in the sky" loading="lazy" width="270" height="480"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2020-12-31">31 Dec 2020</time>
+            <h3>Moon halo</h3>
+            <p>The first time I caught one. The ring isn't out in space at all. It's moonlight bent by tiny ice crystals in thin, high cloud.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>Ice crystals in the clouds</dd></div>
+            </dl>
+          </div>
+        </li>
+
+        <li class="entry" id="t-m42">
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-012-2021-03-04.jpg" data-cap="4 Mar 2021 · Orion Nebula, phone fixed to the eyepiece"><img src="../../assets/photos/sky/thumb/sky-012-2021-03-04.jpg" alt="The Orion Nebula as a small greenish glow with bright stars at its core" loading="lazy" width="270" height="480"></button>
+            <button type="button" class="crop" data-full="../../assets/photos/sky/sky-009-2021-01-13.jpg" data-cap="13 Jan 2021 · What the telescope shows versus what Hubble sees"><img src="../../assets/photos/sky/thumb/sky-009-2021-01-13.jpg" alt="My single-frame capture of the Orion Nebula, shown under a reference image" loading="lazy" width="270" height="480"></button>
+            <button type="button" data-full="../../assets/photos/sky/sky-008-2021-01-13.jpg" data-cap="13 Jan 2021 · Observing the past"><img src="../../assets/photos/sky/thumb/sky-008-2021-01-13.jpg" alt="The telescope set up on its tripod, captioned 'Observing the past'" loading="lazy" width="270" height="480"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2021-01-13">13 Jan 2021 · again 4 Mar 2021</time>
+            <h3>Orion Nebula</h3>
+            <p>My favourite. In Hubble's photos it's a huge swirl of red and purple gas. Through my telescope it's a small grey-green glow around a few bright stars. Both are real. Mine is a single photo, straight off the phone with no editing.</p>
+            <p>I captioned one of these "Observing the past", and I meant it: the light I caught left the nebula about 1,344 years ago.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>A cloud of glowing gas where stars are born</dd></div>
+              <div><dt>How far</dt><dd>About 1,344 light-years</dd></div>
+              <div><dt>Taken with</dt><dd>Phone held to the telescope</dd></div>
+            </dl>
+          </div>
+        </li>
+
+        <li class="entry" id="t-sirius">
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-013-2021-03-04.jpg" data-cap="4 Mar 2021 · Sirius"><img src="../../assets/photos/sky/thumb/sky-013-2021-03-04.jpg" alt="A single brilliant white star, Sirius, on a dark background" loading="lazy" width="270" height="480"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2021-03-04">4 Mar 2021</time>
+            <h3>Sirius</h3>
+            <p>The brightest star in the night sky, and one of the closest. In the photo it's a hard white point that wouldn't sit still in the eyepiece.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>A bright white star</dd></div>
+              <div><dt>How far</dt><dd>8.6 light-years</dd></div>
+            </dl>
+          </div>
+        </li>
+
+        <li class="entry" id="t-betelgeuse">
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-014-2021-03-04.jpg" data-cap="4 Mar 2021 · Betelgeuse"><img src="../../assets/photos/sky/thumb/sky-014-2021-03-04.jpg" alt="A single orange star, Betelgeuse, on a dark background" loading="lazy" width="270" height="480"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2021-03-04">4 Mar 2021</time>
+            <h3>Betelgeuse</h3>
+            <p>Orion's red shoulder. Even on a phone it comes out orange. A year earlier it had dimmed so much that people wondered if it was about to explode. By this night it was back to normal.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>A huge, cool red star</dd></div>
+              <div><dt>How far</dt><dd>Roughly 550 light-years</dd></div>
+            </dl>
+          </div>
+        </li>
+
+        <li class="entry" id="t-m44">
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-016-2021-03-04.jpg" data-cap="4 Mar 2021 · Beehive Cluster"><img src="../../assets/photos/sky/thumb/sky-016-2021-03-04.jpg" alt="A loose scatter of faint stars, the Beehive Cluster" loading="lazy" width="270" height="480"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2021-03-04">4 Mar 2021</time>
+            <h3>Beehive Cluster</h3>
+            <p>It sits in Cancer, a faint constellation that's hard to spot from the city. Through the telescope it breaks into a loose swarm of stars, which is how it got its name.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>A loose cluster of stars</dd></div>
+              <div><dt>How far</dt><dd>About 577 light-years</dd></div>
+            </dl>
+          </div>
+        </li>
+
+        <li class="entry" id="t-moon">
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-017-2021-03-04.jpg" data-cap="4 Mar 2021 · The Moon"><img src="../../assets/photos/sky/thumb/sky-017-2021-03-04.jpg" alt="A partly lit Moon with craters visible along the edge of the shadow" loading="lazy" width="270" height="480"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2021-03-04">4 Mar 2021</time>
+            <h3>The Moon</h3>
+            <p>The easy one that never gets old. The craters look sharpest along the edge between light and shadow, where the sunlight comes in low.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>Ours</dd></div>
+              <div><dt>How far</dt><dd>About 384,400 km</dd></div>
+            </dl>
+          </div>
+        </li>
+
+        <li class="entry" id="t-venus">
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-018-2021-12-17.jpg" data-cap="17 Dec 2021 · Venus as a crescent"><img src="../../assets/photos/sky/thumb/sky-018-2021-12-17.jpg" alt="Venus showing a thin crescent phase" loading="lazy" width="270" height="480"></button>
+          </div>
+          <div class="entry-body">
+            <time datetime="2021-12-17">17 Dec 2021</time>
+            <h3>Venus</h3>
+            <p>I went out to find a comet and didn't. Venus was low in the evening sky that week, so I got it instead. Like the Moon, it goes through phases, and here it's a clear crescent.</p>
+            <dl class="facts">
+              <div><dt>What</dt><dd>Planet</dd></div>
+              <div><dt>Shape that night</dt><dd>Crescent</dd></div>
+            </dl>
+          </div>
+        </li>
+
+      </ol>
+    </section>
+
+    <section class="section" aria-labelledby="rig-h">
+      <h2 id="rig-h">The setup</h2>
+      <div class="rig">
+        <canvas class="bp" data-bp="newtonian" data-compact role="img" aria-label="Drawing of the telescope, showing how light bounces off the mirror inside it and into the eyepiece"></canvas>
+        <div class="rig-side">
+          <table class="spec">
+            <tr><th scope="row">Telescope</th><td>Celestron AstroMaster 130EQ, a 130 mm Newtonian reflector (the kind with a mirror inside)</td></tr>
+            <tr><th scope="row">Stand</th><td>Its equatorial mount, on a tripod</td></tr>
+            <tr><th scope="row">Camera</th><td>My phone, held up to the eyepiece</td></tr>
+            <tr><th scope="row">Where</th><td>The roof at home</td></tr>
+          </table>
+          <div class="shots">
+            <button type="button" data-full="../../assets/photos/sky/sky-011-2021-03-04.jpg" data-cap="4 Mar 2021 · Telescope night on the roof"><img src="../../assets/photos/sky/thumb/sky-011-2021-03-04.jpg" alt="The telescope on its equatorial mount on a rooftop at night" loading="lazy" width="270" height="480"></button>
+            <button type="button" data-full="../../assets/photos/sky/sky-008-2021-01-13.jpg" data-cap="13 Jan 2021 · Set up and aligned"><img src="../../assets/photos/sky/thumb/sky-008-2021-01-13.jpg" alt="The telescope on its tripod" loading="lazy" width="270" height="480"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-foot">
+      <a href="../../">Home</a>
+      <a href="../../#life">Life</a>
+      <a href="../../blog/">Blog</a>
+      <a href="https://www.instagram.com/variable.gandhi/">Instagram</a>
+      <a href="../../#contact">Contact</a>
+    </footer>
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photo">
+    <button type="button" id="lb-close" aria-label="Close">×</button>
+    <img id="lb-img" alt="">
+    <p id="lb-cap"></p>
+  </dialog>
+
+  <script src="../../assets/js/blueprints.js?v=20261022015402"></script>
+  <script src="astro.js?v=20261106"></script>
+  <script src="../../js/site.js?v=1794700000"></script>
+  <script data-goatcounter="https://varshilgandhi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

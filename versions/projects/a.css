@@ -1,0 +1,31 @@
+/* Variant A: cinematic. Title, then an edge-to-edge hero; a centred reading column with full-bleed and wide figures */
+.vp .page { padding-top: 132px; gap: 0; }
+.vp .page-head { max-width: 860px; margin: 0 auto 44px; justify-items: center; text-align: center; }
+.vp .page-head .meta { justify-content: center; }
+.vp .page-head .links-inline { justify-content: center; }
+.vp .crumb { justify-self: center; }
+.vp .article { margin: 0 auto; max-width: 66ch; grid-template-columns: minmax(0, 1fr); }
+.vp .shot-hero img[data-focus="top"] { object-position: 50% 22%; }
+.vp figure { margin: 0; }
+.vp .shot-bleed, .vp .article .shot-bleed { width: 100vw; max-width: none; margin-left: calc(50% - 50vw); }
+.vp .shot-bleed img, .vp .shot-wide img { width: 100%; height: auto; display: block; }
+.vp .shot-hero img { height: min(84vh, 75vw); object-fit: cover; object-position: 50% 64%; }
+.vp .shot-wide, .vp .article .shot-wide { width: min(1240px, calc(100vw - 48px)); max-width: none; margin-left: 50%; transform: translateX(-50%); }
+.vp .shot-wide img { border-radius: 6px; }
+.vp .shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.vp figure figcaption { font: 400 0.9rem/1.55 var(--sans); color: var(--dim); text-align: left; letter-spacing: 0; max-width: 66ch; margin: 12px auto 0; padding: 0 24px; }
+.vp .shot-wide figcaption { padding: 0; margin-left: 0; }
+.vp .article > .shot-bleed, .vp .article > .shot-wide { margin-top: 28px; margin-bottom: 28px; }
+.vp .lede { font: 300 1.45rem/1.5 var(--display); color: var(--ink); }
+.vp .shot-hero + .article { margin-top: 56px; }
+@media (max-width: 640px) {
+  .vp .page { padding-top: 100px; }
+  .vp .page-head { text-align: left; justify-items: start; }
+  .vp .page-head .meta, .vp .page-head .links-inline { justify-content: flex-start; }
+  .vp .crumb { justify-self: start; }
+  .vp .shot-hero img { height: auto; aspect-ratio: 4 / 3; }
+  .vp .shot-wide, .vp .article .shot-wide { width: 100vw; transform: none; margin-left: calc(50% - 50vw); }
+  .vp .shot-wide img { border-radius: 0; }
+  .vp .shot-wide figcaption { padding: 0 18px; }
+  .vp figure figcaption { padding: 0 18px; }
+}

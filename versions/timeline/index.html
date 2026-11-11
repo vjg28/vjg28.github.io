@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Timeline options · Varshil Gandhi</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../../css/site.css">
+  <style>
+    /* Three timeline options on one page. Labels: IBM Plex Sans, sentence case. Display: Cormorant Garamond. */
+    :root { --tile: #f4f5f9; --line2: rgba(160, 175, 220, 0.22); }
+    body { font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif; }
+    .page { padding-top: 72px; padding-bottom: 120px; display: grid; gap: 96px; }
+    .intro h1 { font: 300 clamp(2.4rem, 6vw, 4rem)/1 "Cormorant Garamond", Georgia, serif; margin: 0 0 14px; }
+    .intro p { color: var(--dim); max-width: 60ch; margin: 0; }
+    .opt { display: grid; gap: 22px; }
+    .opt-head { display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 28px; }
+    .opt-head h2 { font: 400 clamp(1.8rem, 3.6vw, 2.6rem)/1.05 "Cormorant Garamond", Georgia, serif; margin: 0; }
+    .opt-head p { color: var(--dim); margin: 0; font-size: 0.98rem; }
+    .back { position: fixed; z-index: 5; left: max(16px, env(safe-area-inset-left, 0px)); top: 16px; font-size: 0.85rem; color: var(--dim); text-decoration: none; padding: 6px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--glass); bottom: auto; height: auto; font-family: "IBM Plex Sans", sans-serif; text-transform: none; letter-spacing: 0; }
+    .back:hover { color: var(--ink); }
+
+    /* shared: logo tiles */
+    .tile { flex: none; width: 40px; height: 40px; border-radius: 9px; background: var(--tile); display: grid; place-items: center; padding: 6px; box-shadow: 0 0 0 1px rgba(255,255,255,0.08); }
+    .tile img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .tile.wide { padding: 7px 5px; }
+    .tile.dark { background: #10152a; box-shadow: inset 0 0 0 1px var(--line2); }
+    .tile.sm { width: 32px; height: 32px; border-radius: 7px; padding: 5px; }
+    .tile.lg { width: 48px; height: 48px; border-radius: 11px; padding: 7px; }
+    .name { font-family: "IBM Plex Sans", sans-serif; font-size: 1rem; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--ink); }
+    .meta { color: var(--dim); font-size: 0.88rem; }
+    .one { color: #c9cfe0; font-size: 0.95rem; line-height: 1.55; }
+    .now-tag { color: var(--sun); font-size: 0.85rem; font-weight: 500; }
+
+    /* ---------- Option A: Track ---------- */
+    .trackA { position: relative; }
+    .trackA .axis-wrap { position: relative; height: 230px; }
+    .trackA .bars { position: absolute; left: 0; right: 0; top: 118px; height: 40px; }
+    .trackA .bar { position: absolute; top: 0; height: 40px; border-radius: 6px; display: flex; align-items: center; gap: 10px; padding: 0 10px 0 5px; border: 0; cursor: pointer; font: inherit; color: var(--ink); text-align: left; overflow: hidden; transition: filter .25s, box-shadow .25s; }
+    .trackA .bar .tile { width: 30px; height: 30px; border-radius: 6px; padding: 4px; }
+    .trackA .bar span { font-size: 0.92rem; font-weight: 500; white-space: nowrap; }
+    .trackA .bar.edu { background: linear-gradient(90deg, rgba(169,188,255,0.14), rgba(169,188,255,0.3)); }
+    .trackA .bar.ms { background: linear-gradient(90deg, rgba(0,164,239,0.22), rgba(127,186,0,0.28)); }
+    .trackA .bar.air { background: linear-gradient(90deg, rgba(255,178,96,0.3), rgba(255,178,96,0.62)); }
+    .trackA .bar.air::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 2px; background: var(--sun); }
+    .trackA .bar:hover, .trackA .bar:focus-visible, .trackA .bar.on { box-shadow: 0 0 0 1px var(--sun); outline: none; }
+    .trackA svg.leads { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+    .trackA svg.leads path { fill: none; stroke: var(--line2); stroke-width: 1; }
+    .trackA svg.leads circle { fill: var(--star); }
+    .trackA .intern { position: absolute; top: 8px; transform: translateX(-50%); display: grid; justify-items: center; gap: 6px; background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: var(--ink); }
+    .trackA .intern span { font-size: 0.85rem; white-space: nowrap; color: #c9cfe0; }
+    .trackA .intern:hover .tile, .trackA .intern:focus-visible .tile, .trackA .intern.on .tile { box-shadow: 0 0 0 2px var(--sun); }
+    .trackA .intern:focus-visible { outline: none; }
+    .trackA .years { position: absolute; left: 0; right: 0; top: 176px; height: 1px; background: var(--line); }
+    .trackA .years span { position: absolute; top: 10px; transform: translateX(-50%); font-size: 0.82rem; color: var(--dim); font-variant-numeric: tabular-nums; }
+    .trackA .years span::before { content: ""; position: absolute; left: 50%; top: -14px; width: 1px; height: 7px; background: var(--line2); }
+    .trackA .card { margin-top: 6px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 16px; align-items: center; padding: 18px 20px; border: 1px solid var(--line); border-radius: 8px; background: rgba(8, 11, 22, 0.7); min-height: 96px; }
+    .trackA .card .tile { grid-row: span 3; align-self: start; }
+    .trackA .listA { display: none; }
+
+    /* ---------- Option B: Branches ---------- */
+    .branchB { position: relative; display: grid; gap: 0; }
+    .branchB svg.graph { position: absolute; left: 0; top: 0; width: 120px; height: 100%; overflow: visible; pointer-events: none; }
+    .branchB svg.graph path { fill: none; stroke: var(--line2); stroke-width: 1.5; }
+    .branchB svg.graph path.main { stroke: rgba(169, 188, 255, 0.45); }
+    .branchB svg.graph path.now { stroke: var(--sun); }
+    .branchB .row { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: start; padding: 18px 0; }
+    .branchB .node { position: relative; z-index: 1; }
+    .branchB .row.main .node { padding-left: 2px; }
+    .branchB .row.branch .node { padding-left: 52px; }
+    .branchB .row.branch { padding: 12px 0; }
+    .branchB .row.current .tile { box-shadow: 0 0 0 2px var(--sun), 0 0 22px rgba(255, 178, 96, 0.35); }
+    .branchB .txt { display: grid; gap: 3px; padding-top: 2px; }
+    .branchB .row.main .name { font: 400 1.6rem/1.15 "Cormorant Garamond", Georgia, serif; }
+    .branchB .row.branch .name { font-size: 1rem; }
+    .branchB .row.branch .one { font-size: 0.9rem; }
+    .branchB .airmark { height: 20px; width: auto; display: block; margin: 6px 0 4px; }
+
+    /* ---------- Option C: Chapters ---------- */
+    .chapC { display: grid; gap: 14px; }
+    .chapC .blocks { display: flex; gap: 10px; }
+    .chapC .block { min-width: 0; border: 1px solid var(--line); border-radius: 8px; padding: 20px 20px 22px; display: grid; gap: 10px; align-content: start; background: rgba(8, 11, 22, 0.6); position: relative; overflow: hidden; }
+    .chapC .block::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; }
+    .chapC .block.edu::before { background: linear-gradient(90deg, rgba(169,188,255,0.25), rgba(169,188,255,0.6)); }
+    .chapC .block.ms::before { background: linear-gradient(90deg, #00a4ef, #7fba00); opacity: 0.7; }
+    .chapC .block.air::before { background: linear-gradient(90deg, rgba(255,178,96,0.5), var(--sun)); }
+    .chapC .head { display: flex; align-items: center; gap: 12px; }
+    .chapC .head h3 { font: 400 1.55rem/1.1 "Cormorant Garamond", Georgia, serif; margin: 0; }
+    .chapC .airmark { height: 18px; width: auto; display: block; }
+    .chapC .inner { position: relative; height: 92px; margin: 6px 0 2px; border-top: 1px dashed var(--line2); }
+    .chapC .inner .tick { position: absolute; top: -4px; width: 7px; height: 7px; margin-left: -3.5px; background: var(--star); }
+    .chapC .inner .it { position: absolute; top: 18px; transform: translateX(-50%); display: grid; justify-items: center; gap: 5px; text-align: center; }
+    .chapC .inner .it span { font-size: 0.8rem; color: #c9cfe0; white-space: nowrap; }
+    .chapC .inner svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+    .chapC .inner svg path { fill: none; stroke: var(--line2); stroke-width: 1; }
+    .chapC .progress { position: relative; height: 26px; }
+    .chapC .progress::before { content: ""; position: absolute; left: 0; right: 0; top: 4px; height: 1px; background: var(--line); }
+    .chapC .progress .fill { position: absolute; left: 0; top: 3px; height: 3px; background: linear-gradient(90deg, rgba(169,188,255,0.3), var(--sun)); }
+    .chapC .progress .dot { position: absolute; top: 0; width: 9px; height: 9px; margin-left: -4.5px; background: var(--sun); box-shadow: 0 0 12px var(--sun); }
+    .chapC .progress span { position: absolute; top: 12px; transform: translateX(-50%); font-size: 0.8rem; color: var(--dim); font-variant-numeric: tabular-nums; }
+
+    @media (max-width: 760px) {
+      .trackA .axis-wrap, .trackA .card { display: none; }
+      .trackA .listA { display: grid; gap: 0; }
+      .listA .li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; padding: 16px 0; border-top: 1px solid var(--line); }
+      .listA .li .tile { grid-row: span 3; }
+      .listA .li.sub { padding-left: 24px; }
+      .branchB svg.graph { width: 84px; }
+      .branchB .row { grid-template-columns: 84px minmax(0, 1fr); }
+      .branchB .row.branch .node { padding-left: 38px; }
+      .branchB .row.branch .tile { width: 32px; height: 32px; }
+      .chapC .blocks { flex-direction: column; }
+      .chapC .block { flex: none !important; }
+      .chapC .progress { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <a class="back" href="../../#experience">← Back to the site</a>
+
+  <main class="wrap page">
+    <header class="intro">
+      <h1>Experience, three ways</h1>
+      <p>The same five places in three layouts. Every marker carries its own logo, and the three internships are spread to their real months. Pick one (or mix parts) and it goes on the home page.</p>
+    </header>
+
+    <!-- ===================== A ===================== -->
+    <section class="opt" aria-labelledby="hA">
+      <div class="opt-head">
+        <h2 id="hA">Option A — Track</h2>
+        <p>One horizontal axis from 2016 to now. Best for seeing the whole span and the overlaps at a glance; details appear on hover or tap.</p>
+      </div>
+      <div class="trackA" id="optA">
+        <div class="axis-wrap">
+          <svg class="leads" aria-hidden="true"></svg>
+          <div class="interns"></div>
+          <div class="bars"></div>
+          <div class="years"></div>
+        </div>
+        <div class="card" aria-live="polite"></div>
+        <div class="listA"></div>
+      </div>
+    </section>
+
+    <!-- ===================== B ===================== -->
+    <section class="opt" aria-labelledby="hB">
+      <div class="opt-head">
+        <h2 id="hB">Option B — Branches</h2>
+        <p>A git-graph: one main line from college to now, with each internship forking off the college years and merging back. Reads top to bottom, newest first.</p>
+      </div>
+      <div class="branchB" id="optB">
+        <svg class="graph" aria-hidden="true"></svg>
+      </div>
+    </section>
+
+    <!-- ===================== C ===================== -->
+    <section class="opt" aria-labelledby="hC">
+      <div class="opt-head">
+        <h2 id="hC">Option C — Chapters</h2>
+        <p>Three chapters sized by how long each lasted, with the internships inside college. Calm, scannable, and the impact line is always visible.</p>
+      </div>
+      <div class="chapC" id="optC">
+        <div class="blocks"></div>
+        <div class="progress" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (() => {
+    const L = '../../assets/logos/';
+    const NOW = 2026 + 10 / 12;                 // Nov 2026
+    const T0 = 2016.35, T1 = 2027.0;            // axis range for A
+    const ym = (y, m) => y + (m - 1) / 12;      // year + month → decimal year
+
+    // Real data. MILA's month isn't on record, so it carries "2019" only; it is placed after the RISE summer.
+    const places = {
+      iitg: { name: 'IIT Guwahati', logo: 'iitg.svg', start: ym(2016, 7), end: ym(2020, 6), dates: 'Jul 2016 – May 2020',
+              role: 'B.Tech, Electronics & Electrical · minor in Computer Science', one: 'Ran projects at the Robotics Club and spent every summer on robot learning.' },
+      ms:   { name: 'Microsoft', logo: 'microsoft.svg', start: ym(2020, 7), end: ym(2024, 4), dates: 'Jul 2020 – Mar 2024 · Bengaluru',
+              role: 'Data & Applied Scientist 1 → 2', one: 'Ad relevance across 70+ languages, and in-house LLM labelling that saved $500K a year.' },
+      air:  { name: 'AirMDR', logo: 'airmdr.svg', wordmark: true, start: ym(2024, 4), end: NOW, dates: 'Apr 2024 – now · Bengaluru',
+              role: 'Sr Applied Scientist', one: 'Self-improving agents that investigate and respond to security alerts on their own.' }
+    };
+    const interns = [
+      { id: 'intel', name: 'Intel Labs', logo: 'intel.svg', wide: true, at: ym(2018, 6), dates: 'May – Jul 2018 · Bengaluru',
+        role: 'Research intern', one: 'A modified GAIL that teaches robot arms from expert demonstrations.' },
+      { id: 'iitm', name: 'RISE Lab, IIT Madras', short: 'IIT Madras', logo: 'iitm.svg', at: ym(2019, 6.5), dates: 'May – Aug 2019 · Chennai',
+        role: 'Research intern', one: 'A graph-based structural bias that let driving models generalise to unseen CARLA towns.' },
+      { id: 'mila', name: 'MILA', logo: 'mila.png', wide: true, at: ym(2019, 10), dates: '2019',
+        role: 'Research intern', one: 'Transformer language models for agents in text-based games.' }
+    ];
+
+    const tile = (p, cls = '') => p.wordmark
+      ? `<span class="tile dark ${cls}"><img src="${L}${p.logo}" alt=""></span>`
+      : `<span class="tile ${p.wide ? 'wide' : ''} ${cls}"><img src="${L}${p.logo}" alt=""></span>`;
+    const pct = t => ((t - T0) / (T1 - T0) * 100).toFixed(3) + '%';
+
+    // ---------- A: Track ----------
+    (() => {
+      const root = document.getElementById('optA');
+      const bars = root.querySelector('.bars'), ins = root.querySelector('.interns'), years = root.querySelector('.years');
+      const leads = root.querySelector('svg.leads'), card = root.querySelector('.card'), list = root.querySelector('.listA');
+      const show = p => {
+        card.innerHTML = `${tile(p, 'lg')}<span class="name">${p.name}${p.end === NOW ? ' <span class="now-tag">· now</span>' : ''}</span>
+          <span class="meta">${p.role} · ${p.dates}</span><span class="one">${p.one}</span>`;
+        root.querySelectorAll('.on').forEach(e => e.classList.remove('on'));
+        root.querySelector(`[data-k="${p.k}"]`)?.classList.add('on');
+      };
+      Object.entries(places).forEach(([k, p]) => {
+        p.k = k;
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'bar ' + (k === 'iitg' ? 'edu' : k); b.dataset.k = k;
+        b.style.left = pct(p.start); b.style.width = `calc(${pct(p.end)} - ${pct(p.start)} - 4px)`;
+        b.innerHTML = p.wordmark ? `<img class="airmark" src="${L}${p.logo}" alt="" style="height:13px;width:auto;margin-left:4px">` : `${tile(p)}<span>${p.name}</span>`;
+        b.setAttribute('aria-label', `${p.name}, ${p.dates}`);
+        ['mouseenter', 'focus', 'click'].forEach(ev => b.addEventListener(ev, () => show(p)));
+        bars.appendChild(b);
+      });
+      // internship tiles: spread across the college years, each tied by a lead line to its true month
+      const slots = [ym(2017, 9), ym(2018, 11), ym(2019, 12)];
+      interns.forEach((p, i) => {
+        p.k = p.id;
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'intern'; b.dataset.k = p.id; b.style.left = pct(slots[i]);
+        b.innerHTML = `${tile(p)}<span>${p.short || p.name}</span>`;
+        b.setAttribute('aria-label', `${p.name}, ${p.dates}`);
+        ['mouseenter', 'focus', 'click'].forEach(ev => b.addEventListener(ev, () => show(p)));
+        ins.appendChild(b);
+      });
+      const drawLeads = () => {
+        const W = root.querySelector('.axis-wrap').clientWidth, x = t => (t - T0) / (T1 - T0) * W;
+        leads.setAttribute('viewBox', `0 0 ${W} 230`);
+        leads.innerHTML = interns.map((p, i) => {
+          const sx = x(slots[i]), tx = x(p.at);
+          return `<path d="M${sx},76 C${sx},100 ${tx},100 ${tx},118"/><circle cx="${tx}" cy="118" r="3"/>`;
+        }).join('');
+      };
+      for (let y = 2017; y <= 2026; y++) years.insertAdjacentHTML('beforeend', `<span style="left:${pct(y)}">${y}</span>`);
+      drawLeads(); addEventListener('resize', drawLeads);
+      show(places.air);
+      // phone: plain list
+      const rows = [places.air, places.ms, places.iitg, ...[...interns].reverse()];
+      list.innerHTML = rows.map(p => `<div class="li ${p.id ? 'sub' : ''}">${tile(p)}<span class="name">${p.wordmark ? 'AirMDR' : p.name}</span>
+        <span class="meta">${p.role} · ${p.dates}</span><span class="one">${p.one}</span></div>`).join('');
+    })();
+
+    // ---------- B: Branches ----------
+    (() => {
+      const root = document.getElementById('optB'), svg = root.querySelector('svg.graph');
+      const rows = [
+        { p: places.air, kind: 'main', current: true },
+        { p: places.ms, kind: 'main' },
+        ...[...interns].reverse().map(p => ({ p, kind: 'branch' })),
+        { p: places.iitg, kind: 'main' }
+      ];
+      rows.forEach(r => {
+        const p = r.p, el = document.createElement('div');
+        el.className = `row ${r.kind}${r.current ? ' current' : ''}`;
+        const title = p.wordmark ? `<img class="airmark" src="${L}${p.logo}" alt="AirMDR">` : `<span class="name">${p.name}</span>`;
+        el.innerHTML = `<div class="node">${tile(p, r.kind === 'main' ? 'lg' : '')}</div>
+          <div class="txt">${title}<span class="meta">${p.role} · ${p.dates}</span><span class="one">${p.one}</span></div>`;
+        root.appendChild(el);
+      });
+      const draw = () => {
+        const box = root.getBoundingClientRect();
+        const centers = [...root.querySelectorAll('.row')].map(r => {
+          const t = r.querySelector('.tile').getBoundingClientRect();
+          return { x: t.left + t.width / 2 - box.left, y: t.top + t.height / 2 - box.top, h: t.height, kind: r.classList.contains('branch') ? 'branch' : 'main' };
+        });
+        svg.setAttribute('viewBox', `0 0 ${svg.clientWidth} ${box.height}`);
+        const mainX = centers.find(c => c.kind === 'main').x;
+        const mains = centers.filter(c => c.kind === 'main');
+        let d = '';
+        // main line: AirMDR (sun) → Microsoft → IIT Guwahati
+        const now = `M${mainX},${mains[0].y} L${mainX},${mains[1].y}`;
+        d += `M${mainX},${mains[1].y} L${mainX},${mains[2].y + 40}`;
+        // branches fork off the main line below each node and merge back above it
+        centers.filter(c => c.kind === 'branch').forEach(c => {
+          const y0 = c.y + 30, y1 = c.y - 30;
+          d += ` M${mainX},${y0 + 10} C${mainX},${y0} ${c.x},${y0} ${c.x},${c.y + c.h / 2}` +
+               ` M${c.x},${c.y - c.h / 2} C${c.x},${y1} ${mainX},${y1} ${mainX},${y1 - 10}`;
+        });
+        svg.innerHTML = `<path class="main" d="${d}"/><path class="now" d="${now}"/>`;
+      };
+      addEventListener('resize', draw);
+      (document.fonts?.ready || Promise.resolve()).then(draw);
+      addEventListener('load', draw);
+    })();
+
+    // ---------- C: Chapters ----------
+    (() => {
+      const root = document.getElementById('optC'), blocks = root.querySelector('.blocks'), prog = root.querySelector('.progress');
+      const order = ['iitg', 'ms', 'air'], total = NOW - places.iitg.start;
+      order.forEach(k => {
+        const p = places[k], el = document.createElement('article');
+        el.className = 'block ' + (k === 'iitg' ? 'edu' : k);
+        el.style.flex = `${(p.end - p.start).toFixed(2)} 1 0`;
+        const head = p.wordmark ? `${tile(p)}<img class="airmark" src="${L}${p.logo}" alt="AirMDR">` : `${tile(p)}<h3>${p.name}</h3>`;
+        let inner = '';
+        if (k === 'iitg') {
+          // internships inside college: ticks at their true months, tiles spread so labels never collide
+          const span = p.end - p.start, rel = t => ((t - p.start) / span * 100).toFixed(2) + '%';
+          const spread = ['18%', '50%', '82%'];
+          inner = `<div class="inner"><svg aria-hidden="true"></svg>${interns.map((q, i) =>
+            `<span class="tick" style="left:${rel(q.at)}" data-to="${spread[i]}"></span><div class="it" style="left:${spread[i]}" title="${q.name} · ${q.dates}">${tile(q, 'sm')}<span>${q.short || q.name}</span></div>`).join('')}</div>`;
+        }
+        el.innerHTML = `<div class="head">${head}</div><span class="meta">${p.dates}</span>${inner}
+          <span class="name">${p.role}</span><span class="one">${k === 'iitg' ? 'Three research summers: Intel Labs (2018), IIT Madras and MILA (2019).' : p.one}</span>`;
+        blocks.appendChild(el);
+      });
+      const drawInner = () => {
+        const inner = root.querySelector('.inner'); if (!inner) return;
+        const W = inner.clientWidth, svg = inner.querySelector('svg');
+        svg.setAttribute('viewBox', `0 0 ${W} 92`);
+        svg.innerHTML = [...inner.querySelectorAll('.tick')].map(t => {
+          const a = parseFloat(t.style.left) / 100 * W, b = parseFloat(t.dataset.to) / 100 * W;
+          return `<path d="M${a},0 C${a},10 ${b},8 ${b},18"/>`;
+        }).join('');
+      };
+      drawInner(); addEventListener('resize', drawInner);
+      // one thin progress line under all three
+      const x = t => ((t - places.iitg.start) / total * 100).toFixed(2) + '%';
+      prog.innerHTML = `<div class="fill" style="width:100%"></div><div class="dot" style="left:100%"></div>` +
+        [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026].map(y => `<span style="left:${x(y)}">${y}</span>`).join('');
+    })();
+  })();
+  </script>
+  <script src="../../js/site.js"></script>
+</body>
+</html>

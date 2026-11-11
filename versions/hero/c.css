@@ -1,0 +1,13 @@
+/* Hero C: the role becomes a quiet kicker above the name; name, motto and icons follow as one block. */
+@import url("a.css");
+.role-line { margin: 0 0 clamp(18px, 2vw, 28px) -0.06em; font-size: 1rem; }
+.name-big { font-size: clamp(4.1rem, 10vw, 10.25rem); }
+.motto { margin-top: clamp(24px, 2.6vw, 36px); }
+.reach.icons { margin-top: clamp(22px, 2.2vw, 32px); }
+@media (max-width: 640px) {
+  .name-big { font-size: clamp(4.1rem, 19vw, 5.4rem); }
+  .role-line { order: 2; font-size: 1rem; margin: 18px 0 0 -0.06em; }
+  .motto { order: 1; }
+  .name-big { order: 0; }
+  .reach.icons { order: 3; }
+}

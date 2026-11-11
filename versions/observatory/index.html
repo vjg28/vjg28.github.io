@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>Varshil Gandhi · Observatory</title>
+  <meta name="description" content="Varshil Gandhi leads AI at AirMDR. Builder, 3D printer, astrophotographer, gardener and former national-level roller skater.">
+  <meta name="theme-color" content="#04060d">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="dawn" aria-hidden="true"></div>
+
+  <a class="back" href="../index.html">← All versions</a>
+
+  <nav class="nav" aria-label="Main">
+    <a class="mark" href="#top" aria-label="Back to top">VG</a>
+    <div class="links">
+      <a href="#path">Path</a>
+      <a href="#builds">Builds</a>
+      <a href="#writing">Writing</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- Hero: portrait made of stars -->
+    <header class="hero">
+      <canvas id="portrait" aria-hidden="true"></canvas>
+      <div class="wrap hero-inner">
+        <p class="coord">12.97° N · 77.59° E &nbsp;/&nbsp; Bengaluru</p>
+        <h1 class="name-big reveal"><span><i>Varshil</i></span><span><i>Gandhi</i></span></h1>
+        <p class="motto">Finding the problems that <em>define what's next.</em></p>
+        <p class="lede">I lead AI at <b>AirMDR</b>, building self-improving agents for security operations. Before that I worked on ad relevance at <b>Microsoft</b>. I make things with 3D printers, photograph the night sky, grow plants, and once raced roller skates at the national level.</p>
+        <div class="cta">
+          <a class="btn" href="#builds">See what I build</a>
+          <a class="btn ghost" href="../../files/Varshil_Gandhi_Resume.pdf">Résumé <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <p class="scroll-hint" aria-hidden="true">Scroll · the stars let go</p>
+    </header>
+
+    <!-- Career timeline -->
+    <section id="path" class="block wrap">
+      <div class="head">
+        <p class="eyebrow">Internships &amp; work · 2018 – now</p>
+        <h2 class="reveal"><span><i>The path so far</i></span></h2>
+      </div>
+      <ol class="timeline">
+        <li class="now">
+          <time>Apr 2024 – now</time>
+          <div>
+            <h3>AirMDR <small>Senior ML Scientist</small></h3>
+            <p>Leading AI for an agentic SOC: a self-improving agent harness across 150+ security integrations that investigates alerts on its own. Time to investigate fell from 15 minutes to under 5.</p>
+          </div>
+        </li>
+        <li>
+          <time>Mar 2023 – Mar 2024</time>
+          <div>
+            <h3>Microsoft Advertising <small>Data &amp; Applied Scientist 2</small></h3>
+            <p>Led query–keyword relevance, the first matching layer of the Ads stack. Replaced external labellers with in-house LLM labelling, saving $500K a year.</p>
+          </div>
+        </li>
+        <li>
+          <time>Aug 2020 – Mar 2023</time>
+          <div>
+            <h3>Microsoft Advertising <small>Data &amp; Applied Scientist</small></h3>
+            <p>Multilingual, multitask relevance models serving 70+ languages, with a distillation framework that cut compute per query 3×.</p>
+          </div>
+        </li>
+        <li>
+          <time>2019 – 2020</time>
+          <div>
+            <h3>IIT Guwahati <small>Bachelor thesis</small></h3>
+            <p>Self-supervised speech representations for Indic code-switched ASR, with Prof. Rohit Sinha.</p>
+          </div>
+        </li>
+        <li>
+          <time>2019</time>
+          <div>
+            <h3>MILA <small>Research intern</small></h3>
+            <p>Transformer language models for agents in text-based games, with Dr. Jie Fu.</p>
+          </div>
+        </li>
+        <li>
+          <time>2019</time>
+          <div>
+            <h3>RISE Lab, IIT Madras <small>Research intern</small></h3>
+            <p>Graph-based structural bias for generalisable autonomous navigation, with Prof. B. Ravindran.</p>
+          </div>
+        </li>
+        <li>
+          <time>2018</time>
+          <div>
+            <h3>Intel Labs <small>Research intern</small></h3>
+            <p>Imitation learning that teaches robot arms from demonstrations, with Dr. Venkat Natarajan.</p>
+          </div>
+        </li>
+      </ol>
+      <p class="note">Studied Electronics &amp; Electrical Engineering at IIT Guwahati, 2016–20, with a minor in Computer Science.</p>
+    </section>
+
+    <!-- Builds -->
+    <section id="builds" class="block wrap">
+      <div class="head">
+        <p class="eyebrow">Things I make</p>
+        <h2 class="reveal"><span><i>Builds</i></span></h2>
+        <p class="sub">Most of what I build starts with a problem at home and ends on a 3D printer. Write-ups are on the way.</p>
+      </div>
+      <div class="builds">
+        <a class="build feature" href="#builds">
+          <div class="thumb exo" aria-hidden="true"><span></span></div>
+          <div class="meta"><p class="eyebrow">2025 · Project page</p><h3>Exoskeleton</h3><p>A wearable rig for collecting egocentric data for robots.</p></div>
+        </a>
+        <a class="build feature" href="https://medium.com/" rel="noopener">
+          <div class="thumb cad" aria-hidden="true"><span></span></div>
+          <div class="meta"><p class="eyebrow">2026 · On Medium ↗</p><h3>CADForge</h3><p>An RL environment where agents write manufacture-ready CAD.</p></div>
+        </a>
+        <div class="build slot"><div class="thumb print" aria-hidden="true"></div><div class="meta"><p class="eyebrow">Print 01</p><h3>Photo coming</h3><p>Slot for a 3D-printed build · assets/photos/builds/</p></div></div>
+        <div class="build slot"><div class="thumb print" aria-hidden="true"></div><div class="meta"><p class="eyebrow">Print 02</p><h3>Photo coming</h3><p>Slot for a 3D-printed build · assets/photos/builds/</p></div></div>
+        <div class="build slot"><div class="thumb print" aria-hidden="true"></div><div class="meta"><p class="eyebrow">Print 03</p><h3>Photo coming</h3><p>Slot for a 3D-printed build · assets/photos/builds/</p></div></div>
+        <div class="build slot"><div class="thumb print" aria-hidden="true"></div><div class="meta"><p class="eyebrow">Print 04</p><h3>Photo coming</h3><p>Slot for a 3D-printed build · assets/photos/builds/</p></div></div>
+      </div>
+    </section>
+
+    <!-- Writing -->
+    <section id="writing" class="block wrap">
+      <div class="head">
+        <p class="eyebrow">Notes &amp; essays</p>
+        <h2 class="reveal"><span><i>Writing</i></span></h2>
+      </div>
+      <ul class="posts">
+        <li><time>2026</time><a href="https://medium.com/" rel="noopener">CADForge: teaching agents to write CAD</a><span>Medium ↗</span></li>
+        <li><time>2025</time><a href="#builds">Building an exoskeleton for robot data</a><span>Project page</span></li>
+        <li><time>2020</time><a href="#writing">Placement Experience: Microsoft Data Science</a><span>Post</span></li>
+      </ul>
+    </section>
+
+    <!-- Hobbies -->
+    <section id="hobbies" class="block wrap">
+      <div class="head">
+        <p class="eyebrow">Off the clock</p>
+        <h2 class="reveal"><span><i>Sky, soil &amp; speed</i></span></h2>
+      </div>
+      <div class="panels">
+        <article class="panel sky-panel">
+          <div class="art"><canvas class="mini-sky" aria-hidden="true"></canvas></div>
+          <div class="txt">
+            <p class="eyebrow">Sky</p>
+            <h3>Astrophotography</h3>
+            <p>Nights with a telescope, chasing nebulae and star fields from dark-sky sites.</p>
+          </div>
+          <div class="strip" aria-label="Gallery slots"><span>assets/photos/sky/</span><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="panel soil-panel">
+          <div class="art">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M60 118 C60 82 58 52 62 12"/><path d="M60 92 C45 87 32 76 28 62 C42 64 54 74 60 90"/><path d="M61 72 C76 68 88 56 92 42 C78 44 66 54 61 70"/><path d="M61 47 C50 42 44 32 44 22 C54 26 60 36 61 46"/><circle cx="62" cy="11" r="3.5" class="bud"/></g></svg>
+          </div>
+          <div class="txt">
+            <p class="eyebrow">Soil</p>
+            <h3>Gardening</h3>
+            <p>A balcony that keeps turning into a garden. Always happy to swap seeds, cuttings and advice.</p>
+          </div>
+          <div class="strip" aria-label="Gallery slots"><span>assets/photos/soil/</span><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="panel speed-panel">
+          <div class="art"><div class="streaks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="txt">
+            <p class="eyebrow">Speed</p>
+            <h3>Roller skating</h3>
+            <p>Years of competitive racing, ending with a national-level win in 2013.</p>
+          </div>
+          <div class="strip" aria-label="Gallery slots"><span>assets/photos/speed/</span><i></i><i></i><i></i><i></i></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact at sunrise -->
+    <footer id="contact" class="contact">
+      <canvas id="sunrise" aria-hidden="true"></canvas>
+      <div class="wrap contact-inner">
+        <div class="contact-copy">
+          <p class="eyebrow">Say hello</p>
+          <h2 class="reveal"><span><i>Got a problem</i></span><span><i>worth finding?</i></span></h2>
+          <div class="mail">
+            <span id="email">&#118;&#97;&#114;&#115;&#104;&#105;&#108;&#103;&#97;&#110;&#100;&#104;&#105;&#50;&#56;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</span>
+            <button type="button" id="copy" class="btn ghost">Copy</button>
+          </div>
+          <ul class="social">
+            <li><a href="https://github.com/vjg28">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/varshil-gandhi/">LinkedIn</a></li>
+            <li><a href="https://x.com/varshilgandhi28">X</a></li>
+            <li><a href="https://www.instagram.com/variable.gandhi/">Instagram</a></li>
+            <li><a href="../../files/Varshil_Gandhi_Resume.pdf">Résumé</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="fine">© 2026 Varshil Gandhi · Bengaluru</p>
+    </footer>
+  </main>
+
+  <script src="../../assets/js/portrait.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

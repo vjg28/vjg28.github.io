@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Life card artwork</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/site.css?v=1794600200">
+  <link rel="stylesheet" href="../../css/life.css?v=3">
+  <link rel="stylesheet" href="cards.css?v=4">
+  <style>
+    body { background: var(--night); }
+    .cmp { padding: 72px 0 120px; display: grid; gap: 72px; }
+    .cmp h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.05; }
+    .cmp .lede { color: var(--dim); max-width: 64ch; margin-top: 14px; }
+    .cmp .lede b { color: var(--sun); font-weight: 400; }
+    .cmp h2 { font-size: 2rem; margin-bottom: 6px; }
+    .cmp .sub { color: var(--dim); margin-bottom: 22px; max-width: 64ch; }
+    .cmp .panel .txt h3 { display: flex; gap: 10px; align-items: baseline; }
+    .cmp .panel .txt h3 em { font-style: normal; font-family: var(--sans); font-size: 0.85rem; color: var(--sun); }
+    .combo { display: grid; grid-template-columns: minmax(0, 1fr) 390px; gap: 24px; align-items: start; }
+    .combo figure { margin: 0; display: grid; gap: 10px; }
+    .combo figcaption { color: var(--dim); font-size: 0.9rem; }
+    .desk { position: relative; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .desk iframe { position: absolute; left: 0; top: 0; width: 1240px; height: 726px; border: 0; transform-origin: 0 0; }
+    .phone iframe { width: 390px; height: 844px; border: 1px solid var(--line); border-radius: 18px; display: block; }
+    .combos { display: grid; gap: 56px; }
+    .combo-h { display: flex; gap: 14px; align-items: baseline; margin-bottom: 14px; }
+    .combo-h h3 { font-size: 1.6rem; }
+    .combo-h span { color: var(--dim); font-size: 0.95rem; }
+    .combo-h .pick { color: var(--sun); }
+    @media (max-width: 1100px) { .combo { grid-template-columns: 1fr; } .phone iframe { margin: 0 auto; } }
+  </style>
+</head>
+<body>
+  <main class="wrap cmp">
+    <header>
+      <h1><i>Life</i> card artwork</h1>
+      <p class="lede">Three options for each card, then three whole-section combinations at desktop width and in a 390px phone frame. Hover a card to see the shared hover: the art eases in, linked cards lift. <b>Applied to the live page: Moon, whole · Night bloom · Wheel set.</b></p>
+    </header>
+    <section><h2>Astrophotography</h2><p class="sub">The page background is already a star-trail sky, so the card should show something the background can't: a real object, up close.</p><div class="panels" data-group="astro"></div></section>
+    <section><h2>Gardening</h2><p class="sub">Real photos from the pots, cropped to 4:3 and kept around 75–115 KB.</p><div class="panels" data-group="garden"></div></section>
+    <section><h2>Roller skating</h2><p class="sub">No photos yet, so these are SVG plates in the same 4:3 frame. Swapping in a photo later is one line: <code>&lt;div class="art photo"&gt;&lt;img …&gt;&lt;/div&gt;</code>.</p><div class="panels" data-group="skate"></div></section>
+    <section>
+      <h2>Whole section</h2>
+      <p class="sub">Each combination rendered with the real site styles.</p>
+      <div class="combos">
+        <div><div class="combo-h"><h3>A</h3><span class="pick">Applied</span><span>Moon, whole · Night bloom · Wheel set</span></div>
+          <div class="combo"><figure><div class="desk"><iframe loading="lazy" src="mock.html?astro=moon-wide&garden=nightbloom&skate=wheelset" title="Combination A, desktop"></iframe></div><figcaption>Desktop, 1240px</figcaption></figure><figure class="phone"><iframe loading="lazy" src="mock.html?astro=moon-wide&garden=nightbloom&skate=wheelset" title="Combination A, phone"></iframe><figcaption>Phone, 390 × 844, scrolls</figcaption></figure></div></div>
+        <div><div class="combo-h"><h3>B</h3><span>Moon, terminator · Winter blooms · Banked turn</span></div>
+          <div class="combo"><figure><div class="desk"><iframe loading="lazy" src="mock.html?astro=moon-close&garden=blooms&skate=track" title="Combination B, desktop"></iframe></div><figcaption>Desktop, 1240px</figcaption></figure><figure class="phone"><iframe loading="lazy" src="mock.html?astro=moon-close&garden=blooms&skate=track" title="Combination B, phone"></iframe><figcaption>Phone, 390 × 844, scrolls</figcaption></figure></div></div>
+        <div><div class="combo-h"><h3>C</h3><span>Orion Nebula · Harvest · Race bib</span></div>
+          <div class="combo"><figure><div class="desk"><iframe loading="lazy" src="mock.html?astro=orion&garden=harvest&skate=bib" title="Combination C, desktop"></iframe></div><figcaption>Desktop, 1240px</figcaption></figure><figure class="phone"><iframe loading="lazy" src="mock.html?astro=orion&garden=harvest&skate=bib" title="Combination C, phone"></iframe><figcaption>Phone, 390 × 844, scrolls</figcaption></figure></div></div>
+      </div>
+    </section>
+  </main>
+  <script src="art.js?v=6"></script>
+  <script src="compare.js?v=1"></script>
+</body>
+</html>

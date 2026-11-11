@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>About layout variants</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/site.css?v=1793910392">
+  <style>
+    .cmp { padding: 64px 24px 120px; display: grid; gap: 72px; max-width: 1500px; margin: 0 auto; min-width: 0; }
+    .cmp > header h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); }
+    .cmp > header p { color: #c3cadb; max-width: 70ch; margin-top: 10px; }
+    .v { display: grid; gap: 18px; }
+    .v h2 { font-size: 2rem; }
+    .v h2 a { text-decoration: none; }
+    .v h2 a:hover { color: var(--sun); }
+    .v .why { color: #c3cadb; max-width: 75ch; }
+    .v .why b { color: var(--sun); font-weight: 500; }
+    .frames { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+    .frames figure { margin: 0; display: grid; gap: 8px; }
+    .frames figcaption { font-size: 0.85rem; color: var(--dim); }
+    iframe { display: block; border: 1px solid var(--line); border-radius: 4px; background: var(--night); }
+    .desk { width: 100%; max-width: 1450px; height: 1000px; }
+    .phone { width: 392px; height: 1150px; }
+  </style>
+</head>
+<body>
+  <main class="cmp">
+    <header>
+      <h1>About section: four layouts</h1>
+      <p>Same words in each. Shared fixes in all four: body text at regular weight and brighter, the work paragraph split in two, the greeting set as a display line, the Physical AI sentence set as a pull-line, and thinner, softer link underlines. Open a variant on its own for the true desktop view; the frames below are smaller.</p>
+    </header>
+    <section class="v" id="a">
+      <h2><a href="a.html">A · Matched column</a></h2>
+      <p class="why">Photo on the left fills the full height of the text, so there is no empty block. Its top sits on the greeting's cap line. The pull-line has a thin amber rule. <b>Applied to the live page.</b></p>
+      <div class="frames"><figure><iframe class="desk" src="a.html" title="Variant A desktop"></iframe><figcaption>Desktop</figcaption></figure><figure><iframe class="phone" src="a.html" title="Variant A phone"></iframe><figcaption>Phone, 390px</figcaption></figure></div>
+    </section>
+    <section class="v" id="b">
+      <h2><a href="b.html">B · Headline and finale</a></h2>
+      <p class="why">The greeting runs across the top as a headline. The photo sits on the right and matches the height of the text. The Physical AI line closes the section, centred, with the hobbies line beneath it.</p>
+      <div class="frames"><figure><iframe class="desk" src="b.html" title="Variant B desktop"></iframe><figcaption>Desktop</figcaption></figure><figure><iframe class="phone" src="b.html" title="Variant B phone"></iframe><figcaption>Phone, 390px</figcaption></figure></div>
+    </section>
+    <section class="v" id="c">
+      <h2><a href="c.html">C · Cinematic band</a></h2>
+      <p class="why">The portrait is cropped to a wide band, like a film still, with the greeting set over its lower edge. The text runs below in one centred reading column.</p>
+      <div class="frames"><figure><iframe class="desk" src="c.html" title="Variant C desktop"></iframe><figcaption>Desktop</figcaption></figure><figure><iframe class="phone" src="c.html" title="Variant C phone"></iframe><figcaption>Phone, 390px</figcaption></figure></div>
+    </section>
+    <section class="v" id="d">
+      <h2><a href="d.html">D · Sticky tall portrait</a></h2>
+      <p class="why">A taller, narrower crop that stays in view while the text scrolls past. The intro is set a little larger, and the pull-line sits between hairlines.</p>
+      <div class="frames"><figure><iframe class="desk" src="d.html" title="Variant D desktop"></iframe><figcaption>Desktop</figcaption></figure><figure><iframe class="phone" src="d.html" title="Variant D phone"></iframe><figcaption>Phone, 390px</figcaption></figure></div>
+    </section>
+  </main>
+</body>
+</html>

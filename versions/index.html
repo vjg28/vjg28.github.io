@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Site versions · Varshil Gandhi</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@300;400&display=swap">
+  <style>
+    :root { --night:#04060d; --ink:#e8ecf6; --dim:#9aa3bd; --line:rgba(160,175,220,.16); --sun:#ffb260; color-scheme:dark; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--night); color:var(--ink); font:300 16px/1.6 "IBM Plex Sans", Arial, sans-serif;
+      padding-left:max(20px, env(safe-area-inset-left,0px)); padding-right:max(20px, env(safe-area-inset-right,0px)); }
+    .wrap { max-width:1080px; margin:0 auto; padding-block:72px 96px; display:grid; gap:40px; }
+    .eyebrow { font:400 .72rem/1.3 "IBM Plex Mono", monospace; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); margin:0; }
+    h1 { font:300 clamp(2.4rem,6vw,4.2rem)/1 "Cormorant Garamond", Georgia, serif; margin:0; }
+    p { margin:0; max-width:64ch; color:var(--dim); }
+    .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; }
+    a.card { display:grid; gap:10px; padding:26px; border:1px solid var(--line); border-radius:14px; text-decoration:none; color:inherit;
+      background:linear-gradient(160deg, rgba(169,188,255,.05), transparent 60%); transition:border-color .3s, transform .4s cubic-bezier(.2,.8,.2,1); }
+    a.card:hover, a.card:focus-visible { border-color:var(--sun); transform:translateY(-3px); outline:none; }
+    .card h2 { font:400 2rem/1.05 "Cormorant Garamond", Georgia, serif; margin:0; }
+    .card .k { font:400 .74rem/1 "IBM Plex Mono", monospace; color:var(--sun); letter-spacing:.12em; }
+    .card ul { margin:0; padding-left:18px; color:var(--dim); font-size:.92rem; display:grid; gap:4px; }
+    .card .go { font:400 .74rem/1 "IBM Plex Mono", monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); }
+    @media (max-width:720px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header style="display:grid; gap:14px">
+      <p class="eyebrow">varshilgandhi.com · Compare</p>
+      <h1>Four versions of your site</h1>
+      <p>All four have the same content: your career, builds, writing, hobbies and contact. They differ in structure, photo treatment, type and motion. Open each one and scroll to the bottom.</p>
+    </header>
+    <div class="grid">
+      <a class="card" href="observatory/"><span class="k">1</span><h2>Observatory</h2>
+        <ul><li>The refined version of the first site</li><li>Portrait made of stars that drift into the sky</li><li>Vertical timeline, calm single scroll</li></ul><span class="go">Open →</span></a>
+      <a class="card" href="logbook/"><span class="k">2</span><h2>Logbook</h2>
+        <ul><li>Writing-first, like an observing log</li><li>Moonlit photo in a fixed sidebar</li><li>Everything is a dated entry you can filter</li></ul><span class="go">Open →</span></a>
+      <a class="card" href="constellations/"><span class="k">3</span><h2>Constellations</h2>
+        <ul><li>The most exploratory</li><li>Sections drawn as constellations on a sky map</li><li>Your silhouette under turning star trails</li></ul><span class="go">Open →</span></a>
+      <a class="card" href="night-to-dawn/"><span class="k">4</span><h2>Night to Dawn</h2>
+        <ul><li>Cinematic, the videographer direction</li><li>Full-screen chapters with letterbox and grain</li><li>You in starlight at the top, in sunrise at the end</li></ul><span class="go">Open →</span></a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Write-up layout B</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="An RL environment where AI agents learn to write CadQuery code that becomes manufacture-ready STEP files, rewarded by pure geometry.">
+  <meta name="theme-color" content="#04060d">
+  <meta property="og:title" content="CADForge: an RL environment for manufacture-ready 3D">
+  <meta property="og:description" content="An RL environment where AI agents learn to write CadQuery code that becomes manufacture-ready STEP files, rewarded by pure geometry.">
+  <link rel="canonical" href="https://medium.com/@varshilgandhi28/cadforge-an-rl-environment-for-manufacture-ready-3d-9ce410c19d8d">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../../css/site.css?v=20261103033346">
+  <link rel="stylesheet" href="../../css/page.css?v=20261103033346">
+  <link rel="stylesheet" href="b.css?v=1">
+</head>
+<body class="vp">
+  <canvas id="sky" aria-hidden="true"></canvas>
+
+  <nav class="nav scrolled" aria-label="Main">
+    <a class="home" href="../../">Varshil Gandhi</a>
+    <div class="links">
+      <a href="../../#about">About</a>
+      <a href="../../#experience">Experience</a>
+      <a href="../../#projects">Projects</a>
+      <a href="../../#life">Life</a>
+    </div>
+  </nav>
+
+  <main class="wrap page">
+    <header class="page-head">
+      <div class="ph-txt">
+      <a class="crumb" href="../../#projects">← Projects</a>
+      <div class="meta"><time class="eyebrow" datetime="2026-04-26">26 Apr 2026</time><span class="eyebrow">7 min read</span></div>
+      <h1>CADForge: an RL environment for manufacture-ready 3D</h1>
+      <p class="dek">What if you could someday vibe-code an entire spaceship, or maybe a robot?</p>
+      <p class="links-inline"><a href="https://github.com/vjg28/CadForge">GitHub ↗</a><a href="https://huggingface.co/spaces/eventhorizon28/cadforge">OpenEnv on Hugging Face ↗</a><a href="https://medium.com/@varshilgandhi28/cadforge-an-rl-environment-for-manufacture-ready-3d-9ce410c19d8d">Also on Medium ↗</a></p>
+      </div>
+      <figure class="shot-hero"><img src="../../assets/projects/cadforge.jpg?v=1794000000" alt="Four stages of one part: the CadQuery script on paper, its edge wireframe, the raw aluminium solid with bolt holes marked, and the finished black anodised housing with bearing and bolts" width="1600" height="1200"><figcaption>One part, four stages: the CadQuery script, its edges, the raw solid with six counterbores still to cut, and the finished housing.</figcaption></figure>
+    </header>
+    <article class="article">
+      <p class="lede">AI has gotten remarkably good at generating images, writing code, and even producing 3D models from text descriptions. But there's a catch: most AI-generated 3D content is designed for games and movies, not factories. Ask a text-to-3D model for a "flanged bearing housing with six M8 bolt holes on a 75 mm bolt circle" and you'll get something that <em>looks</em> like a bearing housing. You can't machine it. You can't 3D-print it to spec. You can't load it into Fusion 360 and change a single dimension.</p>
+      <p>Real engineering needs parametric, deterministic geometry, where every dimension is exact, every feature is intentional, and running the same design twice produces an identical part down to the micron. That's why manufacturing runs on CAD formats like STEP, not meshes and point clouds.</p>
+      <p>CADForge is our attempt to bridge that gap. It's a reinforcement learning environment on OpenEnv where agents learn to write real CAD code: CadQuery Python scripts that run on the industry-standard OpenCASCADE kernel. The output isn't a pretty mesh. It's a STEP file that can go straight to a CNC machine.</p>
+
+      <h2>Why code-based 3D matters</h2>
+      <p>Text- and image-to-3D methods are incredible for creative, artistic content, but they can't produce what engineers need:</p>
+      <ul>
+        <li><strong>Repeatability.</strong> Run the same CadQuery script a million times and get the same part every time. Neural methods are inherently stochastic.</li>
+        <li><strong>Manufacturability.</strong> A STEP file defines exact mathematical surfaces (B-splines, planes, cylinders). A mesh is an approximation. CNC machines and injection moulds need the real thing.</li>
+        <li><strong>Editability.</strong> Changing a bolt hole from 8 mm to 10 mm is one number in parametric code. In a mesh, you regenerate everything.</li>
+      </ul>
+      <p>The insight is simple: the things that make code-based CAD hard for humans (verbose, API-heavy, easy to get geometry wrong) make it an ideal training ground for AI. The task is well defined, the output is verifiable, and the reward is dense and deterministic.</p>
+
+      <h2>How an episode works</h2>
+      <p><strong>1. The agent gets a task.</strong> A detailed natural-language description of a mechanical part, every dimension in millimetres:</p>
+      <blockquote>Create a circular disc flange 100 millimetres in outer diameter and 15 millimetres thick. Drill a central through-hole 25 millimetres in diameter. Then drill 6 bolt holes, each 8 millimetres in diameter, on a bolt circle of 75 millimetres, equally spaced at 60° intervals.</blockquote>
+      <p><strong>2. The agent has tools.</strong> At each step it picks one action:</p>
+      <ul>
+        <li><code>read_docs</code>: search the CadQuery API docs. It costs a step and earns nothing, so the agent has to learn when looking something up is worth it.</li>
+        <li><code>execute_cadquery</code>: submit a complete script. It runs in a sandbox and returns detailed geometric properties of the shape.</li>
+        <li><code>render_object</code>: for vision-language models, a rendered image of the current shape.</li>
+        <li><code>submit</code>: end the episode. The score is the best reward across all executions.</li>
+      </ul>
+      <p><strong>3. The agent sees what it built.</strong> Not an image, but a structured report:</p>
+<pre><code>Volume:              16,000 mm³
+Bounding box:        80 × 40 × 5 mm
+Faces:               6 (all PLANE)
+Euler characteristic: 2 (simple solid, no holes)
+Shape class:         FLAT_SOLID</code></pre>
+      <p>That's enough to reason: "I was supposed to make a 100 mm disc with seven holes, but I made a flat 80 mm plate with none. My face types should include CYLINDER, and my Euler characteristic should be much lower."</p>
+      <p><strong>4. The agent iterates.</strong> Execute, observe, diagnose, read docs, rewrite, execute again. The episode reward is the best score achieved, so the agent is never punished for trying and failing.</p>
+
+      <figure class="shot-wide"><img src="../../assets/projects/cadforge-macro.jpg?v=1794000000" alt="Close-up of the raw aluminium housing with six bolt-hole outlines marked in blue" width="1920" height="1080" loading="lazy"><figcaption>Mid-episode: the outer shape is right, the six counterbored holes are not there yet. The Euler characteristic says so before any picture does.</figcaption></figure>
+
+      <h2>The reward: no vibes, just geometry</h2>
+      <p>Rewards are fully deterministic and computed from pure geometry, which puts CADForge in the same tractability class as code generation and maths, where reinforcement learning with verifiable rewards (RLVR) has shown the most promise. There are three parts:</p>
+      <ul>
+        <li><strong>Code validity.</strong> Did the code run? Is the shape valid, with non-zero volume? If not, the reward is 0.</li>
+        <li><strong>Geometric similarity</strong> against the ground truth:
+          <ul>
+            <li><em>Volumetric IoU (60%)</em>: both shapes voxelised on a 64³ grid, trying all six axis orientations and keeping the best.</li>
+            <li><em>Mean Chamfer distance (20%)</em>: 2,048 surface samples per shape, nearest-neighbour distances both ways. Catches large missing sections.</li>
+            <li><em>Median Chamfer distance (20%)</em>: the same, robust to outliers.</li>
+          </ul></li>
+        <li><strong>Object-type signals</strong> for common failure modes: volume match (scale errors), sorted bounding-box match, dominant face type (a bracket is all planes, a shaft has cylinders), and Euler characteristic for topology (each through-hole lowers it by 2).</li>
+      </ul>
+
+      <h2>The tasks: from plates to bolt flanges</h2>
+      <p>CADForge ships with 70 tasks across five difficulty levels:</p>
+      <ul>
+        <li><strong>Simple primitives (1–2).</strong> A flat plate, a box with a hole, a cylinder: <code>box()</code>, <code>circle().extrude()</code>, <code>.hole()</code>.</li>
+        <li><strong>Multi-feature parts (2–3).</strong> L-brackets, plates with corner holes, chamfered blocks, U-channels.</li>
+        <li><strong>Complex parts (3–4).</strong> Counterbores, bolt-pattern flanges, dovetail grooves, cones and filleted boxes.</li>
+        <li><strong>Real-world parts (4–5).</strong> 50 tasks from the ThomasTheMaker/cadquery dataset and the ABC Dataset, with complex profiles, multiple cut-outs and up to 20 steps to solve.</li>
+      </ul>
+<pre><code># Task 19: bolt-pattern flange
+import cadquery as cq
+import math
+
+result = (
+    cq.Workplane("XY")
+    .circle(50).extrude(15)
+    .faces("&gt;Z").hole(25)
+    .faces("&gt;Z")
+    .pushPoints([(37.5 * math.cos(math.radians(a)), 37.5 * math.sin(math.radians(a)))
+                 for a in range(90, 450, 60)])
+    .hole(8)
+)</code></pre>
+
+      <h2>Why RLVR works here</h2>
+      <p>Only a handful of domains allow reinforcement learning with verifiable rewards without an LLM judge or learned value model: code generation (run the tests), mathematical reasoning (compare the answer), and 3D mechanical CAD (compare the geometry). Because the reward comes from deterministic geometry, there's no reward hacking against a judge, training runs are reproducible, evaluation takes seconds, and the decomposed reward tells the agent <em>what</em> is wrong, not just how wrong.</p>
+
+      <figure class="shot-bleed"><img src="../../assets/projects/cadforge-explode.jpg?v=1794000000" alt="Exploded view of the flanged bearing housing: anodised housing, sealed bearing and six socket head cap screws" width="1920" height="1080" loading="lazy"><figcaption>Next: assemblies, where a housing, a bearing and six M8 screws have to agree on every dimension.</figcaption></figure>
+
+      <h2>What's next</h2>
+      <ul>
+        <li>GRPO and other RL algorithms on the full 70-task suite, across model sizes from 7B to 72B.</li>
+        <li>Training vision-language models with image observations.</li>
+        <li>Multi-part assemblies where parts must fit together.</li>
+        <li>Scaling the task set from the hundreds of thousands of models in the ABC Dataset.</li>
+      </ul>
+      <p>CADForge is open source on <a href="https://github.com/vjg28/CadForge">GitHub</a> and runs on <a href="https://huggingface.co/spaces/eventhorizon28/cadforge">OpenEnv</a>. New tasks, reward signals, training results or feedback are all welcome.</p>
+    </article>
+    <footer class="page-foot">
+      <a href="../../">Home</a>
+      <a href="../../#projects">Projects</a>
+      <a href="https://github.com/vjg28">GitHub</a>
+      <a href="https://www.linkedin.com/in/varshil-gandhi/">LinkedIn</a>
+    </footer>
+  </main>
+  <script src="../../js/site.js?v=20261103033346"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Experience C · Honest scale</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/site.css">
+  <style>
+
+    .vnote { color: var(--dim); font-size: .9rem; padding-top: 28px; }
+    .vnote a { color: var(--sun); }
+    .rg .what { padding-bottom: 64px; gap: 14px; }
+    .rg.air .job-lede { font-style: italic; }
+    .rg .promo { display: none; }
+    .roles li { position: relative; }
+    .roles li + li::before { content: ""; position: absolute; z-index: 2; left: -53.5px; top: -14.5px; width: 11px; height: 11px;
+      background: var(--night); border: 2px solid #7fba00; border-radius: 50%; }
+    .roles li + li::after { content: "2023"; position: absolute; right: calc(100% + 96px); top: -16px;
+      font: 400 0.86rem/1 var(--sans); color: var(--faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .rg .interns { gap: 12px; margin-top: 6px; max-width: 46rem; }
+    .rg .interns b { white-space: nowrap; }
+    .rg .interns p { margin: 0; font-size: 0.92rem; }
+    .rg .interns span { margin: 0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    @media (max-width: 640px) {
+      .roles li + li::before { left: -41.5px; }
+      .roles li + li::after { display: none; }
+      .rg .what { padding-bottom: 44px; }
+    }
+
+    /* honest-ish: ~110px per year, Microsoft fills its height with roles side by side */
+    .rg { min-height: calc(var(--yrs) * 104px); }
+    .roles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; max-width: 52rem; margin-top: 6px; }
+    .roles li { grid-template-columns: 1fr; padding: 2px 0 2px 16px; }
+    .roles .ry { order: -1; }
+    .roles li + li::before, .roles li + li::after { display: none; }
+    .rg.ms .promo { display: block; }
+    .rg .interns li { grid-template-columns: 28px 12.5rem minmax(0, 1fr) auto; gap: 0 14px; align-items: center; }
+    .rg .interns p { grid-column: auto; }
+    @media (max-width: 900px) {
+      .rg .interns li { grid-template-columns: 28px minmax(0, 1fr) auto; gap: 2px 12px; align-items: baseline; }
+      .rg .interns img { grid-row: 1 / 3; align-self: start; }
+      .rg .interns p { grid-column: 2 / -1; }
+    }
+    @media (max-width: 640px) { .roles { grid-template-columns: 1fr; gap: 16px; } }
+    .rg:last-child .bar { bottom: 24px; background: linear-gradient(rgba(169, 188, 255, 0.8), rgba(169, 188, 255, 0.35)); }
+    .rg:last-child .rail::after { content: ""; position: absolute; left: 50%; bottom: 12px; width: 13px; height: 13px; margin-left: -6.5px;
+      border: 2px solid rgba(169, 188, 255, 0.75); border-radius: 50%; background: var(--night); box-shadow: 0 0 10px rgba(169, 188, 255, 0.35); }
+    .rg:last-child .when { padding-bottom: 7px; }
+
+  </style>
+</head>
+<body>
+  <main>
+    <p class="wrap vnote"><a href="./">All variants</a> · C: stricter years-to-height scale, Microsoft roles side by side</p>
+    <section id="experience" class="block wrap">
+      <h2><span><i>Experience</i></span></h2>
+
+      <ol class="ranges">
+        <li class="rg air" style="--yrs:2.6">
+          <div class="when"><span>2024</span><span>now</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="../../assets/logos/airmdr.svg" alt=""></span></div>
+          <div class="what">
+            <h3><img src="../../assets/logos/airmdr.svg" alt="AirMDR" class="wordmark"></h3>
+            <p class="job-meta"><span class="yrs-inline">2024 – now · </span><b>Sr Applied Scientist</b> · Bengaluru</p>
+            <p class="job-lede">Tokenmaxxing, professionally.</p>
+            <ul class="points">
+              <li>Built <b>FAST</b>, our self-serve AI SOC. Plug in your stack and Darryl, our AI analyst, investigates every alert in minutes.</li>
+              <li>Building the agent harness for security operations, and redefining the SOC workflow for an AI-first world.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="rg ms" style="--yrs:3.6">
+          <div class="when"><span>2020</span><span>2024</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="../../assets/logos/microsoft.svg" alt=""></span><span class="promo" title="Promoted to Data &amp; Applied Scientist 2, 2023"></span></div>
+          <div class="what">
+            <h3>Microsoft</h3>
+            <p class="job-lede">Trained ad relevance models for a living, then got LLMs to grade their homework.</p>
+            <ol class="roles">
+              <li><span class="rl">Data &amp; Applied Scientist 2</span><span class="ry">2023 – 2024</span><p>Led short-text relevance for the Ads stack. In-house LLM labelling saved $500K a year.</p></li>
+              <li><span class="rl">Data &amp; Applied Scientist</span><span class="ry">2020 – 2023</span><p>Took relevance models to 70+ languages, at a third of the compute.</p></li>
+            </ol>
+          </div>
+        </li>
+        <li class="rg edu" style="--yrs:4">
+          <div class="when"><span>2016</span><span>2020</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="../../assets/logos/iitg.svg" alt=""></span></div>
+          <div class="what">
+            <h3>IIT Guwahati</h3>
+            <p class="job-meta"><span class="yrs-inline">2016 – 2020 · </span><b>B.Tech, Electronics &amp; Electrical</b> · minor in Computer Science</p>
+            <p class="job-lede">Mostly spent my time building robots at the Robotics Club, and my summers at some very cool places.</p>
+            <ul class="interns">
+              <li><img src="../../assets/logos/iitm.svg" alt=""><b>RISE Lab, IIT Madras</b><p>Helped self-driving models cope with roads they had never seen.</p><span>Summer 2019</span></li>
+              <li><img src="../../assets/logos/mila.png" alt=""><b>MILA</b><p>Used language models to help AI agents play text adventure games.</p><span>2019</span></li>
+              <li><img src="../../assets/logos/intel.svg" alt=""><b>Intel Labs</b><p>Taught robot arms new moves by copying expert demonstrations.</p><span>Summer 2018</span></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,2588 +1,287 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
+<!doctype html>
+<html lang="en">
 <head>
-
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Source Themes Academic 4.5.0">
-
-  
-
-  
-  
-  
-  
-  
-    
-    
-    
-  
-  
-
-  <meta name="author" content="Varshil Gandhi">
-
-  
-  
-  
-    
-  
-  <meta name="description" content="Data &amp; Applied Scientist">
-
-  
-  <link rel="alternate" hreflang="en-us" href="https://vjg28.github.io/">
-
-  
-
-
-  
-  
-  
-  <meta name="theme-color" content="hsl(339, 90%, 68%)">
-  
-
-  
-  
-  
-  
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
-
-    
-    
-    
-      
-    
-    
-      
-      
-        
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light" disabled>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark">
-        
-      
-    
-
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="anonymous">
-    
-
-    
-
-  
-
-  
-  
-  
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i%7CKarla:400,400i,700,700i%7CDM+Mono&display=swap">
-  
-
-  
-  
-  
-  <link rel="stylesheet" href="/css/academic.min.3a290302a8bdcef347ed1d92c25f4b5b.css">
-
-  
-
-  
-
-
-
-
-  
-
-
-  
-  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Varshil Gandhi">
-  
-
-  <link rel="manifest" href="/index.webmanifest">
-  <link rel="icon" type="image/png" href="/img/icon-32.png">
-  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
-
-  <link rel="canonical" href="https://vjg28.github.io/">
-
-  
-  
-  
-  
-    
-  
-  
-  <meta property="twitter:card" content="summary_large_image">
-  
-  <meta property="twitter:site" content="@varshilgandhi28">
-  <meta property="twitter:creator" content="@varshilgandhi28">
-  
-  <meta property="og:site_name" content="Varshil Gandhi">
-  <meta property="og:url" content="https://vjg28.github.io/">
-  <meta property="og:title" content="Varshil Gandhi">
-  <meta property="og:description" content="Data &amp; Applied Scientist"><meta property="og:image" content="https://vjg28.github.io/img/index.png">
-  <meta property="twitter:image" content="https://vjg28.github.io/img/index.png"><meta property="og:locale" content="en-us">
-  
-    <meta property="og:updated_time" content="2020-06-24T00:00:00&#43;00:00">
-  
-
-  
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://vjg28.github.io/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
-  "url": "https://vjg28.github.io/"
-}
-</script>
-
-
-  
-
-
-  
-
-
-  
-
-
-
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; font-src 'self'; media-src 'self'; img-src 'self' data: https://varshilgandhi.goatcounter.com; connect-src 'self' https://varshilgandhi.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Varshil Gandhi</title>
-
+  <meta name="description" content="Varshil Gandhi leads AI at AirMDR, building self-improving agents for security operations. Previously Microsoft. Builds things with 3D printers; photographs the night sky.">
+  <meta name="theme-color" content="#04060d">
+  <meta property="og:title" content="Varshil Gandhi">
+  <meta property="og:description" content="Working on the problems that define what's next.">
+  <meta property="og:site_name" content="Varshil Gandhi">
+  <meta property="og:image" content="https://varshilgandhi.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Varshil Gandhi">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@varshilgandhi28">
+  <meta name="twitter:creator" content="@varshilgandhi28">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://varshilgandhi.com/">
+  <link rel="canonical" href="https://varshilgandhi.com/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/site.css?v=1794600200">
+  <link rel="stylesheet" href="css/experience.css?v=4">
+  <link rel="stylesheet" href="css/projects.css?v=1">
+  <link rel="stylesheet" href="css/life.css?v=5">
+  <link rel="stylesheet" href="css/closing.css?v=4">
+  <link rel="stylesheet" href="css/about.css?v=4">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://varshilgandhi.com/#person", "name": "Varshil Gandhi", "url": "https://varshilgandhi.com/", "image": "https://varshilgandhi.com/assets/photos/portrait.jpg", "jobTitle": "Sr Applied Scientist", "worksFor": {"@type": "Organization", "name": "AirMDR"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "IIT Guwahati"}, "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN"}, "knowsAbout": ["AI agents", "Machine learning", "Security operations", "Astrophotography", "3D printing"], "sameAs": ["https://github.com/vjg28", "https://www.linkedin.com/in/varshil-gandhi/", "https://x.com/varshilgandhi28", "https://www.instagram.com/variable.gandhi/"]}, {"@type": "WebSite", "@id": "https://varshilgandhi.com/#website", "url": "https://varshilgandhi.com/", "name": "Varshil Gandhi", "publisher": {"@id": "https://varshilgandhi.com/#person"}}]}
+  </script>
 </head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="dawn" aria-hidden="true"></div>
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main" class="dark">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.8v1.54h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.63V21h-4V9.75Z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M17.75 3h3.07l-6.71 7.67L22 21h-6.18l-4.84-6.33L5.44 21H2.37l7.18-8.2L2 3h6.33l4.38 5.79L17.75 3Zm-1.08 16.18h1.7L7.4 4.73H5.58l11.09 14.45Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 2.9h10A4.1 4.1 0 0 1 21.1 7v10a4.1 4.1 0 0 1-4.1 4.1H7A4.1 4.1 0 0 1 2.9 17V7A4.1 4.1 0 0 1 7 2.9Z"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3 5.5h18v13H3z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="m3.5 6 8.5 7 8.5-7"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M6 2.9h8l4.1 4.1v14.1H6z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M13.5 3v4.5H18M9 12h6M9 15.5h6"/></symbol>
+  </svg>
 
-  <aside class="search-results" id="search">
-  <div class="container">
-    <section class="search-header">
-
-      <div class="row no-gutters justify-content-between mb-3">
-        <div class="col-6">
-          <h1>Search</h1>
-        </div>
-        <div class="col-6 col-search-close">
-          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
-        </div>
-      </div>
-
-      <div id="search-box">
-        
-        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
-        
-      </div>
-
-    </section>
-    <section class="section-search-results">
-
-      <div id="search-hits">
-        
-      </div>
-
-    </section>
-  </div>
-</aside>
-
-
-  
-<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
-  <div class="container">
-
-    
-      <a class="navbar-brand" href="/">Varshil Gandhi</a>
-      
-      <button type="button" class="navbar-toggler" data-toggle="collapse"
-              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span><i class="fas fa-bars"></i></span>
-      </button>
-      
-
-    
-    <div class="collapse navbar-collapse" id="navbar">
-
-      
-      
-      <ul class="navbar-nav mr-auto">
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#about" data-target="#about"><span>Home</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#projects" data-target="#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-          
-          
-          
-            
-          
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/#contact" data-target="#contact"><span>Contact</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-        
-        
-        
-        
-        
-
-        <li class="nav-item">
-          <a class="nav-link " href="/files/cv.pdf"><span>CV</span></a>
-        </li>
-
-        
-        
-
-      
-      </ul>
-      <ul class="navbar-nav ml-auto">
-      
-
-        
-
-        
-        <li class="nav-item">
-          <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
-        </li>
-        
-
-        
-
-        
-        <li class="nav-item">
-          <a class="nav-link js-dark-toggle" href="#"><i class="fas fa-moon" aria-hidden="true"></i></a>
-        </li>
-        
-
-      </ul>
-
+  <nav class="nav" aria-label="Main">
+    <a class="home" href="#top">Varshil Gandhi</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#life">Life</a>
     </div>
-  </div>
-</nav>
+  </nav>
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<span class="js-widget-page d-none"></span>
-
-
-
-
-  
-
-
-
-
-
-
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="about" class="home-section wg-about   "  >
-    <div class="container">
-      
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-<div class="row">
-  <div class="col-12 col-lg-4">
-    <div id="profile">
-
-      
-      
-      <img class="portrait" src="/authors/admin/avatar_huc9bb20a586ecba4109a965ba1b2874b7_68462_250x250_fill_q90_lanczos_center.jpg" alt="Avatar">
-      
-
-      <div class="portrait-title">
-        <h2>Varshil Gandhi</h2>
-        <h3>Data &amp; Applied Scientist</h3>
-
-        
-        <h3>
-          
-          <span>Microsoft India Pvt. Ltd.</span>
-          
-        </h3>
-        
-      </div>
-
-      <ul class="network-icon" aria-hidden="true">
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-        <li>
-          <a href="mailto:varshilgandhi28@gmail.com" >
-            <i class="fas fa-envelope big-icon"></i>
-          </a>
-        </li>
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="https://twitter.com/varshilgandhi28" target="_blank" rel="noopener">
-            <i class="fab fa-twitter big-icon"></i>
-          </a>
-        </li>
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="https://www.linkedin.com/in/varshil-gandhi/" target="_blank" rel="noopener">
-            <i class="fab fa-linkedin big-icon"></i>
-          </a>
-        </li>
-        
-        
-        
-        
-          
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="https://github.com/vjg28" target="_blank" rel="noopener">
-            <i class="fab fa-github big-icon"></i>
-          </a>
-        </li>
-        
-        
-        
-        
-        
-        
-        
-        
-          
-        
-        <li>
-          <a href="/files/cv.pdf" >
-            <i class="ai ai-cv big-icon"></i>
-          </a>
-        </li>
-        
-      </ul>
-
-    </div>
-  </div>
-  <div class="col-12 col-lg-8">
-
-    
-    <h1>Biography</h1>
-
-    <p>I work as a Data &amp; Applied Scientist at Microsoft Ads team (AI + R division), where I work on deep learning models that map relevant ads to a query. Models deployed by me are serving ads in many international markets across the world. My research interests span a variety of domains, from robotics &amp; reinforcement learning to speech and text.</p>
-
-<p>In my undergrad days at <strong>IIT Guwahati</strong>, I worked on problems at the intersection of deep reinforcement learning, imitation learning, and robotics. Both my research internships were focused on the same, where I worked under <a href="https://www.cse.iitm.ac.in/~ravi/" target="_blank">Prof. Balaraman Ravindran</a> at RISE Labs, IIT Madras and with <a href="https://www.linkedin.com/in/venkat-natarajan-a9923414/?originalSubdomain=in" target="_blank">Dr. Venkat Natarajan</a> at Intel Labs, Bengaluru. Apart from this, my <a href="files/btp.pdf" target="_blank">bachelor thesis</a> was in the speech domain, where I worked with <a href="https://www.iitg.ac.in/eee/emstlab/profiles/rsinha/aboutme.php" target="_blank">Prof Rohit Sinha</a> on developing universal self-supervised representations for multilingual speech systems.</p>
-
-<p><em>Aim for the stars and lie with the soil</em> - summarises my free time I spend with my telescope and in gardening. Please do ping me if you got some excellent astrophotography plans or gardening suggestions.</p>
-
-
-    <div class="row">
-
-      
-      <div class="col-md-5">
-        <h3>Interests</h3>
-        <ul class="ul-interests">
-          
-          <li>Reinforcement Learning</li>
-          
-          <li>Robotics</li>
-          
-          <li>NLP</li>
-          
+  <main id="top">
+    <header class="hero">
+      <canvas id="portrait" aria-hidden="true"></canvas>
+      <div class="wrap hero-inner">
+        <h1 class="name-big reveal"><span><i>Varshil</i></span><span class="g"><i>Gandhi</i></span></h1>
+        <p class="motto">Working on the problems that <em>define what's next.</em></p>
+        <p class="role-line">Leading AI at <img src="assets/logos/airmdr.svg" alt="AirMDR" class="logo-airmdr" width="127" height="23"><span class="sep" aria-hidden="true">/</span><span class="nowrap">previously <img src="assets/logos/microsoft.svg" alt="" class="logo-ms"> Microsoft</span></p>
+        <ul class="reach icons" aria-label="Find me elsewhere">
+          <li><a href="https://github.com/vjg28" aria-label="GitHub" data-tip="GitHub" data-goatcounter-click="out-github"><svg aria-hidden="true"><use href="#i-github"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/varshil-gandhi/" aria-label="LinkedIn" data-tip="LinkedIn" data-goatcounter-click="out-linkedin"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+          <li><a href="https://x.com/varshilgandhi28" aria-label="X (Twitter)" data-tip="X" data-goatcounter-click="out-x"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
+          <li><a href="https://www.instagram.com/variable.gandhi/" aria-label="Instagram" data-tip="Instagram" data-goatcounter-click="out-instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+          <li><button type="button" class="email-btn" aria-label="Show email address" data-tip="Email" data-goatcounter-click="email-hero" data-u="varshilgandhi28" data-d="gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span></span></button></li>
+          <li><a href="files/Varshil_Gandhi_Resume.pdf" aria-label="Résumé (PDF)" data-tip="Résumé" data-goatcounter-click="resume-download"><svg aria-hidden="true"><use href="#i-doc"/></svg></a></li>
         </ul>
       </div>
-      
+    </header>
 
-      
-      <div class="col-md-7">
-        <h3>Education</h3>
-        <ul class="ul-edu fa-ul">
-          
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">Bachelor&#39;s in Technology, Electronics &amp; Electrical Engineering, 2016-2020</p>
-              <p class="institution">IIT Guwahati</p>
-            </div>
-          </li>
-          
-          <li>
-            <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">Minors in Computer Science, 2016-2020</p>
-              <p class="institution">IIT Guwahati</p>
-            </div>
-          </li>
-          
-        </ul>
-      </div>
-      
-
-    </div>
-  </div>
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="experience" class="home-section wg-experience   "  >
-    <div class="container">
-      
-
-
-
-<div class="row">
-  <div class="col-12 col-lg-4 section-heading">
-    <h1>Experience</h1>
-    
-  </div>
-  <div class="col-12 col-lg-8">
-    
-
-    
-    
-    
-    <div class="row experience">
-      
-      <div class="col-auto text-center flex-column d-none d-sm-flex">
-        <div class="row h-50">
-          <div class="col ">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-        <div class="m-2">
-          <span class="badge badge-pill border exp-fill">&nbsp;</span>
-        </div>
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
+    <section id="about" class="block wrap">
+      <h2 class="reveal"><span><i>About</i></span></h2>
+      <div class="about">
+        <figure class="me">
+          <img src="assets/photos/me-orbs.jpg?v=20261022020832" alt="Varshil Gandhi smiling under hundreds of glowing glass orbs" width="1000" height="1250" loading="lazy">
+        </figure>
+        <div class="prose">
+          <p class="hi">Hi, I'm Varshil.</p>
+          <p>I'm curious by nature and a builder at heart. I rarely say no to trying something new, and once I start, I go all in. Science and engineering have been part of me for as long as I can remember, and I still build things mostly for the joy of it.</p>
+          <p>At work, I lead AI at <a href="#airmdr">AirMDR</a>, where we're building an AI SOC: agents that run cybersecurity operations on their own. Before that, I spent almost four years at <a href="#microsoft">Microsoft</a> training and deploying the language models behind its Ads recommendation system.</p>
+          <p>At <a href="#iitg">IIT Guwahati</a>, I mostly tinkered with robots and reinforcement learning. That led to internships at Intel Labs, IIT Madras and MILA, and a seat in Carnegie Mellon's master's programme, which I gave up when COVID hit.</p>
+          <p class="next">Robots were my first love, which is why lately I've been working on some ambitious ideas in <em>Physical AI</em>.</p>
+          <p>Outside work, you'll find me <a href="hobbies/garden/">gardening</a>, 3D printing something or <a href="hobbies/astro/">looking up at the night sky</a>. Sometimes I'm skating or bird watching in Cubbon Park.</p>
         </div>
       </div>
-      
-      <div class="col py-2">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title exp-title text-muted mt-0 mb-1">Data &amp; Applied Scientist</h4>
-            <h4 class="card-title exp-company text-muted my-0">Microsoft India Pvt. Ltd</h4>
-            <div class="text-muted exp-meta">
-              Jul 2020 –
-              
-                Present
-              
-              
-                <span class="middot-divider"></span>
-                <span>Bengaluru</span>
-              
-            </div>
-            <div class="card-text"></div>
+    </section>
+
+    <section id="experience" class="block wrap">
+      <h2 class="reveal"><span><i>Experience</i></span></h2>
+
+      <ol class="ranges">
+        <li class="rg air" id="airmdr" style="--yrs:2.6">
+          <div class="when"><span>2024</span><span>now</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="assets/logos/airmdr.svg" alt=""></span></div>
+          <div class="what">
+            <h3><img src="assets/logos/airmdr.svg" alt="AirMDR" class="wordmark" width="127" height="23"></h3>
+            <p class="job-meta"><span class="yrs-inline">2024 – now · </span><b>Sr Applied Scientist</b> · Bengaluru</p>
+            <p class="job-lede">Leading AI for an agentic SOC that detects, investigates and responds to security alerts on its own.</p>
+            <ul class="points">
+              <li>Built the <b>agent harness</b>: model-agnostic, 150+ integrations, onboarding in hours.</li>
+              <li>Launched <a href="https://fast.airmdr.com" target="_blank" rel="noopener"><b>FAST</b></a>, our self-serve AI SOC, plus a security copilot and playbook builder.</li>
+            </ul>
           </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row experience">
-      
-      <div class="col-auto text-center flex-column d-none d-sm-flex">
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-        <div class="m-2">
-          <span class="badge badge-pill border ">&nbsp;</span>
-        </div>
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-      </div>
-      
-      <div class="col py-2">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title exp-title text-muted mt-0 mb-1">Research Intern</h4>
-            <h4 class="card-title exp-company text-muted my-0">RISE lab, IIT Madras</h4>
-            <div class="text-muted exp-meta">
-              May 2019 –
-              
-                Jul 2019
-              
-              
-                <span class="middot-divider"></span>
-                <span>Chennai</span>
-              
-            </div>
-            <div class="card-text">Under <a href="https://www.cse.iitm.ac.in/~ravi/" target="_blank">Prof. Balaraman Ravindran</a></p>
-
-<ul>
-<li>Strived upon designing robust Imitation learning models for autonomous driving scenarios.</li>
-<li>Examined how introducing graph-based structural biases can help neural networks reason about the relations between the objects present in the view of a self-driving car.
-<br /></li>
-</ul></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row experience">
-      
-      <div class="col-auto text-center flex-column d-none d-sm-flex">
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-        <div class="m-2">
-          <span class="badge badge-pill border ">&nbsp;</span>
-        </div>
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-      </div>
-      
-      <div class="col py-2">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title exp-title text-muted mt-0 mb-1">Technical Project Manager</h4>
-            <h4 class="card-title exp-company text-muted my-0"><a href="https://www.iitg.ac.in/stud/gymkhana/technical/home/RoboticsHome.html" target="_blank" rel="noopener">Robotics Club</a></h4>
-            <div class="text-muted exp-meta">
-              May 2018 –
-              
-                Apr 2019
-              
-              
-                <span class="middot-divider"></span>
-                <span>IIT Guwahati</span>
-              
-            </div>
-            <div class="card-text">From managing the ongoing projects to upcoming projects, my responsibility was to maintain the work-flow at the club. Along with all these,</p>
-
-<ul>
-<li>Project Head for ARLE team, a project under <a href="https://www.iitg.ac.in/stud/gymkhana/technical/home/4iHome.html" target="_blank">4i Labs</a>.</li>
-<li>Designed certain problem statements and conducted those events at an institute level.
-<br /></li>
-</ul></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row experience">
-      
-      <div class="col-auto text-center flex-column d-none d-sm-flex">
-        <div class="row h-50">
-          <div class="col border-right">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-        <div class="m-2">
-          <span class="badge badge-pill border ">&nbsp;</span>
-        </div>
-        <div class="row h-50">
-          <div class="col ">&nbsp;</div>
-          <div class="col">&nbsp;</div>
-        </div>
-      </div>
-      
-      <div class="col py-2">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="card-title exp-title text-muted mt-0 mb-1">Research Intern</h4>
-            <h4 class="card-title exp-company text-muted my-0">Intel Research Labs</h4>
-            <div class="text-muted exp-meta">
-              May 2018 –
-              
-                Jul 2019
-              
-              
-                <span class="middot-divider"></span>
-                <span>Bangalore</span>
-              
-            </div>
-            <div class="card-text">Under <strong>Dr.Venkat Natarajan</strong>, Senior Staff Engineer</p>
-
-<ul>
-<li>Explored the domain of Reinforcement learning &amp; Imitation Learning for plausible innovations towards intelligent learning of robotic systems as collaborative multi-agents.</li>
-<li>Designed algorithms that can learn robotic arm maneuvers using human-demonstrated trajectories.
-<br /></li>
-</ul></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    
-  </div>
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="posts" class="home-section wg-pages   "  >
-    <div class="container">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-<div class="row">
-  <div class="col-12 col-lg-4 section-heading">
-    <h1>Recent Posts</h1>
-    
-  </div>
-  <div class="col-12 col-lg-8">
-
-    
-
-    
-      
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/post/getting-started/" >Placement Experience | Microsoft Data Science</a>
-    </h3>
-
-    
-    <div class="article-style">
-      My on-campus placement experience and advice for those preparing for Data Scientist roles.
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-        
-
-
-
-<div class="article-metadata">
-
-  
-  
-  
-  
-  <div>
-    
-
-
-
-  
-  <span><a href="/authors/admin/">Varshil Gandhi</a></span>
-
-  </div>
-  
-  
-
-  
-  <span class="article-date">
-    
-    
-      
-          Last updated on
-      
-    
-    Aug 19, 2020
-  </span>
-  
-
-  
-
-  
-  <span class="middot-divider"></span>
-  <span class="article-reading-time">
-    7 min read
-  </span>
-  
-
-  
-  
-  
-  <span class="middot-divider"></span>
-  <a href="/post/getting-started/#disqus_thread"></a>
-  
-
-  
-  
-
-  
-
-</div>
-
-      
-    </div>
-
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/post/getting-started/" >
-      <img src="/post/getting-started/featured_hu415bb34fce4b074799b7b7f5c7271416_631454_150x0_resize_lanczos_2.png" alt="">
-    </a>
-    
-  </div>
-</div>
-
-      
-    
-
-    
-
-  </div>
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="projects" class="home-section wg-portfolio   "  >
-    <div class="container">
-      
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
-
-    <h1>Projects</h1>
-    
-
-  </div>
-  <div class="col-xs-12 col-md-8">
-
-
-
-    
-
-    
-
-      
-
-      
-      
-      
-      
-        
-      
-
-      <span class="d-none default-project-filter">*</span>
-
-      
-      
-      <div class="project-toolbar">
-        <div class="project-filters">
-          <div class="btn-toolbar">
-            <div class="btn-group flex-wrap">
-              
-                
-                
-                
-                  
-                
-                <a href="#" data-filter="*" class="btn btn-primary btn-lg active">All</a>
-              
-                
-                
-                
-                <a href="#" data-filter=".js-id-Reinforcement-Learning" class="btn btn-primary btn-lg">Reinforcement Learning</a>
-              
-                
-                
-                
-                <a href="#" data-filter=".js-id-Robotics" class="btn btn-primary btn-lg">Robotics</a>
-              
-                
-                
-                
-                <a href="#" data-filter=".js-id-NLP" class="btn btn-primary btn-lg">NLP</a>
-              
-                
-                
-                
-                <a href="#" data-filter=".js-id-Others" class="btn btn-primary btn-lg">Others</a>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    
-
-    <div class="isotope projects-container row js-layout-row ">
-      
-
-        
-        
-        
-          
-          
-        
-
-        
-          
-
-
-<div class="col-12 isotope-item js-id-Speech">
-  
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="files/btp.pdf" target="_blank" rel="noopener">Exploring learned Representations for Speech-based Applications</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Bachelor Thesis Project
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="files/btp.pdf" target="_blank" rel="noopener">
-      <img src="/project/btp/featured_hu9883e8849021cfbcd4f29022ca8e4e3a_32278_150x0_resize_lanczos_2.png" alt="">
-    </a>
-    
-  </div>
-</div>
-
-</div>
-
-        
-
-      
-
-        
-        
-        
-          
-          
-        
-
-        
-          
-
-
-<div class="col-12 isotope-item js-id-Robotics js-id-Reinforcement-Learning">
-  
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="https://github.com/IITGuwahati-AI/AnimalAI/tree/master/examples" target="_blank" rel="noopener">AnimalAI - Imitation Learning</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Implemented a reformed architecture that uses Proximal Policy Optimization for training the agent and uses Behavior Cloning for …
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="https://github.com/IITGuwahati-AI/AnimalAI/tree/master/examples" target="_blank" rel="noopener">
-      <img src="/project/animal-ai/featured_hu5f4eb545c527790256a5b629319a684a_134115_150x0_resize_q90_lanczos.jpg" alt="">
-    </a>
-    
-  </div>
-</div>
-
-</div>
-
-        
-
-      
-
-        
-        
-        
-          
-          
-        
-
-        
-          
-
-
-<div class="col-12 isotope-item js-id-Robotics">
-  
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="https://github.com/vjg28/ARLE" target="_blank" rel="noopener">ARLE- Autonomous Robot for Library Enhancement</a>
-    </h3>
-
-    
-    <div class="article-style">
-      An effort to make an automated robot capable of mananging (picking and placing) books in the institute library.
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="https://github.com/vjg28/ARLE" target="_blank" rel="noopener">
-      <img src="/project/arle/featured_hubd815b88f0a46321a7fa2ded381bd936_820590_150x0_resize_lanczos_2.png" alt="">
-    </a>
-    
-  </div>
-</div>
-
-</div>
-
-        
-
-      
-
-        
-        
-        
-          
-          
-        
-
-        
-          
-
-
-<div class="col-12 isotope-item js-id-NLP">
-  
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="https://github.com/vjg28/BERT_on_NarrativeQA" target="_blank" rel="noopener">BERT on NarrativeQA</a>
-    </h3>
-
-    
-    <div class="article-style">
-      A transformer based Language model BERT trained on NarrativeQA dataset.
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="https://github.com/vjg28/BERT_on_NarrativeQA" target="_blank" rel="noopener">
-      <img src="/project/bert-on-narrativeqa/featured_hu83961a08baeb03d9b57f2d0d572a649a_19446_150x0_resize_lanczos_2.png" alt="">
-    </a>
-    
-  </div>
-</div>
-
-</div>
-
-        
-
-      
-
-        
-        
-        
-          
-          
-        
-
-        
-          
-
-
-<div class="col-12 isotope-item js-id-NLP">
-  
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="https://github.com/vjg28/Fake-News-Detection" target="_blank" rel="noopener">Fake News Detector</a>
-    </h3>
-
-    
-    <div class="article-style">
-      A fake-news detector based on BERT Language model.
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="https://github.com/vjg28/Fake-News-Detection" target="_blank" rel="noopener">
-      <img src="/project/fake-news-detector/featured_hu39e712666dd59ede35b4c8694561439b_32258_150x0_resize_q90_lanczos.jpeg" alt="">
-    </a>
-    
-  </div>
-</div>
-
-</div>
-
-        
-
-      
-
-        
-        
-        
-          
-          
-        
-
-        
-          
-
-
-<div class="col-12 isotope-item js-id-Reinforcement-Learning">
-  
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="https://github.com/vjg28/Lunar-Lander-RL" target="_blank" rel="noopener">Policy Gradient Algorithms</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Policy gradient algorithms on Lunar lander environment
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="https://github.com/vjg28/Lunar-Lander-RL" target="_blank" rel="noopener">
-      <img src="/project/lunar-lander-rl/featured_hu1e310e6630bfa7e5faabf994eee0c88f_3559_150x0_resize_q90_lanczos.jpg" alt="">
-    </a>
-    
-  </div>
-</div>
-
-</div>
-
-        
-
-      
-
-        
-        
-        
-          
-          
-        
-
-        
-          
-
-
-<div class="col-12 isotope-item js-id-Robotics">
-  
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="https://github.com/vjg28/robotic-palm" target="_blank" rel="noopener">Robotic Palm Control</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Robotic Palm control using hand-pose estimation algorithms on live video feed
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="https://github.com/vjg28/robotic-palm" target="_blank" rel="noopener">
-      <img src="/project/robotic-palm/featured_hu3b4dad15840ca9737cad727ec8548a30_378674_150x0_resize_lanczos_2.png" alt="">
-    </a>
-    
-  </div>
-</div>
-
-</div>
-
-        
-
-      
-
-        
-        
-        
-
-        
-          
-
-
-<div class="col-12 isotope-item js-id-Reinforcement-Learning">
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="/project/linear-inverse-rl/" >Linear Inverse RL Algorithms</a>
-    </h3>
-
-    
-    <div class="article-style">
-      Implementation of LIRL algorithms on Mountain Car Environment.
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-      <div>
-        
-
-
-
-  
-  <span><a href="/authors/varshil-gandhi/">Varshil Gandhi</a></span>
-
-      </div>
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="/slides/irl-slides/" target="_blank">
-    Slides
-  </a>
-  
-
-
-
-
-
-  
-  
-  
-    
-  
-  
-  
-  
-  
-    
-  
-  <a class="btn btn-outline-primary my-1 mr-1 btn-sm" href="https://github.com/vjg28/Linear-Inverse-RL-algorithms" target="_blank" rel="noopener">
-    <i class="fab fa-github mr-1"></i>
-    Github
-  </a>
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="/project/linear-inverse-rl/" >
-      <img src="/project/linear-inverse-rl/featured_hudc8d52b68ecf14db739c3ad8126cd27c_21363_150x0_resize_lanczos_2.png" alt="">
-    </a>
-    
-  </div>
-</div>
-
-</div>
-
-        
-
-      
-
-        
-        
-        
-          
-          
-        
-
-        
-          
-
-
-<div class="col-12 isotope-item js-id-Others">
-  
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="https://github.com/vjg28/Huffman-Coding-ARM" target="_blank" rel="noopener">Huffman Coding in ARM-v8</a>
-    </h3>
-
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="https://github.com/vjg28/Huffman-Coding-ARM" target="_blank" rel="noopener">
-      <img src="/project/huffman-coding-arm/featured_hu1e6ae3bae36a152a1d1aa76d57cf65b4_112226_150x0_resize_lanczos_2.png" alt="">
-    </a>
-    
-  </div>
-</div>
-
-</div>
-
-        
-
-      
-
-        
-        
-        
-          
-          
-        
-
-        
-          
-
-
-<div class="col-12 isotope-item js-id-Others">
-  
-
-
-
-
-
-
-
-  
-  
-
-
-  
-  
-
-
-
-
-
-  
-
-
-<div class="media stream-item">
-  <div class="media-body">
-
-    <h3 class="article-title mb-0 mt-0">
-      <a href="https://github.com/vjg28/Device-for-ship-detection" target="_blank" rel="noopener">Device for Ship Detection</a>
-    </h3>
-
-    
-    <div class="article-style">
-      A working prototype of a low cost safety device for fishing vessels to prevent collisions.
-    </div>
-    
-
-    <div class="stream-meta article-metadata">
-
-      
-
-      
-    </div>
-
-    
-    <div class="btn-links">
-      
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    
-
-  </div>
-  <div class="ml-3">
-    
-    
-    
-    <a href="https://github.com/vjg28/Device-for-ship-detection" target="_blank" rel="noopener">
-      <img src="/project/device-for-ship-detection/featured_hua077fbaf3d4060e43bbad645bc0afc56_247338_150x0_resize_q90_lanczos.jpg" alt="">
-    </a>
-    
-  </div>
-</div>
-
-</div>
-
-        
-
-      
-    </div>
-
-  </div>
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="accomplishments" class="home-section wg-accomplishments   "  >
-    <div class="container">
-      
-
-
-
-<div class="row">
-  <div class="col-12 col-lg-4 section-heading">
-    <h1>Achievements</h1>
-    
-  </div>
-  <div class="col-12 col-lg-8">
-    
-
-    
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">3rd in <strong>Safety devices for Fishing vessels</strong> problem statement.</h4><div class="card-subtitle my-0 article-metadata">6th InterIIT Tech Meet<span class="middot-divider"></span>
-
-            Jan 2018
-            
-          </div>
-
-          
-
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">Research Fellowship</h4><div class="card-subtitle my-0 article-metadata"><a href="http://www.kvpy.iisc.ernet.in/" target="_blank" rel="noopener">Kishore Vaigyanik Protsahan Yojna (KVPY)</a><span class="middot-divider"></span>
-
-            Jun 2016
-            
-          </div>
-
-          
-
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">All India Rank 1915</h4><div class="card-subtitle my-0 article-metadata">JEE Advanced<span class="middot-divider"></span>
-
-            May 2016
-            
-          </div>
-
-          
-
-          
-        </div>
-      </div>
-    
-      <div class="card experience course">
-        <div class="card-body"><h4 class="card-title exp-title text-muted my-0">National Level Winner</h4><div class="card-subtitle my-0 article-metadata">Roller Skating<span class="middot-divider"></span>
-
-            Dec 2013
-            
-          </div>
-
-          
-
-          
-        </div>
-      </div>
-    
-    
-  </div>
-</div>
-
-    </div>
-  </section>
-
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-
-  
-  
-
-  <section id="contact" class="home-section wg-contact   "  >
-    <div class="container">
-      
-
-
-
-
-
-<div class="row contact-widget">
-  <div class="col-12 col-lg-4 section-heading">
-    <h1>Contact</h1>
-    
-  </div>
-  <div class="col-12 col-lg-8">
-    
-
-    
-
-    <ul class="fa-ul">
-
-      
-      <li>
-        <i class="fa-li fas fa-envelope fa-2x" aria-hidden="true"></i>
-        <span id="person-email"><a href="mailto:varshilgandhi28@gmail.com">varshilgandhi28@gmail.com</a></span>
-      </li>
-      
-
-      
-
-      
-      
-        
-        
-        
-        
-        
-        
-        
-        <li>
-          <i class="fa-li fas fa-map-marker fa-2x" aria-hidden="true"></i>
-          <span id="person-address">Bharuch, Gujarat, 392011, India</span>
         </li>
-      
+        <li class="rg ms" id="microsoft" style="--yrs:3.6">
+          <div class="when"><span>2020</span><span>2024</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="assets/logos/microsoft.svg" alt=""></span></div>
+          <div class="what">
+            <h3>Microsoft</h3>
+            <p class="job-lede">Trained language models for a living, optimising them for Microsoft's ad recommendation system.</p>
+            <ol class="roles">
+              <li><span class="rl">Data &amp; Applied Scientist 2</span><span class="ry">2023 – 2024</span><p>Led short-text relevance for the Ads stack. In-house LLM labelling saved $500K a year.</p></li>
+              <li><span class="rl">Data &amp; Applied Scientist</span><span class="ry">2020 – 2023</span><p>Took relevance models to 70+ languages, at a third of the compute.</p></li>
+            </ol>
+          </div>
+        </li>
+        <li class="rg edu" id="iitg" style="--yrs:4">
+          <div class="when"><span>2016</span><span>2020</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="assets/logos/iitg.svg" alt=""></span></div>
+          <div class="what">
+            <h3>IIT Guwahati</h3>
+            <p class="job-meta"><span class="yrs-inline">2016 – 2020 · </span><b>B.Tech, Electronics &amp; Electrical</b> · minor in Computer Science</p>
+            <p class="job-lede">Mostly built robots and studied reinforcement learning, and spent my summers at some very cool places.</p>
+            <ul class="interns">
+              <li><img src="assets/logos/iitm.svg" alt=""><span class="nm"><b>RISE Lab, IIT Madras</b><span>2019</span></span><p>Graph-based priors that help autonomous driving generalise to new roads.</p></li>
+              <li><img src="assets/logos/mila.png" alt=""><span class="nm"><b>MILA</b><span>2019</span></span><p>Transformer language models that help RL agents play text games.</p></li>
+              <li><img src="assets/logos/intel.svg" alt=""><span class="nm"><b>Intel Labs</b><span>2018</span></span><p>Imitation learning (GAIL) that teaches robot arms from expert demos.</p></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
 
-      
+    <section id="projects" class="block wrap">
+      <h2 class="reveal"><span><i>Projects</i></span></h2>
+      <div class="cards">
+        <a class="card" href="writing/cadforge/">
+          <img class="shot" src="assets/projects/cadforge.jpg?v=1794500000" alt="A grey flanged bearing housing with six counterbored bolt holes and ribs around a central bore, shown like a CAD model on a white canvas" width="1600" height="1200" loading="lazy">
+          <div class="card-txt">
+            <p class="card-meta">April 2026</p>
+            <h3>CADForge</h3>
+            <p>An RL environment where agents learn to write CadQuery code that becomes manufacture-ready STEP parts, rewarded by pure geometry.</p>
+            <span class="card-link">Read the write-up →</span>
+          </div>
+        </a>
+        <a class="card" href="writing/kaggle-medals/">
+          <img class="shot" src="assets/projects/kaggle.jpg?v=1794400000" alt="Dozens of white pins standing on a dark target engraved with concentric rings, two blue pins close to the centre" width="1600" height="1200" loading="lazy">
+          <div class="card-txt">
+            <p class="card-meta">2022</p>
+            <h3>Kaggle Wins</h3>
+            <p>A gold in American Express Default Prediction (16th) and a silver in Feedback Prize (14th), and what each solution did.</p>
+            <span class="card-link">Read the write-up →</span>
+          </div>
+        </a>
+        <article class="card">
+          <img class="shot" src="assets/projects/printing.jpg" alt="Parts of a 3D-printed cycloidal gearbox laid out: housing, cycloidal disc, bearing and brass inserts" width="1600" height="1200" loading="lazy">
+          <div class="card-txt">
+            <p class="card-meta">Ongoing</p>
+            <h3>Things I build</h3>
+            <p>Robots, mechanisms and parts I design and print for my own problems.</p>
+            <span class="card-link muted">Write-ups coming</span>
+          </div>
+        </article>
+      </div>
 
-      
+      <h3 class="sub-h">Earlier work</h3>
+      <div class="minis">
+          <a class="mini" href="blog/placement-experience-microsoft-data-science/">
+            <img src="assets/projects/placement.jpg?v=1794000200" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2020</p><h4>Placement experience: Microsoft Data Science</h4><p>Advice for anyone preparing for data scientist roles.</p></div>
+          </a>
+          <a class="mini" href="files/ASR_BTP_report.pdf" data-goatcounter-click="asr-report-download">
+            <img src="assets/projects/thesis-speech.jpg?v=1794000200" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2020</p><h4>Learned representations for speech</h4><p>Bachelor thesis: self-supervised pre-training for Indic code-switched ASR.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/IITGuwahati-AI/AnimalAI">
+            <img src="assets/projects/animalai.jpg?v=1794000200" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2019</p><h4>AnimalAI</h4><p>PPO with behaviour cloning for the Animal-AI Olympics.</p></div>
+          </a>
+      </div>
+      <div class="minis minis-more" id="more-work" hidden>
+          <a class="mini" href="https://github.com/vjg28/BERT_on_NarrativeQA">
+            <img src="assets/projects/bert-narrativeqa.jpg" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2019</p><h4>BERT on NarrativeQA</h4><p>Reading comprehension over long stories.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/vjg28/ARLE">
+            <img src="assets/projects/arle.jpg" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2018</p><h4>ARLE</h4><p>A robot that picks and places books in the IIT Guwahati library.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/vjg28/Device-for-ship-detection">
+            <img src="assets/projects/ship-detection.jpg" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2018</p><h4>Ship detection device</h4><p>A low-cost collision alarm for fishing boats. Bronze at the Inter-IIT Tech Meet.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/vjg28/robotic-palm">
+            <img src="assets/projects/robotic-palm.jpg?v=1794000200" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2018</p><h4>Robotic palm</h4><p>Hand-pose estimation driving a robotic hand from live video.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/vjg28/Linear-Inverse-RL-algorithms">
+            <img src="assets/projects/linear-irl.jpg" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2018</p><h4>Linear inverse RL</h4><p>Linear inverse RL algorithms on Mountain Car.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/vjg28/Lunar-Lander-RL">
+            <img src="assets/projects/lunar-lander.jpg" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2018</p><h4>Lunar Lander</h4><p>Policy-gradient algorithms on Lunar Lander.</p></div>
+          </a>
+      </div>
+      <button type="button" class="show-more" aria-expanded="false" aria-controls="more-work">Show 6 more</button>
+    </section>
 
-      
+    <section id="life" class="block wrap">
+      <h2 class="reveal"><span><i>Life</i></span></h2>
+      <p class="life-intro">Not work, just the stuff I've done here and there.</p>
+      <div class="panels">
+        <a class="panel sky-panel" href="hobbies/astro/">
+          <div class="art photo orion"><img src="assets/photos/cards/orion.jpg" alt="The Orion Nebula through a Celestron AstroMaster 130EQ telescope" loading="lazy" decoding="async" width="720" height="540"><span class="cap">Orion Nebula, March 2021</span></div>
+          <div class="txt">
+            <h3>Astrophotography</h3>
+            <p>A Celestron AstroMaster 130EQ and a phone held to the eyepiece.</p>
+          </div>
+          <span class="go">See what I caught →</span>
+        </a>
+        <a class="panel soil-panel" href="hobbies/garden/">
+          <div class="art photo"><img src="assets/photos/cards/garden-nightbloom.jpg" alt="A dragon fruit flower blooming at night" loading="lazy" decoding="async" width="720" height="540"><span class="cap">Dragon fruit flower, November 2021</span></div>
+          <div class="txt">
+            <h3>Gardening</h3>
+            <p>A garden grown entirely in pots. Vegetables first, then flowers, then fruit.</p>
+          </div>
+          <span class="go">Watch it grow →</span>
+        </a>
+        <article class="panel speed-panel">
+          <div class="art skate lanes"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="tr-surf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b2030"/><stop offset="1" stop-color="#0c0f18"/></linearGradient>
+      <filter id="tr-glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter>
+    </defs>
+    <path fill-rule="evenodd" fill="url(#tr-surf)" d="M-60 390a480 300 0 1 0 960 0a480 300 0 1 0-960 0ZM190 390a230 145 0 1 0 460 0a230 145 0 1 0-460 0Z"/>
+    <g fill="none" stroke="rgba(255,255,255,.12)" stroke-dasharray="6 9">
+      <ellipse cx="420" cy="390" rx="280" ry="176"/><ellipse cx="420" cy="390" rx="330" ry="207"/><ellipse cx="420" cy="390" rx="380" ry="238"/><ellipse cx="420" cy="390" rx="430" ry="269"/>
+    </g>
+    <g fill="none" stroke="rgba(232,236,246,.35)" stroke-width="1.2">
+      <ellipse cx="420" cy="390" rx="480" ry="300"/><ellipse cx="420" cy="390" rx="230" ry="145"/>
+    </g>
+    <g fill="none" stroke-linecap="round">
+      <path class="trail" pathLength="1000" d="M115 390A305 191 0 0 1 420 199" stroke="#ffb260" stroke-width="8" filter="url(#tr-glow)" opacity=".7"/>
+      <path class="trail" pathLength="1000" d="M115 390A305 191 0 0 1 420 199" stroke="#ffd7a8" stroke-width="2.4"/>
+      <path class="trail b" pathLength="1000" d="M15 390A405 254 0 0 1 420 136" stroke="#e3762e" stroke-width="7" filter="url(#tr-glow)" opacity=".55"/>
+      <path class="trail b" pathLength="1000" d="M15 390A405 254 0 0 1 420 136" stroke="#ffb260" stroke-width="2"/>
+    </g>
+  </svg></div>
+          <div class="txt">
+            <h3>Roller skating</h3>
+            <p>Raced for years, and won at the national level in 2013.</p>
+          </div>
+          <span class="go soon">Coming up</span>
+        </article>
+      </div>
+    </section>
 
-      
-      
-
-    </ul>
-
-    
-
-  </div>
-</div>
-
-    </div>
-  </section>
-
-
-
-      
-
-    
-    
-    
-    <script src="/js/mathjax-config.js"></script>
-    
-
-    
-    
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
-
-      
-
-      
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
-        
-      
-
-      
-      
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_CHTML-full" integrity="sha256-GhM+5JHb6QUzOQPXSJLEWP7R73CbkisjzK5Eyij4U9w=" crossorigin="anonymous" async></script>
-      
-    
-
-    
-    
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin="anonymous"></script>
-    
-
-    
-    
-    <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-    
-    
-    
-    
-    
-    <script>
-      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
-      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
-      const content_type = {
-        'post': "Posts",
-        'project': "Projects",
-        'publication' : "Publications",
-        'talk' : "Talks"
-        };
-    </script>
-    
-
-    
-    
-
-    
-    
-    <script id="search-hit-fuse-template" type="text/x-template">
-      <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
+    <footer id="contact" class="contact">
+      <canvas id="sunrise" aria-hidden="true"></canvas>
+      <div class="wrap contact-inner">
+        <div class="closing">
+          <h2>Say hello</h2>
+          <div class="ways">
+            <button type="button" class="say email-btn" aria-label="Show my email" data-goatcounter-click="email-footer" data-u="varshilgandhi28" data-d="gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span>Show my email</span></button>
+            <ul class="reach icons elsewhere" aria-label="Find me elsewhere"><li><a href="https://github.com/vjg28" aria-label="GitHub" data-tip="GitHub" data-goatcounter-click="out-github-footer"><svg aria-hidden="true"><use href="#i-github"/></svg></a></li><li><a href="https://www.linkedin.com/in/varshil-gandhi/" aria-label="LinkedIn" data-tip="LinkedIn" data-goatcounter-click="out-linkedin-footer"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li><li><a href="https://x.com/varshilgandhi28" aria-label="X (Twitter)" data-tip="X" data-goatcounter-click="out-x-footer"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li><li><a href="https://www.instagram.com/variable.gandhi/" aria-label="Instagram" data-tip="Instagram" data-goatcounter-click="out-instagram-footer"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li><li><a href="files/Varshil_Gandhi_Resume.pdf" aria-label="Résumé (PDF)" data-tip="Résumé" data-goatcounter-click="resume-footer"><svg aria-hidden="true"><use href="#i-doc"/></svg></a></li></ul>
+          </div>
         </div>
       </div>
-      </div>
-    </script>
-    
+      <p class="fine">© 2026 Varshil Gandhi</p>
+    </footer>
+  </main>
 
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
-    
-
-    
-    
-
-    
-    
-    <script id="dsq-count-scr" src="https://eventhorizon-28.disqus.com/count.js" async></script>
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    
-    
-    
-    <script src="/js/academic.min.6cbefe3f0755301b86cd38317ded9f54.js"></script>
-
-    
-
-
-
-
-
-
-  
-  <div class="container">
-    <footer class="site-footer">
-  
-
-  <p class="powered-by">
-    
-
-    Powered by the
-    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
-    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
-
-    
-    <span class="float-right" aria-hidden="true">
-      <a href="#" class="back-to-top">
-        <span class="button_icon">
-          <i class="fas fa-chevron-up fa-2x"></i>
-        </span>
-      </a>
-    </span>
-    
-  </p>
-</footer>
-
-  </div>
-  
-
-  
-<div id="modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Cite</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <pre><code class="tex hljs"></code></pre>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
-          <i class="fas fa-copy"></i> Copy
-        </a>
-        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
-          <i class="fas fa-download"></i> Download
-        </a>
-        <div id="modal-error"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
+  <script src="assets/js/portrait.js?v=20261022015402"></script>
+  <script src="assets/js/blueprints.js?v=20261022015402"></script>
+  <script src="js/site.js?v=1794800000"></script>
+  <script data-goatcounter="https://varshilgandhi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

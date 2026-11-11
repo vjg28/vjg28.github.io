@@ -1,0 +1,20 @@
+# Varshil Gandhi
+
+> Varshil Gandhi is a Sr Applied Scientist leading AI at AirMDR in Bengaluru, building self-improving agents for security operations. Previously a Data & Applied Scientist at Microsoft (2020–2024) working on deep-learning ads relevance. B.Tech in Electronics & Electrical Engineering from IIT Guwahati (2020). Builds things with 3D printers and photographs the night sky.
+
+## Pages
+
+- [Home](https://varshilgandhi.com/): about, experience, projects and hobbies
+- [CADForge](https://varshilgandhi.com/writing/cadforge/): an RL environment where AI agents write CadQuery code that becomes manufacture-ready STEP files
+- [Kaggle wins](https://varshilgandhi.com/writing/kaggle-medals/): a gold in American Express Default Prediction and a silver in Feedback Prize, and how each solution worked
+- [Exoskeleton](https://varshilgandhi.com/projects/exoskeleton/): a wearable rig for collecting egocentric data for robots
+- [Placement experience: Microsoft Data Science](https://varshilgandhi.com/blog/placement-experience-microsoft-data-science/)
+- [Astrophotography](https://varshilgandhi.com/hobbies/astro/): an observing log plotted on a real sky chart
+- [Gardening](https://varshilgandhi.com/hobbies/garden/): a potted garden rebuilt in 3D from two years of photos
+
+## Elsewhere
+
+- [GitHub](https://github.com/vjg28)
+- [LinkedIn](https://www.linkedin.com/in/varshil-gandhi/)
+- [X](https://x.com/varshilgandhi28)
+- [Résumé (PDF)](https://varshilgandhi.com/files/Varshil_Gandhi_Resume.pdf)

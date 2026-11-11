@@ -1,0 +1,20 @@
+/* Variant B: editorial. Split header with a big framed hero; framed wide figures with captions beside */
+.vp .page { padding-top: 120px; gap: 64px; }
+.vp .page-head { max-width: none; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: "txt shot"; gap: 40px; align-items: end; }
+.vp .page-head .ph-txt { grid-area: txt; display: grid; gap: 16px; align-content: end; }
+.vp .page-head h1 { font-size: clamp(2.4rem, 4.6vw, 3.8rem); }
+.vp .page-head .shot-hero { grid-area: shot; margin: 0; }
+.vp figure { margin: 0; }
+.vp .shot-hero img, .vp .shot-wide img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); }
+.vp .shot-wide, .vp .article .shot-wide { width: min(1120px, calc(100vw - 48px)); max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 24px; align-items: end; }
+.vp .shot-wide figcaption, .vp .shot-hero figcaption { font: 400 0.9rem/1.55 var(--sans); color: var(--dim); text-align: left; letter-spacing: 0; }
+.vp .shot-hero figcaption { margin-top: 10px; }
+.vp .shot-bleed { width: min(1120px, calc(100vw - 48px)); max-width: none; display: grid; gap: 10px; }
+.vp .shot-bleed img { width: 100%; display: block; border-radius: 10px; border: 1px solid var(--line); }
+.vp .shot-bleed figcaption { font: 400 0.9rem/1.55 var(--sans); color: var(--dim); text-align: left; letter-spacing: 0; }
+.vp .article > .shot-bleed, .vp .article > .shot-wide { margin: 28px 0; }
+.vp .lede { font: 300 1.45rem/1.5 var(--display); color: var(--ink); }
+@media (max-width: 900px) {
+  .vp .page-head { grid-template-columns: 1fr; grid-template-areas: "txt" "shot"; }
+  .vp .shot-wide, .vp .article .shot-wide { grid-template-columns: 1fr; gap: 10px; }
+}

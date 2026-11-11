@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Closing variants · Varshil Gandhi</title>
+  <link rel="stylesheet" href="/css/fonts.css">
+  <style>
+    :root { --night:#04060d; --ink:#e8ecf6; --dim:#98a1bb; --line:rgba(160,175,220,.16); --sun:#ffb260; color-scheme:dark; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--night); color:var(--ink); font:300 17px/1.6 "IBM Plex Sans", Arial, sans-serif; }
+    header, .meta { max-width:1120px; margin:0 auto; padding:0 20px; }
+    header { padding-top:64px; padding-bottom:28px; display:grid; gap:14px; }
+    h1 { font:300 clamp(2.4rem,6vw,4rem)/1 "Cormorant Garamond", Georgia, serif; margin:0; }
+    h2 { font:300 2rem/1.1 "Cormorant Garamond", Georgia, serif; margin:0; }
+    h2 b { font-weight:300; color:var(--sun); margin-right:12px; }
+    h2 em { font:400 .85rem/1 "IBM Plex Sans", Arial, sans-serif; font-style:normal; color:var(--sun); margin-left:10px; vertical-align:middle; }
+    p { margin:0; color:var(--dim); max-width:70ch; }
+    .toggle { display:flex; gap:22px; margin-top:6px; }
+    .toggle button { background:none; border:0; border-bottom:1px solid transparent; padding:6px 0; color:var(--dim); font:400 .95rem/1 "IBM Plex Sans", Arial, sans-serif; cursor:pointer; }
+    .toggle button[aria-pressed="true"] { color:var(--ink); border-color:var(--sun); }
+    section { padding:40px 0 24px; border-top:1px solid var(--line); margin-top:24px; }
+    .meta { display:grid; gap:8px; margin-bottom:18px; }
+    .meta a { color:var(--ink); font-size:.9rem; text-decoration:none; border-bottom:1px solid var(--line); justify-self:start; }
+    .meta a:hover { color:var(--sun); border-color:var(--sun); }
+    .frame { display:flex; justify-content:center; }
+    iframe { display:block; width:100%; height:780px; border:0; background:var(--night); }
+    body.phone iframe { width:390px; height:844px; border:1px solid var(--line); border-radius:22px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Closing variants</h1>
+    <p>Each frame is the real homepage, scrolled to the footer, with only the closing block swapped. The sunrise canvas and its script are untouched. Click the email control in each to see the reveal.</p>
+    <div class="toggle"><button type="button" data-w="desk" aria-pressed="true">Desktop</button><button type="button" data-w="phone" aria-pressed="false">Phone, 390px</button></div>
+  </header>
+
+  <section><div class="meta"><h2><b>A</b>Editorial<em>applied to the site</em></h2><p>Left-aligned closing line, one plain sentence underneath, then the email as an underlined text link and the icon links in a quiet row split by a hairline.</p><a href="/versions/closing/a.html#contact">Open on its own</a></div><div class="frame"><iframe src="/versions/closing/a.html#contact" title="Variant A" loading="lazy"></iframe></div></section>
+  <section><div class="meta"><h2><b>B</b>One line</h2><p>One centred serif sentence. The address is masked in amber italic inside the line and decodes in place when clicked; click again to copy.</p><a href="/versions/closing/b.html#contact">Open on its own</a></div><div class="frame"><iframe src="/versions/closing/b.html#contact" title="Variant B" loading="lazy"></iframe></div></section>
+  <section><div class="meta"><h2><b>C</b>Split</h2><p>A short note on the left, and every way to reach him on the right as a ruled list with handles, email first.</p><a href="/versions/closing/c.html#contact">Open on its own</a></div><div class="frame"><iframe src="/versions/closing/c.html#contact" title="Variant C" loading="lazy"></iframe></div></section>
+  <section><div class="meta"><h2><b>D</b>Credits</h2><p>The site motto as the last line in the sky, and the email plus icons sitting low on the dark ridge like end credits.</p><a href="/versions/closing/d.html#contact">Open on its own</a></div><div class="frame"><iframe src="/versions/closing/d.html#contact" title="Variant D" loading="lazy"></iframe></div></section>
+  <script>
+    // Each frame is the real page; once it loads, jump it to the footer so the sunrise is up.
+    const toFooter = f => { try { const w = f.contentWindow, d = w.document; d.documentElement.style.scrollBehavior = 'auto'; w.scrollTo(0, d.documentElement.scrollHeight); } catch (e) {} };
+    document.querySelectorAll('iframe').forEach(f => {
+      f.addEventListener('load', () => { toFooter(f); setTimeout(() => toFooter(f), 900); });
+      if (f.contentDocument && f.contentDocument.readyState === 'complete') toFooter(f);
+    });
+    document.querySelectorAll('.toggle button').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('.toggle button').forEach(x => x.setAttribute('aria-pressed', x === b));
+      document.body.classList.toggle('phone', b.dataset.w === 'phone');
+      setTimeout(() => document.querySelectorAll('iframe').forEach(toFooter), 300);
+    }));
+  </script>
+</body>
+</html>

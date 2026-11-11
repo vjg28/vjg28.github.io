@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>Varshil Gandhi · Constellations</title>
+  <meta name="description" content="Varshil Gandhi leads AI at AirMDR. Builds things with 3D printers, photographs the night sky, gardens, and skates.">
+  <meta name="theme-color" content="#03050b">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <style>
+    /* Layout: a full-screen sky map whose constellations are the navigation; below it, sections that each open
+       with their own constellation glyph, a career drawn as one constellation line, and a dawn ending. */
+    :root {
+      --night: #03050b;
+      --deep: #070b19;
+      --ink: #eef1f8;
+      --dim: #9aa2bb;
+      --faint: #5b6382;
+      --line: rgba(160, 178, 230, 0.15);
+      --star: #b8c7ff;
+      --glow: #7f9cff;
+      --sun: #ffb260;
+      --ember: #e3762e;
+      --display: "Gloock", "Iowan Old Style", Georgia, serif;
+      --sans: "Manrope", "Helvetica Neue", Arial, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+      --ease: cubic-bezier(.2, .8, .2, 1);
+      --dawn: 0;
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--night); color: var(--ink); font: 300 16.5px/1.65 var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; }
+    p { margin: 0; }
+    h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 400; text-wrap: balance; letter-spacing: -0.005em; }
+    ::selection { background: var(--star); color: var(--night); }
+    :focus-visible { outline: 1px solid var(--sun); outline-offset: 4px; border-radius: 4px; }
+    .mono { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+    .wrap { max-width: 1160px; margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
+
+    /* fixed sky for the whole page, and the dawn wash */
+    #sky { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -2; display: block; }
+    .dawn { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: var(--dawn);
+      background: radial-gradient(120% 60% at 50% 115%, rgba(227, 118, 46, .55), transparent 60%), linear-gradient(180deg, transparent 40%, rgba(60, 34, 42, .55) 100%); }
+
+    /* chrome */
+    .back, .tomap { position: fixed; z-index: 20; top: max(14px, env(safe-area-inset-top, 0px)); font: 500 .7rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; color: var(--dim);
+      padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(5, 8, 18, .6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: color .3s, border-color .3s, opacity .4s; }
+    .back { left: max(14px, env(safe-area-inset-left, 0px)); }
+    .tomap { right: max(14px, env(safe-area-inset-right, 0px)); opacity: 0; pointer-events: none; }
+    .tomap.show { opacity: 1; pointer-events: auto; }
+    .back:hover, .tomap:hover { color: var(--ink); border-color: var(--star); }
+
+    /* ---------- hero sky map ---------- */
+    .map { position: relative; height: 100vh; height: 100svh; min-height: 640px; overflow: hidden; isolation: isolate; }
+    .map canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: -1; }
+    .map::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 18%; background: linear-gradient(transparent, var(--night)); pointer-events: none; }
+    .intro { position: absolute; left: max(6vw, 22px); bottom: 12%; max-width: min(520px, 46vw); display: grid; gap: 16px; z-index: 2; }
+    .intro h1 { font-size: clamp(2.8rem, 6vw, 5.2rem); line-height: .95; }
+    .intro .line { font-family: var(--display); font-size: clamp(1.25rem, 2.1vw, 1.7rem); line-height: 1.2; color: var(--star); }
+    .intro .about { color: var(--dim); font-size: 1rem; max-width: 46ch; }
+    .intro .hint { margin-top: 6px; }
+
+    .cons { position: absolute; z-index: 3; display: grid; justify-items: center; gap: 4px; text-decoration: none; color: var(--dim); width: 128px; transform: translate(-50%, -50%); padding: 6px; border-radius: 12px; }
+    .cons svg { width: 112px; height: 78px; overflow: visible; }
+    .cons .l { stroke: rgba(184, 199, 255, .28); stroke-width: .7; transition: stroke .4s, stroke-width .4s; }
+    .cons .s { fill: var(--star); transition: r .4s var(--ease), fill .4s; }
+    .cons .halo { fill: rgba(127, 156, 255, 0); transition: fill .5s; }
+    .cons span { font: 500 .68rem/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; transition: color .3s, letter-spacing .4s var(--ease); }
+    .cons:hover, .cons:focus-visible { color: var(--ink); }
+    .cons:hover .l, .cons:focus-visible .l { stroke: rgba(200, 212, 255, .9); stroke-width: 1.1; }
+    .cons:hover .halo, .cons:focus-visible .halo { fill: rgba(127, 156, 255, .25); }
+    .cons:hover span, .cons:focus-visible span { letter-spacing: .26em; }
+    .cons small { font: 400 .62rem/1.3 var(--mono); letter-spacing: .06em; color: var(--faint); opacity: 0; transition: opacity .3s; text-align: center; }
+    .cons:hover small, .cons:focus-visible small { opacity: 1; }
+
+    /* desktop positions; the silhouette stands lower right */
+    .c-career  { left: 9%;  top: 15%; }
+    .c-builds  { left: 27%; top: 30%; }
+    .c-writing { left: 43%; top: 12%; }
+    .c-sky     { left: 62%; top: 10%; }
+    .c-soil    { left: 82%; top: 17%; }
+    .c-speed   { left: 47%; top: 42%; }
+
+    /* ---------- sections ---------- */
+    section { position: relative; padding-top: 110px; padding-bottom: 40px; }
+    .head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 28px; align-items: end; margin-bottom: 44px; }
+    .head .glyph { width: 132px; height: 92px; grid-row: span 2; }
+    .head .glyph .l { stroke: rgba(200, 212, 255, .55); stroke-width: .8; }
+    .head .glyph .s { fill: var(--star); }
+    .head .glyph .halo { fill: rgba(127, 156, 255, .18); }
+    .head h2 { font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; }
+    .lead { color: var(--dim); max-width: 60ch; font-size: 1.04rem; }
+
+    /* career constellation */
+    .tl-svg { width: 100%; height: auto; display: block; overflow: visible; }
+    .tl-svg .axis { stroke: var(--line); }
+    .tl-svg .yr { font: 400 11px var(--mono); fill: var(--faint); letter-spacing: .1em; }
+    .tl-svg .link { stroke: rgba(184, 199, 255, .35); stroke-width: 1; }
+    .tl-svg .node { cursor: pointer; }
+    .tl-svg .node circle.core { fill: var(--star); transition: r .35s var(--ease); }
+    .tl-svg .node circle.ring { fill: none; stroke: rgba(184, 199, 255, 0); stroke-width: 1; transition: stroke .35s, r .35s var(--ease); }
+    .tl-svg .node text { font: 500 11px var(--mono); fill: var(--dim); letter-spacing: .08em; text-transform: uppercase; transition: fill .3s; }
+    .tl-svg .node.on circle.core { r: 6; }
+    .tl-svg .node.on circle.ring { stroke: rgba(184, 199, 255, .7); r: 14; }
+    .tl-svg .node.on text { fill: var(--ink); }
+    .tl-svg .node:focus { outline: none; }
+    .tl-svg .node:focus-visible circle.ring { stroke: var(--sun); r: 14; }
+    .tl-svg .node.now circle.core { fill: var(--sun); }
+
+    .roles { list-style: none; margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+    .role { border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 20px; background: rgba(7, 11, 25, .55); display: grid; gap: 6px; align-content: start; transition: border-color .35s, background .35s, transform .45s var(--ease); min-width: 0; }
+    .role.on { border-color: rgba(184, 199, 255, .55); background: rgba(20, 28, 60, .55); transform: translateY(-2px); }
+    .role time { font: 400 .7rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+    .role h3 { font-size: 1.35rem; line-height: 1.15; }
+    .role .who { font: 500 .78rem/1.4 var(--mono); color: var(--star); letter-spacing: .02em; }
+    .role p { color: var(--dim); font-size: .93rem; }
+    .role.now { border-color: rgba(255, 178, 96, .4); }
+    .role.now .who { color: var(--sun); }
+    .edu { margin-top: 18px; }
+
+    /* builds */
+    .feature { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 14px; }
+    .card { border: 1px solid var(--line); border-radius: 16px; padding: 24px; background: rgba(7, 11, 25, .55); display: grid; gap: 10px; align-content: start; min-width: 0; transition: border-color .35s, transform .45s var(--ease); }
+    .card:hover { border-color: rgba(184, 199, 255, .45); transform: translateY(-2px); }
+    .card h3 { font-size: 1.75rem; line-height: 1.1; }
+    .card p { color: var(--dim); }
+    .card .go { font: 500 .72rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--star); text-decoration: none; justify-self: start; padding-top: 6px; }
+    .card .go:hover { color: var(--ink); }
+    .todo { font: 400 .68rem/1.4 var(--mono); color: var(--faint); letter-spacing: .04em; }
+
+    .slots { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 120px; gap: 10px; }
+    .slot { position: relative; border-radius: 12px; border: 1px dashed rgba(160, 178, 230, .22); overflow: hidden; display: grid; align-content: end; padding: 12px; min-width: 0;
+      background: radial-gradient(90% 90% at 30% 20%, rgba(127, 156, 255, .08), transparent 70%), rgba(7, 11, 25, .5); }
+    .slot::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(184, 199, 255, .5) .7px, transparent .8px); background-size: 22px 22px; opacity: .25; }
+    .slot span { position: relative; font: 400 .64rem/1.35 var(--mono); letter-spacing: .06em; color: var(--dim); }
+    .slot b { display: block; font-weight: 500; color: var(--ink); letter-spacing: .12em; text-transform: uppercase; }
+    .w2 { grid-column: span 2; } .w3 { grid-column: span 3; } .w4 { grid-column: span 4; } .h2 { grid-row: span 2; }
+    .soil .slot { background: radial-gradient(90% 90% at 30% 80%, rgba(143, 184, 125, .1), transparent 70%), rgba(9, 14, 10, .5); }
+    .speed .slot { background: radial-gradient(90% 90% at 70% 50%, rgba(255, 122, 92, .1), transparent 70%), rgba(18, 9, 8, .45); }
+
+    /* writing */
+    .posts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+    .posts li { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 18px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .posts time, .posts .where { font: 400 .72rem/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+    .posts a, .posts .t { font-family: var(--display); font-size: 1.35rem; line-height: 1.25; text-decoration: none; }
+    .posts a { background: linear-gradient(var(--star), var(--star)) 0 100% / 0 1px no-repeat; transition: background-size .45s var(--ease), color .3s; }
+    .posts a:hover { background-size: 100% 1px; color: var(--star); }
+    .posts .soon .t { color: var(--dim); }
+
+    /* hobbies */
+    .hobby .about { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: end; margin-bottom: 22px; }
+    .fact { font: 400 .72rem/1.5 var(--mono); letter-spacing: .08em; color: var(--dim); text-align: right; }
+    .fact b { color: var(--sun); font-weight: 500; }
+
+    /* dawn ending */
+    .contact { position: relative; overflow: hidden; min-height: 780px; padding-top: 180px; padding-bottom: max(36px, env(safe-area-inset-bottom, 0px)); display: flex; align-items: flex-end; margin-top: 80px; }
+    .sun { position: absolute; left: 50%; bottom: 0; width: min(600px, 95vw); aspect-ratio: 1; border-radius: 50%;
+      transform: translate(-50%, calc(64% - var(--dawn) * 30%)); opacity: calc(.3 + var(--dawn) * .7); filter: blur(2px);
+      background: radial-gradient(circle, #ffd7a0 0%, var(--sun) 22%, var(--ember) 45%, rgba(227, 118, 46, 0) 70%); }
+    .ridge { position: absolute; left: 0; right: 0; bottom: 0; height: 230px; background: #05040a;
+      clip-path: polygon(0 55%, 8% 44%, 17% 52%, 29% 30%, 40% 47%, 52% 35%, 63% 52%, 75% 31%, 87% 47%, 100% 37%, 100% 100%, 0 100%); }
+    .contact .wrap { position: relative; z-index: 1; width: 100%; display: grid; gap: 22px; justify-items: center; text-align: center; }
+    .contact h2 { font-size: clamp(2.2rem, 5.4vw, 4.4rem); line-height: 1.02; max-width: 16ch; }
+    .mail { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; }
+    .mail span { font-family: var(--display); font-size: clamp(1.25rem, 3vw, 1.8rem); user-select: all; overflow-wrap: anywhere; }
+    .btn { font: 500 .72rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; text-decoration: none; transition: border-color .3s, transform .35s var(--ease); }
+    .btn:hover { border-color: var(--ink); transform: translateY(-2px); }
+    .social { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; font: 500 .72rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+    .social a { text-decoration: none; padding: 6px 0; transition: color .3s; }
+    .social a:hover { color: var(--sun); }
+    .fine { margin-top: 150px; font: 400 .66rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 900px) {
+      .intro { max-width: 60vw; }
+      .c-career { left: 12%; top: 12%; } .c-builds { left: 36%; top: 26%; } .c-writing { left: 50%; top: 9%; }
+      .c-sky { left: 76%; top: 9%; } .c-soil { left: 88%; top: 26%; } .c-speed { left: 62%; top: 30%; }
+      .slots { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .w4 { grid-column: span 4; }
+    }
+    @media (max-width: 680px) {
+      .map { min-height: 760px; }
+      .cmap { position: absolute; left: 0; right: 0; top: 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 0; padding-inline: 10px; z-index: 3; }
+      .cons { position: static; transform: none; width: auto; }
+      .cons svg { width: 84px; height: 58px; }
+      .cons small { display: none; }
+      .intro { left: 22px; right: 22px; bottom: 7%; max-width: none; }
+      .intro .about { max-width: 30ch; }
+      .head { grid-template-columns: 1fr; }
+      .head .glyph { grid-row: auto; width: 104px; height: 72px; }
+      .feature { grid-template-columns: 1fr; }
+      .slots { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 110px; }
+      .w2, .w3, .w4 { grid-column: span 2; }
+      .posts li { grid-template-columns: 1fr; gap: 4px; }
+      .hobby .about { grid-template-columns: 1fr; }
+      .fact { text-align: left; }
+      .tl-svg { display: none; }
+      .roles { grid-template-columns: 1fr; gap: 0; position: relative; padding-left: 30px; margin-top: 0; }
+      .roles::before { content: ""; position: absolute; left: 7px; top: 14px; bottom: 14px; width: 1px; background: linear-gradient(var(--star), rgba(184, 199, 255, .2) 50%, var(--sun)); }
+      .role { border: 0; background: none; padding: 14px 0 20px; position: relative; }
+      .role::before { content: ""; position: absolute; left: -27px; top: 19px; width: 9px; height: 9px; border-radius: 50%; background: var(--star); box-shadow: 0 0 12px var(--glow); }
+      .role.now::before { background: var(--sun); box-shadow: 0 0 12px var(--sun); }
+      .role.on { transform: none; background: none; }
+    }
+    @media (min-width: 681px) { .cmap { display: contents; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="dawn" aria-hidden="true"></div>
+
+  <a class="back" href="../index.html">← All versions</a>
+  <a class="tomap" id="tomap" href="#top">↑ Sky map</a>
+
+  <main>
+    <!-- Sky map -->
+    <header class="map" id="top">
+      <canvas id="trails" aria-hidden="true"></canvas>
+
+      <nav class="cmap" aria-label="Sections">
+        <a class="cons c-career" href="#career" data-g="career"><svg aria-hidden="true"></svg><span>Career</span><small>2018 → now</small></a>
+        <a class="cons c-builds" href="#builds" data-g="builds"><svg aria-hidden="true"></svg><span>Builds</span><small>3D prints &amp; robots</small></a>
+        <a class="cons c-writing" href="#writing" data-g="writing"><svg aria-hidden="true"></svg><span>Writing</span><small>Notes &amp; posts</small></a>
+        <a class="cons c-sky" href="#sky-photos" data-g="sky"><svg aria-hidden="true"></svg><span>Sky</span><small>Astrophotography</small></a>
+        <a class="cons c-soil" href="#soil" data-g="soil"><svg aria-hidden="true"></svg><span>Soil</span><small>Gardening</small></a>
+        <a class="cons c-speed" href="#speed" data-g="speed"><svg aria-hidden="true"></svg><span>Speed</span><small>Skating</small></a>
+      </nav>
+
+      <div class="intro">
+        <h1>Varshil Gandhi</h1>
+        <p class="line">Finding the problems that define what's next.</p>
+        <p class="about">I lead AI at AirMDR, building self-improving agents for security operations. Before that, Microsoft Advertising. I build things with 3D printers, photograph the night sky, garden, and skate.</p>
+        <p class="mono hint">Pick a constellation, or scroll ↓</p>
+      </div>
+    </header>
+
+    <!-- Career -->
+    <section id="career" class="wrap">
+      <div class="head">
+        <svg class="glyph" data-g="career" aria-hidden="true"></svg>
+        <p class="mono">Internships &amp; work · 2018 → now</p>
+        <h2>Career</h2>
+      </div>
+      <svg class="tl-svg" id="tl" viewBox="0 0 1000 250" role="img" aria-label="Career constellation from 2018 to now; the same roles are listed below."></svg>
+      <ol class="roles" id="roles">
+        <li class="role" data-i="0"><time>Summer 2018</time><h3>Intel Labs</h3><p class="who">Research Intern · Dr. Venkat Natarajan</p><p>Imitation learning for robotics: a modified GAIL that teaches robotic-arm movements from expert trajectories.</p></li>
+        <li class="role" data-i="1"><time>2019</time><h3>RISE Lab, IIT Madras</h3><p class="who">Research Intern · Prof. B. Ravindran</p><p>Generalisable autonomous navigation: graph-based structural bias that helps driving models learn the physics of their world.</p></li>
+        <li class="role" data-i="2"><time>2019</time><h3>MILA</h3><p class="who">Research · Dr. Jie Fu</p><p>Transformer language models to improve agents that play text-based games.</p></li>
+        <li class="role" data-i="3"><time>2019 – 2020</time><h3>IIT Guwahati thesis</h3><p class="who">Bachelor thesis · Prof. Rohit Sinha</p><p>Learned representations for speech: self-supervised pre-training for Indic code-switched ASR.</p></li>
+        <li class="role" data-i="4"><time>Aug 2020 – Mar 2023</time><h3>Microsoft Advertising</h3><p class="who">Data &amp; Applied Scientist</p><p>Multilingual, multitask relevance models across 70+ languages; distillation of large cross-encoders into production models.</p></li>
+        <li class="role" data-i="5"><time>Mar 2023 – Mar 2024</time><h3>Microsoft Advertising</h3><p class="who">Data &amp; Applied Scientist 2</p><p>Led query–keyword relevance globally. Replaced external labellers with in-house LLM labelling, saving $500K a year.</p></li>
+        <li class="role now" data-i="6"><time>Apr 2024 – now</time><h3>AirMDR</h3><p class="who">Senior ML Scientist · leading AI</p><p>A self-improving agent harness across 150+ security integrations. Time to investigate an alert: from 15 minutes to under 5.</p></li>
+      </ol>
+      <p class="mono edu">Education · IIT Guwahati, B.Tech EEE, minor in CS · 2016 – 2020 · <a href="../../files/Varshil_Gandhi_Resume.pdf">Résumé ↗</a></p>
+    </section>
+
+    <!-- Builds -->
+    <section id="builds" class="wrap">
+      <div class="head">
+        <svg class="glyph" data-g="builds" aria-hidden="true"></svg>
+        <p class="mono">Things I made</p>
+        <h2>Builds</h2>
+      </div>
+      <p class="lead" style="margin-bottom:28px">Most of what I build starts as a problem at home and ends on the 3D printer: parts and tools designed for my own use. The photos and videos are here; the write-ups are coming.</p>
+      <div class="feature">
+        <article class="card">
+          <p class="mono">2025 · Robotics</p>
+          <h3>Exoskeleton</h3>
+          <p>A wearable rig for collecting egocentric data to train robots.</p>
+          <a class="go" href="#builds" aria-disabled="true">Project page · coming soon</a>
+        </article>
+        <article class="card">
+          <p class="mono">2026 · RL · CAD</p>
+          <h3>CADForge</h3>
+          <p>An RL environment where agents write manufacture-ready CAD.</p>
+          <a class="go" href="https://medium.com/" rel="noopener">Read on Medium ↗</a>
+          <p class="todo">Placeholder link · add the Medium post URL</p>
+        </article>
+      </div>
+      <div class="slots" aria-label="3D printing gallery, photos to be added">
+        <div class="slot w3 h2"><span><b>Print 01</b>Photo or video · assets/photos/builds/</span></div>
+        <div class="slot w3"><span><b>Print 02</b>Photo slot</span></div>
+        <div class="slot"><span><b>Print 03</b>Photo slot</span></div>
+        <div class="slot w2"><span><b>Print 04</b>Video slot</span></div>
+        <div class="slot w2"><span><b>Print 05</b>Photo slot</span></div>
+        <div class="slot w4"><span><b>Print 06</b>Build-log photo slot</span></div>
+      </div>
+    </section>
+
+    <!-- Writing -->
+    <section id="writing" class="wrap">
+      <div class="head">
+        <svg class="glyph" data-g="writing" aria-hidden="true"></svg>
+        <p class="mono">Posts live on Medium · project pages live here</p>
+        <h2>Writing</h2>
+      </div>
+      <ul class="posts">
+        <li><time>2026</time><a href="https://medium.com/" rel="noopener">CADForge: teaching agents to write manufacture-ready CAD ↗</a><span class="where">Medium</span></li>
+        <li><time>Aug 2020</time><a href="#writing">Placement Experience: Microsoft Data Science</a><span class="where">Here</span></li>
+        <li class="soon"><time>Soon</time><span class="t">3D-printing build logs</span><span class="where">Here</span></li>
+      </ul>
+    </section>
+
+    <!-- Sky -->
+    <section id="sky-photos" class="wrap hobby">
+      <div class="head">
+        <svg class="glyph" data-g="sky" aria-hidden="true"></svg>
+        <p class="mono">Hobby · Astrophotography</p>
+        <h2>Sky</h2>
+      </div>
+      <div class="about"><p class="lead">Nights with a telescope, chasing nebulae and star fields from dark-sky sites. Longest favourite: a 1 hour 20 minute sunrise timelapse in Dzukou Valley.</p><p class="fact">Gallery<br>assets/photos/sky/</p></div>
+      <div class="slots">
+        <div class="slot w4 h2"><span><b>Sky 01</b>Wide field · photo slot</span></div>
+        <div class="slot w2"><span><b>Sky 02</b>Nebula</span></div>
+        <div class="slot w2"><span><b>Sky 03</b>Moon / planets</span></div>
+        <div class="slot w3"><span><b>Sky 04</b>Star trails</span></div>
+        <div class="slot w3"><span><b>Sky 05</b>Timelapse · video slot</span></div>
+      </div>
+    </section>
+
+    <!-- Soil -->
+    <section id="soil" class="wrap hobby soil">
+      <div class="head">
+        <svg class="glyph" data-g="soil" aria-hidden="true"></svg>
+        <p class="mono">Hobby · Gardening</p>
+        <h2>Soil</h2>
+      </div>
+      <div class="about"><p class="lead">A balcony that keeps turning into a garden. Happy to swap seeds, cuttings and advice.</p><p class="fact">Gallery<br>assets/photos/soil/</p></div>
+      <div class="slots">
+        <div class="slot w2 h2"><span><b>Soil 01</b>Photo slot</span></div>
+        <div class="slot w2"><span><b>Soil 02</b>Photo slot</span></div>
+        <div class="slot w2"><span><b>Soil 03</b>Photo slot</span></div>
+        <div class="slot w4"><span><b>Soil 04</b>Season-by-season slot</span></div>
+      </div>
+    </section>
+
+    <!-- Speed -->
+    <section id="speed" class="wrap hobby speed">
+      <div class="head">
+        <svg class="glyph" data-g="speed" aria-hidden="true"></svg>
+        <p class="mono">Hobby · Roller skating</p>
+        <h2>Speed</h2>
+      </div>
+      <div class="about"><p class="lead">Years of competitive racing on roller skates, and friendships with the best competitors I've had.</p><p class="fact"><b>National-level win · 2013</b><br>assets/photos/speed/</p></div>
+      <div class="slots">
+        <div class="slot w3 h2"><span><b>Speed 01</b>Race photo slot</span></div>
+        <div class="slot w3"><span><b>Speed 02</b>Medal / podium</span></div>
+        <div class="slot w3"><span><b>Speed 03</b>Team &amp; friends</span></div>
+      </div>
+    </section>
+
+    <!-- Dawn -->
+    <footer id="contact" class="contact">
+      <div class="sun" aria-hidden="true"></div>
+      <div class="ridge" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="mono">Say hello</p>
+        <h2>Finding the problems that define what's next.</h2>
+        <div class="mail"><span id="email">&#118;&#97;&#114;&#115;&#104;&#105;&#108;&#103;&#97;&#110;&#100;&#104;&#105;&#50;&#56;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</span><button type="button" class="btn" id="copy">Copy</button></div>
+        <ul class="social">
+          <li><a href="https://github.com/vjg28">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/varshil-gandhi/">LinkedIn</a></li>
+          <li><a href="https://x.com/varshilgandhi28">X</a></li>
+          <li><a href="https://www.instagram.com/variable.gandhi/">Instagram</a></li>
+          <li><a href="../../files/Varshil_Gandhi_Resume.pdf">Résumé</a></li>
+        </ul>
+        <p class="fine">© 2026 Varshil Gandhi · Bengaluru</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="../../assets/js/portrait.js"></script>
+  <script>
+  (() => {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const root = document.documentElement;
+    const DPR = () => Math.min(devicePixelRatio || 1, 2);
+    const NS = 'http://www.w3.org/2000/svg';
+
+    // ---------- constellation glyphs (points in a 100 × 70 box) ----------
+    const GLYPHS = {
+      career:  { p: [[6,60],[22,47],[38,52],[54,34],[70,30],[90,9]], e: [[0,1],[1,2],[2,3],[3,4],[4,5]], big: [5] },
+      builds:  { p: [[30,20],[55,8],[80,20],[55,32],[30,50],[55,62],[80,50]], e: [[0,1],[1,2],[2,3],[3,0],[0,4],[4,5],[5,6],[6,2],[3,5]], big: [1] },
+      writing: { p: [[10,64],[30,46],[50,30],[74,10],[90,4],[66,30],[42,46],[60,16]], e: [[0,1],[1,2],[2,3],[3,4],[3,7],[2,5],[1,6]], big: [4] },
+      sky:     { p: [[24,6],[78,10],[42,34],[50,36],[58,38],[20,64],[82,62]], e: [[0,2],[1,4],[2,3],[3,4],[2,5],[4,6]], big: [0, 6] },
+      soil:    { p: [[50,66],[50,46],[50,26],[30,36],[16,24],[70,20],[86,10],[50,8]], e: [[0,1],[1,2],[2,7],[1,3],[3,4],[2,5],[5,6]], big: [7] },
+      speed:   { p: [[12,12],[36,36],[12,60],[42,12],[66,36],[42,60],[90,36]], e: [[0,1],[1,2],[3,4],[4,5],[4,6]], big: [6] }
+    };
+    function drawGlyph(svg, key) {
+      const g = GLYPHS[key]; if (!g) return;
+      svg.setAttribute('viewBox', '-6 -6 112 82');
+      let h = '';
+      for (const [a, b] of g.e) h += `<line class="l" x1="${g.p[a][0]}" y1="${g.p[a][1]}" x2="${g.p[b][0]}" y2="${g.p[b][1]}"/>`;
+      g.p.forEach(([x, y], i) => {
+        const big = g.big.includes(i);
+        if (big) h += `<circle class="halo" cx="${x}" cy="${y}" r="7"/>`;
+        h += `<circle class="s" cx="${x}" cy="${y}" r="${big ? 2.6 : 1.6}"/>`;
+      });
+      svg.innerHTML = h;
+    }
+    document.querySelectorAll('[data-g]').forEach(el => drawGlyph(el.tagName === 'svg' ? el : el.querySelector('svg'), el.dataset.g));
+
+    // ---------- page-wide rotating star field ----------
+    (() => {
+      const c = document.getElementById('sky'), ctx = c.getContext('2d');
+      let stars = [], t = 0;
+      const init = () => {
+        const d = DPR(); c.width = innerWidth * d; c.height = innerHeight * d;
+        const R = Math.hypot(c.width, c.height);
+        stars = Array.from({ length: innerWidth < 680 ? 220 : 440 }, () => ({ a: Math.random() * 6.283, r: Math.pow(Math.random(), .7) * R, s: (Math.random() * 1.1 + .25) * d, b: Math.random() * .7 + .25, ph: Math.random() * 6.283, warm: Math.random() < .15 }));
+      };
+      const frame = () => {
+        const dawn = parseFloat(root.style.getPropertyValue('--dawn')) || 0;
+        ctx.fillStyle = '#03050b'; ctx.fillRect(0, 0, c.width, c.height);
+        const cx = c.width * .8, cy = c.height * .05, fade = 1 - dawn * .8;
+        for (const s of stars) {
+          const a = s.a + t, tw = .75 + .25 * Math.sin(t * 40 + s.ph);
+          ctx.fillStyle = s.warm ? `rgba(255,214,170,${s.b * tw * fade})` : `rgba(214,224,255,${s.b * tw * fade})`;
+          ctx.beginPath(); ctx.arc(cx + Math.cos(a) * s.r, cy + Math.sin(a) * s.r, s.s, 0, 6.283); ctx.fill();
+        }
+        t += .0004; if (!reduce) requestAnimationFrame(frame);
+      };
+      init(); addEventListener('resize', init); frame();
+    })();
+
+    // ---------- hero: star trails with the silhouette under them ----------
+    (() => {
+      const c = document.getElementById('trails'), ctx = c.getContext('2d');
+      let stars = [], t = 0, sil = null, P = null;
+      const box = () => {
+        if (!P) return null;
+        const W = c.width, H = c.height, narrow = c.getBoundingClientRect().width < 680;
+        const h = H * (narrow ? .42 : .7), w = h * P.iw / P.ih;
+        return { x: narrow ? W - w * .92 : W - w - W * .05, y: H - h, w, h };
+      };
+      const init = () => {
+        const d = DPR(), r = c.getBoundingClientRect();
+        c.width = Math.max(1, r.width * d); c.height = Math.max(1, r.height * d);
+        const R = Math.hypot(c.width, c.height);
+        stars = Array.from({ length: r.width < 680 ? 360 : 680 }, () => ({ a: Math.random() * 6.283, r: Math.pow(Math.random(), .6) * R, b: Math.random() * .7 + .25, warm: Math.random() < .12 }));
+        ctx.fillStyle = '#03050b'; ctx.fillRect(0, 0, c.width, c.height);
+        if (reduce) for (let i = 0; i < 60; i++) { drawStars(); t += .0025; }
+      };
+      const drawStars = () => {
+        const cx = c.width * .7, cy = c.height * .1, d = DPR();
+        for (const s of stars) {
+          const a = s.a + t;
+          ctx.fillStyle = s.warm ? `rgba(255,214,170,${s.b * .8})` : `rgba(210,222,255,${s.b * .8})`;
+          ctx.fillRect(cx + Math.cos(a) * s.r, cy + Math.sin(a) * s.r, 1.15 * d, 1.15 * d);
+        }
+      };
+      const drawSil = () => {
+        const B = box(); if (!B || !sil) return;
+        ctx.save(); ctx.shadowColor = 'rgba(127,156,255,.42)'; ctx.shadowBlur = 16 * DPR(); ctx.drawImage(sil, B.x, B.y, B.w, B.h); ctx.restore();
+        ctx.drawImage(sil, B.x, B.y, B.w, B.h);
+      };
+      const frame = () => {
+        ctx.fillStyle = 'rgba(3,5,11,.045)'; ctx.fillRect(0, 0, c.width, c.height);
+        drawStars(); drawSil();
+        t += .0016; if (!reduce) requestAnimationFrame(frame);
+      };
+      init(); addEventListener('resize', () => { init(); if (reduce) drawSil(); });
+      if (reduce) drawSil(); else frame();
+
+      if (window.loadPortrait) {
+        loadPortrait('../../assets/photos/portrait.jpg').then(p => {
+          P = p; sil = document.createElement('canvas'); sil.width = p.iw; sil.height = p.ih;
+          const s = sil.getContext('2d'); s.drawImage(p.cut, 0, 0);
+          s.globalCompositeOperation = 'source-in'; s.fillStyle = '#020308'; s.fillRect(0, 0, p.iw, p.ih);
+          if (reduce) drawSil();
+        }).catch(() => { /* no silhouette if the photo can't be read (e.g. opened from file://) */ });
+      }
+    })();
+
+    // ---------- career constellation ----------
+    (() => {
+      const svg = document.getElementById('tl'), items = [...document.querySelectorAll('#roles .role')];
+      const roles = [
+        { y: 2018.45, lab: 'Intel', h: 150 }, { y: 2019.35, lab: 'IIT Madras', h: 95 }, { y: 2019.6, lab: 'MILA', h: 165 },
+        { y: 2019.95, lab: 'Thesis', h: 70 }, { y: 2020.6, lab: 'Microsoft', h: 130 }, { y: 2023.2, lab: 'DAS 2', h: 80 },
+        { y: 2024.3, lab: 'AirMDR', h: 40, now: true }
+      ];
+      const x0 = 40, x1 = 960, y0 = 2018, y1 = 2026.5, X = y => x0 + (y - y0) / (y1 - y0) * (x1 - x0);
+      let h = `<line class="axis" x1="${x0}" y1="215" x2="${x1}" y2="215"/>`;
+      for (let y = 2018; y <= 2026; y++) h += `<line class="axis" x1="${X(y)}" y1="210" x2="${X(y)}" y2="220"/><text class="yr" x="${X(y)}" y="242" text-anchor="middle">${y}</text>`;
+      for (let i = 1; i < roles.length; i++) h += `<line class="link" x1="${X(roles[i-1].y)}" y1="${roles[i-1].h}" x2="${X(roles[i].y)}" y2="${roles[i].h}"/>`;
+      const last = roles[roles.length - 1];
+      h += `<line class="link" x1="${X(last.y)}" y1="${last.h}" x2="${X(2026.3)}" y2="${last.h - 16}" stroke-dasharray="3 5"/>`;
+      roles.forEach((r, i) => {
+        const above = r.h < 110;
+        h += `<g class="node${r.now ? ' now' : ''}" data-i="${i}" tabindex="0" role="button" aria-label="${items[i].querySelector('h3').textContent}, ${items[i].querySelector('time').textContent}">
+          <circle class="ring" cx="${X(r.y)}" cy="${r.h}" r="9"/><circle class="core" cx="${X(r.y)}" cy="${r.h}" r="4"/>
+          <text x="${X(r.y)}" y="${above ? r.h - 18 : r.h + 26}" text-anchor="middle">${r.lab}</text></g>`;
+      });
+      svg.innerHTML = h;
+      const nodes = [...svg.querySelectorAll('.node')];
+      const set = i => { nodes.forEach((n, k) => n.classList.toggle('on', k === i)); items.forEach((n, k) => n.classList.toggle('on', k === i)); };
+      nodes.forEach((n, i) => {
+        n.addEventListener('pointerenter', () => set(i));
+        n.addEventListener('focus', () => set(i));
+        n.addEventListener('click', () => { set(i); if (matchMedia('(max-width: 900px)').matches) items[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' }); });
+        n.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); n.dispatchEvent(new Event('click')); } });
+      });
+      items.forEach((n, i) => n.addEventListener('pointerenter', () => set(i)));
+      set(roles.length - 1);
+    })();
+
+    // ---------- dawn + "back to map" ----------
+    const tomap = document.getElementById('tomap');
+    const onScroll = () => {
+      const max = root.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+      root.style.setProperty('--dawn', Math.pow(p, 3).toFixed(3));
+      tomap.classList.toggle('show', scrollY > innerHeight * .8);
+    };
+    addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll); onScroll();
+
+    // ---------- copy email ----------
+    const copy = document.getElementById('copy'), email = document.getElementById('email');
+    copy.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(email.textContent.trim()); copy.textContent = 'Copied'; }
+      catch { const r = document.createRange(); r.selectNodeContents(email); const s = getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent = 'Selected'; }
+      setTimeout(() => (copy.textContent = 'Copy'), 1800);
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+/* Hero D: the largest name; role and icons share one quiet byline row, split by a short vertical hairline. */
+@import url("a.css");
+.name-big { font-size: clamp(4.1rem, 11vw, 11rem); }
+.motto { margin-top: clamp(24px, 2.6vw, 38px); }
+.hero-inner > .byline { max-width: none; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin-top: clamp(26px, 2.6vw, 40px); }
+.byline .role-line { margin-top: 0; }
+.byline .reach.icons { margin: 0; padding-left: 13px; border-left: 1px solid var(--line); }
+@media (max-width: 640px) {
+  .name-big { font-size: clamp(4.1rem, 19vw, 5.4rem); }
+  .hero-inner > .byline { display: grid; gap: 22px; }
+  .byline .reach.icons { padding-left: 0; border-left: 0; margin-left: -9px; }
+}

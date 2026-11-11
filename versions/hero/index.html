@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Hero variants · Varshil Gandhi</title>
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <style>
+    :root { --night:#04060d; --ink:#e8ecf6; --dim:#98a1bb; --line:rgba(160,175,220,.16); --sun:#ffb260; color-scheme:dark; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--night); color:var(--ink); font:300 17px/1.6 "IBM Plex Sans", Arial, sans-serif; }
+    main { max-width:860px; margin:0 auto; padding:72px 20px 96px; display:grid; gap:36px; }
+    h1 { font:300 clamp(2.4rem,6vw,4rem)/1 "Cormorant Garamond", Georgia, serif; margin:0; }
+    p { margin:0; color:var(--dim); }
+    ol { list-style:none; margin:0; padding:0; display:grid; border-top:1px solid var(--line); }
+    li { border-bottom:1px solid var(--line); }
+    a { display:grid; grid-template-columns:3rem minmax(0,1fr); gap:4px 18px; padding:22px 0; color:inherit; text-decoration:none; }
+    a b { font:300 2.2rem/1 "Cormorant Garamond", Georgia, serif; color:var(--dim); transition:color .3s; }
+    a span { font:300 1.6rem/1.15 "Cormorant Garamond", Georgia, serif; }
+    a p { grid-column:2; font-size:.95rem; }
+    a:hover b, a:focus-visible b { color:var(--sun); }
+    em { font-style:normal; color:var(--sun); font-size:.85rem; margin-left:8px; font-family:"IBM Plex Sans", Arial, sans-serif; }
+  </style>
+</head>
+<body>
+  <main>
+    <div style="display:grid; gap:14px">
+      <h1>Hero variants</h1>
+      <p>Each page is the real homepage with only the hero swapped. All four share the optical name alignment and icon-only links; they differ in scale and how the role line and icons are grouped.</p>
+    </div>
+    <ol>
+      <li><a href="a.html"><b>A</b><span>Tuned original</span><p>Same order as before: tighter type scale, name pulled onto the text edge, quiet icon row with labels on hover.</p></a></li>
+      <li><a href="b.html"><b>B</b><span>Hairline <em>applied to the site</em></span><p>Larger name, and a short amber rule that separates the motto from the role line and icons, which sit together as one block.</p></a></li>
+      <li><a href="c.html"><b>C</b><span>Kicker</span><p>The role line moves above the name as a small editorial kicker; on phones it drops back below the motto so it doesn't run into the portrait.</p></a></li>
+      <li><a href="d.html"><b>D</b><span>Byline row</span><p>The largest name. Role line and icons share one row split by a vertical hairline. Compact, but it brings back the long line.</p></a></li>
+    </ol>
+  </main>
+</body>
+</html>

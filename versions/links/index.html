@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+<title>About link styles</title>
+<link rel="stylesheet" href="../../css/fonts.css">
+<link rel="stylesheet" href="../../css/site.css">
+<link rel="stylesheet" href="../../css/about.css">
+<style>
+body{background:#04060d}
+header{max-width:1180px;margin:0 auto;padding:36px 24px 8px} header h1{font:400 2.4rem/1.1 var(--display);margin:0 0 8px} header p{color:#a9b0c2;margin:0}
+main{max-width:1180px;margin:0 auto;padding:12px 24px 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,540px),1fr));gap:28px}
+section{border:1px solid #1c2130;border-radius:6px;padding:26px 28px 30px;background:#070a14}
+section h2{font:500 .95rem/1.3 var(--sans);color:#fff;margin:0 0 4px} section .desc{font:400 .85rem/1.5 var(--sans);color:#8d94a8;margin:0 0 22px}
+main .prose{max-width:none;font-size:1.08rem;line-height:1.72;display:block}
+main .prose p{color:#c3cadb;font-weight:400;margin:0} main .prose p+p{margin-top:1.05em}
+main .prose p.hi{color:var(--ink);font:400 2.1rem/1.05 var(--display)}
+main .prose p.next{font-family:var(--display);color:var(--ink);font-size:1.4rem;line-height:1.35;padding-left:20px;border-left:1px solid var(--sun)}
+main .prose p.next em{font-style:italic;color:var(--sun)}
+main .v-A a{color:var(--ink);text-decoration:underline;text-decoration-color:rgba(255,178,96,.5);text-decoration-thickness:1px;text-underline-offset:.28em}
+main .v-A a:hover{color:var(--sun);text-decoration-color:var(--sun)}
+</style></head><body>
+<header><h1>About link styles</h1><p>The same About text with five ways of showing links.</p></header>
+<main>
+<section><h2>A. Current</h2><p class="desc">Bright text with a thin, half-strength amber underline. Hover the links to see the effect.</p><div class="v-A prose">
+          <p class="hi">Hi, I'm Varshil.</p>
+          <p>I'm curious by nature and a builder at heart. I rarely say no to trying something new, and once I start, I go all in. Science and engineering have been part of me for as long as I can remember, and I still build things mostly for the joy of it.</p>
+          <p>At work, I lead AI at <a href="javascript:void 0">AirMDR</a>, where we're building an AI SOC: agents that run cybersecurity operations on their own. Before that, I spent almost four years at <a href="javascript:void 0">Microsoft</a> training and deploying the language models behind its Ads recommendation system.</p>
+          <p>At <a href="javascript:void 0">IIT Guwahati</a>, I mostly tinkered with robots and reinforcement learning. That led to internships at Intel Labs, IIT Madras and MILA, and a seat in Carnegie Mellon's master's programme, which I gave up when COVID hit.</p>
+          <p class="next">Robots were my first love, which is why lately I've been working on some ambitious ideas in <em>Physical AI</em>.</p>
+          <p>Outside work, you'll find me <a href="javascript:void 0">gardening</a>, 3D printing something or <a href="javascript:void 0">looking up at the night sky</a>. Sometimes I'm skating or bird watching in Cubbon Park.</p>
+        </div></section>
+<section><h2>B. Ink, line on hover</h2><p class="desc">Links are just brighter and slightly heavier than the body. An amber line draws in from the left on hover. Hover the links to see the effect.</p><style>main .v-B a{color:#fff;font-weight:500;text-decoration:none;background:linear-gradient(var(--sun),var(--sun)) 0 100%/0 1px no-repeat;padding-bottom:1px;transition:background-size .35s ease,color .3s}main .v-B a:hover{background-size:100% 1px;color:#fff}</style><div class="v-B prose">
+          <p class="hi">Hi, I'm Varshil.</p>
+          <p>I'm curious by nature and a builder at heart. I rarely say no to trying something new, and once I start, I go all in. Science and engineering have been part of me for as long as I can remember, and I still build things mostly for the joy of it.</p>
+          <p>At work, I lead AI at <a href="javascript:void 0">AirMDR</a>, where we're building an AI SOC: agents that run cybersecurity operations on their own. Before that, I spent almost four years at <a href="javascript:void 0">Microsoft</a> training and deploying the language models behind its Ads recommendation system.</p>
+          <p>At <a href="javascript:void 0">IIT Guwahati</a>, I mostly tinkered with robots and reinforcement learning. That led to internships at Intel Labs, IIT Madras and MILA, and a seat in Carnegie Mellon's master's programme, which I gave up when COVID hit.</p>
+          <p class="next">Robots were my first love, which is why lately I've been working on some ambitious ideas in <em>Physical AI</em>.</p>
+          <p>Outside work, you'll find me <a href="javascript:void 0">gardening</a>, 3D printing something or <a href="javascript:void 0">looking up at the night sky</a>. Sometimes I'm skating or bird watching in Cubbon Park.</p>
+        </div></section>
+<section><h2>C. Soft amber text</h2><p class="desc">Links take a pale amber colour with no underline; the underline appears on hover. Hover the links to see the effect.</p><style>main .v-C a{color:#f6c997;background:none;text-decoration:none;transition:color .3s}main .v-C a:hover{color:var(--sun);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em}</style><div class="v-C prose">
+          <p class="hi">Hi, I'm Varshil.</p>
+          <p>I'm curious by nature and a builder at heart. I rarely say no to trying something new, and once I start, I go all in. Science and engineering have been part of me for as long as I can remember, and I still build things mostly for the joy of it.</p>
+          <p>At work, I lead AI at <a href="javascript:void 0">AirMDR</a>, where we're building an AI SOC: agents that run cybersecurity operations on their own. Before that, I spent almost four years at <a href="javascript:void 0">Microsoft</a> training and deploying the language models behind its Ads recommendation system.</p>
+          <p>At <a href="javascript:void 0">IIT Guwahati</a>, I mostly tinkered with robots and reinforcement learning. That led to internships at Intel Labs, IIT Madras and MILA, and a seat in Carnegie Mellon's master's programme, which I gave up when COVID hit.</p>
+          <p class="next">Robots were my first love, which is why lately I've been working on some ambitious ideas in <em>Physical AI</em>.</p>
+          <p>Outside work, you'll find me <a href="javascript:void 0">gardening</a>, 3D printing something or <a href="javascript:void 0">looking up at the night sky</a>. Sometimes I'm skating or bird watching in Cubbon Park.</p>
+        </div></section>
+<section><h2>D. Faint dotted line</h2><p class="desc">White text with a faint grey dotted underline, turning solid amber on hover. Hover the links to see the effect.</p><style>main .v-D a{color:#fff;background:none;text-decoration:underline dotted;text-decoration-color:rgba(232,236,246,.38);text-decoration-thickness:1px;text-underline-offset:.32em;transition:text-decoration-color .3s,color .3s}main .v-D a:hover{text-decoration-style:solid;text-decoration-color:var(--sun)}</style><div class="v-D prose">
+          <p class="hi">Hi, I'm Varshil.</p>
+          <p>I'm curious by nature and a builder at heart. I rarely say no to trying something new, and once I start, I go all in. Science and engineering have been part of me for as long as I can remember, and I still build things mostly for the joy of it.</p>
+          <p>At work, I lead AI at <a href="javascript:void 0">AirMDR</a>, where we're building an AI SOC: agents that run cybersecurity operations on their own. Before that, I spent almost four years at <a href="javascript:void 0">Microsoft</a> training and deploying the language models behind its Ads recommendation system.</p>
+          <p>At <a href="javascript:void 0">IIT Guwahati</a>, I mostly tinkered with robots and reinforcement learning. That led to internships at Intel Labs, IIT Madras and MILA, and a seat in Carnegie Mellon's master's programme, which I gave up when COVID hit.</p>
+          <p class="next">Robots were my first love, which is why lately I've been working on some ambitious ideas in <em>Physical AI</em>.</p>
+          <p>Outside work, you'll find me <a href="javascript:void 0">gardening</a>, 3D printing something or <a href="javascript:void 0">looking up at the night sky</a>. Sometimes I'm skating or bird watching in Cubbon Park.</p>
+        </div></section>
+<section><h2>E. Glow marker</h2><p class="desc">A faint amber wash behind the lower part of the word, like a soft highlighter. Fills in on hover. Hover the links to see the effect.</p><style>main .v-E a{color:#fff;text-decoration:none;background:linear-gradient(transparent 62%,rgba(255,178,96,.22) 62%);transition:background .3s}main .v-E a:hover{background:linear-gradient(transparent 0%,rgba(255,178,96,.3) 0%)}</style><div class="v-E prose">
+          <p class="hi">Hi, I'm Varshil.</p>
+          <p>I'm curious by nature and a builder at heart. I rarely say no to trying something new, and once I start, I go all in. Science and engineering have been part of me for as long as I can remember, and I still build things mostly for the joy of it.</p>
+          <p>At work, I lead AI at <a href="javascript:void 0">AirMDR</a>, where we're building an AI SOC: agents that run cybersecurity operations on their own. Before that, I spent almost four years at <a href="javascript:void 0">Microsoft</a> training and deploying the language models behind its Ads recommendation system.</p>
+          <p>At <a href="javascript:void 0">IIT Guwahati</a>, I mostly tinkered with robots and reinforcement learning. That led to internships at Intel Labs, IIT Madras and MILA, and a seat in Carnegie Mellon's master's programme, which I gave up when COVID hit.</p>
+          <p class="next">Robots were my first love, which is why lately I've been working on some ambitious ideas in <em>Physical AI</em>.</p>
+          <p>Outside work, you'll find me <a href="javascript:void 0">gardening</a>, 3D printing something or <a href="javascript:void 0">looking up at the night sky</a>. Sometimes I'm skating or bird watching in Cubbon Park.</p>
+        </div></section>
+</main></body></html>

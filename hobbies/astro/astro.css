@@ -1,0 +1,66 @@
+/* Astrophotography page: chart on top, then a dated log, then the instrument */
+.astro { gap: 64px; }
+.astro h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1; font-weight: 300; }
+.astro .section { display: grid; gap: 22px; min-width: 0; }
+.astro .section > p { color: var(--dim); max-width: 64ch; }
+
+/* sky chart */
+.chart-wrap { position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #050812; }
+#chart { display: block; width: 100%; aspect-ratio: 12 / 7; max-width: 100%; cursor: crosshair; touch-action: manipulation; }
+.chart-note { font: 400 0.72rem/1.6 var(--mono); color: var(--faint); }
+.targets { display: flex; flex-wrap: wrap; gap: 4px 26px; list-style: none; margin: 0; padding: 0; }
+.targets button {
+  font: 400 0.72rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--dim); background: none; border: 0; border-bottom: 1px solid transparent;
+  padding: 8px 0; cursor: pointer; display: inline-flex; gap: 8px; align-items: center;
+  transition: color .25s, border-color .25s;
+}
+.targets button i { width: 6px; height: 6px; background: var(--sun); }
+.targets button.ss i { background: var(--star); }
+.targets button:hover, .targets button.on, .targets button:focus-visible { color: var(--ink); border-bottom-color: var(--sun); outline: none; }
+.targets-label { font: 400 0.7rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); margin: 6px 0 -6px; }
+
+/* log */
+.log { list-style: none; margin: 0; padding: 0; display: grid; }
+.entry { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr); gap: 32px; padding: 34px 0; border-top: 1px solid var(--line); scroll-margin-top: 110px; transition: background .4s; border-radius: 4px; }
+.entry:last-child { border-bottom: 1px solid var(--line); }
+.entry.on { background: linear-gradient(90deg, rgba(255, 178, 96, 0.06), transparent 70%); }
+.shots { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; min-width: 0; }
+.shots button { flex: 0 0 auto; width: clamp(110px, 13vw, 150px); aspect-ratio: 9 / 16; padding: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #000; cursor: zoom-in; transition: border-color .3s, transform .4s var(--ease); }
+.shots button:hover, .shots button:focus-visible { border-color: var(--sun); transform: translateY(-2px); outline: none; }
+.shots img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shots .crop img { object-position: 50% 82%; }
+.entry-body { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.entry-body time { font: 400 0.74rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--sun); }
+.entry-body h3 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.05; }
+.entry-body h3 small { font: 400 0.74rem/1 var(--mono); letter-spacing: 0.1em; color: var(--dim); margin-left: 10px; vertical-align: middle; }
+.entry-body p { color: #c9cfe0; max-width: 60ch; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px 20px; margin: 4px 0 0; }
+.facts div { display: grid; gap: 4px; }
+.facts dt { font: 400 0.64rem/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); }
+.facts dd { margin: 0; font-size: 0.92rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* equipment */
+.rig { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.rig canvas.bp { aspect-ratio: 16 / 11; }
+.rig-side { display: grid; gap: 18px; }
+.rig-side .shots button { width: clamp(120px, 14vw, 160px); }
+.spec { width: 100%; border-collapse: collapse; font: 400 0.84rem/1.5 var(--mono); }
+.spec th, .spec td { text-align: left; padding: 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.spec th { color: var(--faint); font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.7rem; width: 42%; padding-right: 12px; }
+.spec td { color: var(--ink); }
+
+/* lightbox */
+.lightbox { border: 0; padding: 0; background: transparent; max-width: min(92vw, 520px); max-height: 92vh; }
+.lightbox::backdrop { background: rgba(2, 3, 8, 0.86); backdrop-filter: blur(6px); }
+.lightbox img { display: block; max-width: 100%; max-height: 82vh; border-radius: 10px; margin: 0 auto; }
+.lightbox p { font: 400 0.74rem/1.5 var(--mono); color: var(--dim); text-align: center; margin: 12px 0 0; }
+.lightbox button { position: absolute; top: 8px; right: 8px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: rgba(4, 6, 13, 0.8); color: var(--ink); font: 400 1rem/1 var(--mono); cursor: pointer; }
+
+@media (max-width: 860px) {
+  .entry { grid-template-columns: 1fr; gap: 18px; }
+  .rig { grid-template-columns: 1fr; }
+  #chart { aspect-ratio: 4 / 3; }
+}
+.shots .wide { aspect-ratio: 1280 / 1163; width: clamp(240px, 28vw, 330px); }
+.shots { padding-top: 4px; margin-top: -4px; }

@@ -1,0 +1,15 @@
+/* B · One line: a single serif sentence; the masked address decodes in place */
+.closing { gap: 0; max-width: 900px; }
+.closing h2 { font-size: clamp(2.1rem, 5.2vw, 4.2rem); line-height: 1.08; letter-spacing: -0.01em; }
+.closing h2 .say { all: unset; cursor: pointer; display: block; width: fit-content; margin: 6px auto 0; color: var(--sun); white-space: nowrap; }
+.closing h2 .say span { background: linear-gradient(rgba(255, 178, 96, 0.55), rgba(255, 178, 96, 0.55)) 0 92% / 100% 1px no-repeat; transition: background-size .4s var(--ease), color .3s; font-style: italic; }
+.closing h2 .say:hover span { color: #ffd2a1; background-image: linear-gradient(var(--sun), var(--sun)); }
+.closing h2 .say:focus-visible { outline: 1px solid var(--sun); outline-offset: 6px; }
+.closing h2 .say.shown span { font-style: normal; letter-spacing: 0; }
+.closing .invite { margin-top: 26px; font-size: 1.04rem; max-width: 46ch; }
+.closing .elsewhere { justify-content: center; margin: 22px 0 0; }
+@media (max-width: 640px) {
+  .closing h2 { font-size: clamp(1.9rem, 8.4vw, 2.4rem); }
+  .closing h2 .say { white-space: normal; }
+  .closing h2 .say.shown span { font-size: 0.86em; }
+}

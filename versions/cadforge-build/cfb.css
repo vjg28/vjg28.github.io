@@ -1,0 +1,24 @@
+/* CADForge build animation (hero): video + HTML caption chips timed by assets/projects/cadforge-build.js */
+.cfb { position: relative; container-type: inline-size; overflow: hidden; border-radius: 14px; background: #f4f5f8; cursor: pointer; }
+.cfb video { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.vp .shot-hero .cfb video { border-radius: 0; }
+.cfb-cap { position: absolute; left: 3.4cqw; bottom: 3.4cqw; max-width: 74cqw; padding: 1.5cqw 2.1cqw 1.7cqw; background: #fff; border-radius: 1.7cqw; box-shadow: 0 1px 2px rgba(20, 24, 40, .08), 0 6px 18px rgba(20, 24, 40, .08); opacity: 0; transform: translateY(6px); transition: opacity .25s ease, transform .35s cubic-bezier(.2, .8, .2, 1); pointer-events: none; }
+.cfb-cap.on { opacity: 1; transform: none; }
+.cfb-eye { font: 500 clamp(7px, 1.35cqw, 11px)/1.2 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .08em; color: #e5544a; margin-bottom: .55cqw; }
+.cfb-txt { font: 600 clamp(11px, 3cqw, 23px)/1.18 "IBM Plex Sans", system-ui, sans-serif; letter-spacing: -.01em; color: #14161c; }
+.cfb-txt .w { opacity: 0; transition: opacity .28s ease; }
+.cfb-cap.on .cfb-txt .w { opacity: 1; }
+.cfb-code { margin-top: .9cqw; font: 400 clamp(7px, 1.6cqw, 12.5px)/1.3 "IBM Plex Mono", ui-monospace, monospace; color: #2f62d9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cfb-code.type { animation: cfb-type .45s steps(24, end); }
+@keyframes cfb-type { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+.cfb-hist { position: absolute; right: 3.4cqw; top: 3.4cqw; width: 26cqw; padding: 1.3cqw 1.6cqw 1.1cqw; background: rgba(255, 255, 255, .92); border-radius: 1.4cqw; box-shadow: 0 1px 2px rgba(20, 24, 40, .06), 0 4px 14px rgba(20, 24, 40, .06); opacity: 0; transition: opacity .3s; pointer-events: none; }
+.cfb-hist.on { opacity: 1; }
+.cfb-rail { position: relative; height: 2px; background: #dfe2e8; margin: .6cqw .5cqw 0; }
+.cfb-tick { position: absolute; top: 50%; width: .9cqw; height: .9cqw; margin: -.45cqw 0 0 -.45cqw; border-radius: 50%; background: #c9ced8; }
+.cfb-tick.done { background: #8a93a6; }
+.cfb-thumb { position: absolute; top: 50%; width: 1.7cqw; height: 1.7cqw; margin: -.85cqw 0 0 -.85cqw; border-radius: 50%; background: #f0645a; box-shadow: 0 0 0 .5cqw rgba(240, 100, 90, .18); transition: left .12s linear; }
+.cfb-hlabel { display: block; margin-top: .9cqw; font: 500 clamp(6px, 1.2cqw, 10px)/1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; color: #8a93a6; }
+.cfb-agent { position: absolute; left: 0; top: 0; margin: 1.2cqw 0 0 1.2cqw; padding: .35cqw 1cqw .45cqw; border-radius: 99px; background: #2f7cf6; color: #fff; font: 600 clamp(7px, 1.3cqw, 11px)/1 "IBM Plex Sans", system-ui, sans-serif; opacity: 0; transition: opacity .2s, transform .09s linear; pointer-events: none; will-change: transform; }
+.cfb-agent.on { opacity: 1; }
+.cfb.still .cfb-cap, .cfb.still .cfb-hist, .cfb.still .cfb-agent { display: none; }
+@media (prefers-reduced-motion: reduce) { .cfb-cap, .cfb-txt .w, .cfb-agent, .cfb-thumb { transition: none; } .cfb-code.type { animation: none; } }

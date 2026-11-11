@@ -1,0 +1,18 @@
+/* C · Split: a short note on the left, every way to reach me on the right */
+.contact-inner { justify-content: stretch; }
+.closing { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px 80px; text-align: left; justify-items: stretch; align-items: start; width: 100%; }
+.closing .intro { display: grid; gap: 20px; align-content: start; }
+.closing h2 { font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1; }
+.closing .invite { font-size: 1.04rem; max-width: 36ch; }
+.closing .links { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.closing .links li { border-bottom: 1px solid var(--line); }
+.closing .links a, .closing .links .say { all: unset; box-sizing: border-box; cursor: pointer; width: 100%; display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; align-items: center; gap: 16px; padding: 15px 2px; color: var(--ink); font: 400 1rem/1.2 var(--sans); transition: color .3s, padding .4s var(--ease); }
+.closing .links svg { width: 17px; height: 17px; color: var(--dim); transition: color .3s; }
+.closing .links b { font-weight: 400; }
+.closing .links i, .closing .links span { font-style: normal; color: var(--dim); font-size: 0.92rem; text-align: right; overflow-wrap: anywhere; }
+.closing .links .say span { color: var(--sun); }
+.closing .links .say.shown span { color: var(--ink); }
+.closing .links a:hover, .closing .links .say:hover { color: var(--sun); padding-left: 8px; }
+.closing .links a:hover svg, .closing .links .say:hover svg { color: var(--sun); }
+.closing .links a:focus-visible, .closing .links .say:focus-visible { outline: 1px solid var(--sun); outline-offset: 2px; }
+@media (max-width: 760px) { .closing { grid-template-columns: 1fr; } }

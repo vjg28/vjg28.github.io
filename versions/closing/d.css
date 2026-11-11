@@ -1,0 +1,17 @@
+/* D · Credits: the motto in the sky, contact details along the horizon like end credits */
+.closing { gap: 18px; }
+.closing h2 { font-size: clamp(2.3rem, 5.4vw, 4.4rem); line-height: 1.04; letter-spacing: -0.01em; max-width: 22ch; }
+.closing .invite { font-size: 1.08rem; }
+.credits { position: absolute; z-index: 1; left: 0; right: 0; bottom: max(64px, calc(env(safe-area-inset-bottom, 0px) + 56px)); display: flex; justify-content: center; align-items: center; gap: 12px 28px; flex-wrap: wrap; }
+.credits .say { background: none; border: 0; padding: 6px 0; display: inline-flex; align-items: center; gap: 11px; cursor: pointer; color: var(--ink); font: 400 1rem/1.2 var(--sans); transition: color .3s; }
+.credits .say:hover { color: var(--sun); }
+.credits .say span { background: linear-gradient(var(--sun), var(--sun)) 0 100% / 100% 1px no-repeat; padding-bottom: 4px; }
+.credits .say svg { width: 17px; height: 17px; color: var(--sun); }
+.credits .elsewhere { margin: 0; padding-left: 22px; border-left: 1px solid rgba(232, 236, 246, 0.18); }
+.credits .elsewhere a { color: rgba(232, 236, 246, 0.72); }
+.credits .elsewhere [data-tip]::after { top: auto; bottom: 100%; transform: translate(-50%, 4px); }
+.credits .elsewhere [data-tip]:hover::after, .credits .elsewhere [data-tip]:focus-visible::after { transform: translate(-50%, -2px); }
+@media (max-width: 640px) {
+  .credits { flex-direction: column; gap: 10px; bottom: max(58px, calc(env(safe-area-inset-bottom, 0px) + 50px)); }
+  .credits .elsewhere { padding-left: 0; border-left: 0; }
+}

@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; font-src 'self'; media-src 'self'; img-src 'self' data: https://varshilgandhi.goatcounter.com; connect-src 'self' https://varshilgandhi.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Closing C · Varshil Gandhi</title>
+  <meta name="description" content="Varshil Gandhi leads AI at AirMDR, building self-improving agents for security operations. Previously Microsoft. Builds things with 3D printers; photographs the night sky.">
+  <meta name="theme-color" content="#04060d">
+  <meta property="og:title" content="Varshil Gandhi">
+  <meta property="og:description" content="Working on the problems that define what's next.">
+  <meta property="og:site_name" content="Varshil Gandhi">
+  <meta property="og:image" content="https://varshilgandhi.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Varshil Gandhi">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@varshilgandhi28">
+  <meta name="twitter:creator" content="@varshilgandhi28">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://varshilgandhi.com/">
+  <link rel="canonical" href="https://varshilgandhi.com/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/site.css?v=1794600200">
+  <link rel="stylesheet" href="css/experience.css?v=4">
+  <link rel="stylesheet" href="css/projects.css?v=1">
+  <link rel="stylesheet" href="css/life.css?v=4">
+  <link rel="stylesheet" href="versions/closing/c.css?v=1794426290">
+  <link rel="stylesheet" href="css/about.css?v=4">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://varshilgandhi.com/#person", "name": "Varshil Gandhi", "url": "https://varshilgandhi.com/", "image": "https://varshilgandhi.com/assets/photos/portrait.jpg", "jobTitle": "Sr Applied Scientist", "worksFor": {"@type": "Organization", "name": "AirMDR"}, "alumniOf": {"@type": "CollegeOrUniversity", "name": "IIT Guwahati"}, "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN"}, "knowsAbout": ["AI agents", "Machine learning", "Security operations", "Astrophotography", "3D printing"], "sameAs": ["https://github.com/vjg28", "https://www.linkedin.com/in/varshil-gandhi/", "https://x.com/varshilgandhi28", "https://www.instagram.com/variable.gandhi/"]}, {"@type": "WebSite", "@id": "https://varshilgandhi.com/#website", "url": "https://varshilgandhi.com/", "name": "Varshil Gandhi", "publisher": {"@id": "https://varshilgandhi.com/#person"}}]}
+  </script>
+</head>
+<body data-variant="c">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="dawn" aria-hidden="true"></div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4V21H3V9.75Zm6.5 0h3.8v1.54h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.63V21h-4V9.75Z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M17.75 3h3.07l-6.71 7.67L22 21h-6.18l-4.84-6.33L5.44 21H2.37l7.18-8.2L2 3h6.33l4.38 5.79L17.75 3Zm-1.08 16.18h1.7L7.4 4.73H5.58l11.09 14.45Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 2.9h10A4.1 4.1 0 0 1 21.1 7v10a4.1 4.1 0 0 1-4.1 4.1H7A4.1 4.1 0 0 1 2.9 17V7A4.1 4.1 0 0 1 7 2.9Z"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3 5.5h18v13H3z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="m3.5 6 8.5 7 8.5-7"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M6 2.9h8l4.1 4.1v14.1H6z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M13.5 3v4.5H18M9 12h6M9 15.5h6"/></symbol>
+  </svg>
+
+  <nav class="nav" aria-label="Main">
+    <a class="home" href="#top">Varshil Gandhi</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#life">Life</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <canvas id="portrait" aria-hidden="true"></canvas>
+      <div class="wrap hero-inner">
+        <h1 class="name-big reveal"><span><i>Varshil</i></span><span class="g"><i>Gandhi</i></span></h1>
+        <p class="motto">Working on the problems that <em>define what's next.</em></p>
+        <p class="role-line">Leading AI at <img src="assets/logos/airmdr.svg" alt="AirMDR" class="logo-airmdr"><span class="sep" aria-hidden="true">/</span><span class="nowrap">previously <img src="assets/logos/microsoft.svg" alt="" class="logo-ms"> Microsoft</span></p>
+        <ul class="reach icons" aria-label="Find me elsewhere">
+          <li><a href="https://github.com/vjg28" aria-label="GitHub" data-tip="GitHub" data-goatcounter-click="out-github"><svg aria-hidden="true"><use href="#i-github"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/varshil-gandhi/" aria-label="LinkedIn" data-tip="LinkedIn" data-goatcounter-click="out-linkedin"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+          <li><a href="https://x.com/varshilgandhi28" aria-label="X (Twitter)" data-tip="X" data-goatcounter-click="out-x"><svg aria-hidden="true"><use href="#i-x"/></svg></a></li>
+          <li><a href="https://www.instagram.com/variable.gandhi/" aria-label="Instagram" data-tip="Instagram" data-goatcounter-click="out-instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a></li>
+          <li><button type="button" class="email-btn" aria-label="Show email address" data-tip="Email" data-goatcounter-click="email-hero" data-u="varshilgandhi28" data-d="gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span></span></button></li>
+          <li><a href="files/Varshil_Gandhi_Resume.pdf" aria-label="Résumé (PDF)" data-tip="Résumé" data-goatcounter-click="resume-download"><svg aria-hidden="true"><use href="#i-doc"/></svg></a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section id="about" class="block wrap">
+      <h2 class="reveal"><span><i>About</i></span></h2>
+      <div class="about">
+        <figure class="me">
+          <img src="assets/photos/me-orbs.jpg?v=20261022020832" alt="Varshil Gandhi smiling under hundreds of glowing glass orbs" width="1000" height="1250" loading="lazy">
+        </figure>
+        <div class="prose">
+          <p class="hi">Hi, I'm Varshil.</p>
+          <p>I'm curious by nature and a builder at heart. I rarely say no to trying something new, and once I start, I go all in. Science and engineering have been part of me for as long as I can remember, and I still build things mostly for the joy of it.</p>
+          <p>At work, I lead AI at <a href="#airmdr">AirMDR</a>, where we're building an AI SOC: agents that run cybersecurity operations on their own. Before that, I spent almost four years at <a href="#microsoft">Microsoft</a> training and deploying the language models behind its Ads recommendation system.</p>
+          <p>At <a href="#iitg">IIT Guwahati</a>, I mostly tinkered with robots and reinforcement learning. That led to internships at Intel Labs, IIT Madras and MILA, and a seat in Carnegie Mellon's master's programme, which I gave up when COVID hit.</p>
+          <p class="next">Robots were my first love, which is why lately I've been working on some ambitious ideas in <em>Physical AI</em>.</p>
+          <p>Outside work, you'll find me <a href="hobbies/garden/">gardening</a>, 3D printing something or <a href="hobbies/astro/">looking up at the night sky</a>. Sometimes I'm skating or bird watching in Cubbon Park.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="block wrap">
+      <h2 class="reveal"><span><i>Experience</i></span></h2>
+
+      <ol class="ranges">
+        <li class="rg air" id="airmdr" style="--yrs:2.6">
+          <div class="when"><span>2024</span><span>now</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="assets/logos/airmdr.svg" alt=""></span></div>
+          <div class="what">
+            <h3><img src="assets/logos/airmdr.svg" alt="AirMDR" class="wordmark"></h3>
+            <p class="job-meta"><span class="yrs-inline">2024 – now · </span><b>Sr Applied Scientist</b> · Bengaluru</p>
+            <p class="job-lede">Leading AI for an agentic SOC that detects, investigates and responds to security alerts on its own.</p>
+            <ul class="points">
+              <li>Built the <b>agent harness</b>: model-agnostic, 150+ integrations, onboarding in hours.</li>
+              <li>Launched <a href="https://fast.airmdr.com" target="_blank" rel="noopener"><b>FAST</b></a>, our self-serve AI SOC, plus a security copilot and playbook builder.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="rg ms" id="microsoft" style="--yrs:3.6">
+          <div class="when"><span>2020</span><span>2024</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="assets/logos/microsoft.svg" alt=""></span></div>
+          <div class="what">
+            <h3>Microsoft</h3>
+            <p class="job-lede">Trained language models for a living, optimising them for Microsoft's ad recommendation system.</p>
+            <ol class="roles">
+              <li><span class="rl">Data &amp; Applied Scientist 2</span><span class="ry">2023 – 2024</span><p>Led short-text relevance for the Ads stack. In-house LLM labelling saved $500K a year.</p></li>
+              <li><span class="rl">Data &amp; Applied Scientist</span><span class="ry">2020 – 2023</span><p>Took relevance models to 70+ languages, at a third of the compute.</p></li>
+            </ol>
+          </div>
+        </li>
+        <li class="rg edu" id="iitg" style="--yrs:4">
+          <div class="when"><span>2016</span><span>2020</span></div>
+          <div class="rail"><span class="bar"></span><span class="node"><img src="assets/logos/iitg.svg" alt=""></span></div>
+          <div class="what">
+            <h3>IIT Guwahati</h3>
+            <p class="job-meta"><span class="yrs-inline">2016 – 2020 · </span><b>B.Tech, Electronics &amp; Electrical</b> · minor in Computer Science</p>
+            <p class="job-lede">Mostly built robots and studied reinforcement learning, and spent my summers at some very cool places.</p>
+            <ul class="interns">
+              <li><img src="assets/logos/iitm.svg" alt=""><span class="nm"><b>RISE Lab, IIT Madras</b><span>2019</span></span><p>Graph-based priors that help autonomous driving generalise to new roads.</p></li>
+              <li><img src="assets/logos/mila.png" alt=""><span class="nm"><b>MILA</b><span>2019</span></span><p>Transformer language models that help RL agents play text games.</p></li>
+              <li><img src="assets/logos/intel.svg" alt=""><span class="nm"><b>Intel Labs</b><span>2018</span></span><p>Imitation learning (GAIL) that teaches robot arms from expert demos.</p></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="projects" class="block wrap">
+      <h2 class="reveal"><span><i>Projects</i></span></h2>
+      <div class="cards">
+        <a class="card" href="writing/cadforge/">
+          <img class="shot" src="assets/projects/cadforge.jpg?v=1794500000" alt="A grey flanged bearing housing with six counterbored bolt holes and ribs around a central bore, shown like a CAD model on a white canvas" width="1600" height="1200" loading="lazy">
+          <div class="card-txt">
+            <p class="card-meta">April 2026</p>
+            <h3>CADForge</h3>
+            <p>An RL environment where agents learn to write CadQuery code that becomes manufacture-ready STEP parts, rewarded by pure geometry.</p>
+            <span class="card-link">Read the write-up →</span>
+          </div>
+        </a>
+        <a class="card" href="writing/kaggle-medals/">
+          <img class="shot" src="assets/projects/kaggle.jpg?v=1794400000" alt="Dozens of white pins standing on a dark target engraved with concentric rings, two blue pins close to the centre" width="1600" height="1200" loading="lazy">
+          <div class="card-txt">
+            <p class="card-meta">2022</p>
+            <h3>Kaggle Wins</h3>
+            <p>A gold in American Express Default Prediction (16th) and a silver in Feedback Prize (14th), and what each solution did.</p>
+            <span class="card-link">Read the write-up →</span>
+          </div>
+        </a>
+        <article class="card">
+          <img class="shot" src="assets/projects/printing.jpg" alt="Parts of a 3D-printed cycloidal gearbox laid out: housing, cycloidal disc, bearing and brass inserts" width="1600" height="1200" loading="lazy">
+          <div class="card-txt">
+            <p class="card-meta">Ongoing</p>
+            <h3>Things I build</h3>
+            <p>Robots, mechanisms and parts I design and print for my own problems.</p>
+            <span class="card-link muted">Write-ups coming</span>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="sub-h">Earlier work</h3>
+      <div class="minis">
+          <a class="mini" href="blog/placement-experience-microsoft-data-science/">
+            <img src="assets/projects/placement.jpg?v=1794000200" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2020</p><h4>Placement experience: Microsoft Data Science</h4><p>Advice for anyone preparing for data scientist roles.</p></div>
+          </a>
+          <a class="mini" href="files/ASR_BTP_report.pdf" data-goatcounter-click="asr-report-download">
+            <img src="assets/projects/thesis-speech.jpg?v=1794000200" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2020</p><h4>Learned representations for speech</h4><p>Bachelor thesis: self-supervised pre-training for Indic code-switched ASR.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/IITGuwahati-AI/AnimalAI">
+            <img src="assets/projects/animalai.jpg?v=1794000200" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2019</p><h4>AnimalAI</h4><p>PPO with behaviour cloning for the Animal-AI Olympics.</p></div>
+          </a>
+      </div>
+      <div class="minis minis-more" id="more-work" hidden>
+          <a class="mini" href="https://github.com/vjg28/BERT_on_NarrativeQA">
+            <img src="assets/projects/bert-narrativeqa.jpg" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2019</p><h4>BERT on NarrativeQA</h4><p>Reading comprehension over long stories.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/vjg28/ARLE">
+            <img src="assets/projects/arle.jpg" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2018</p><h4>ARLE</h4><p>A robot that picks and places books in the IIT Guwahati library.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/vjg28/Device-for-ship-detection">
+            <img src="assets/projects/ship-detection.jpg" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2018</p><h4>Ship detection device</h4><p>A low-cost collision alarm for fishing boats. Bronze at the Inter-IIT Tech Meet.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/vjg28/robotic-palm">
+            <img src="assets/projects/robotic-palm.jpg?v=1794000200" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2018</p><h4>Robotic palm</h4><p>Hand-pose estimation driving a robotic hand from live video.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/vjg28/Linear-Inverse-RL-algorithms">
+            <img src="assets/projects/linear-irl.jpg" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2018</p><h4>Linear inverse RL</h4><p>Linear inverse RL algorithms on Mountain Car.</p></div>
+          </a>
+          <a class="mini" href="https://github.com/vjg28/Lunar-Lander-RL">
+            <img src="assets/projects/lunar-lander.jpg" alt="" width="1600" height="1200" loading="lazy">
+            <div><p class="card-meta">2018</p><h4>Lunar Lander</h4><p>Policy-gradient algorithms on Lunar Lander.</p></div>
+          </a>
+      </div>
+      <button type="button" class="show-more" aria-expanded="false" aria-controls="more-work">Show 6 more</button>
+    </section>
+
+    <section id="life" class="block wrap">
+      <h2 class="reveal"><span><i>Life</i></span></h2>
+      <p class="life-intro">Not work, just the stuff I've done here and there.</p>
+      <div class="panels">
+        <a class="panel sky-panel" href="hobbies/astro/">
+          <div class="art photo moon"><img src="assets/photos/cards/moon-wide.jpg" alt="The Moon through a small telescope" loading="lazy" decoding="async" width="720" height="540"><span class="cap">The Moon, March 2021</span></div>
+          <div class="txt">
+            <h3>Astrophotography</h3>
+            <p>A small telescope and a phone held to the eyepiece. Got the Orion Nebula, Andromeda, the Pleiades and the Moon.</p>
+          </div>
+          <span class="go">See what I caught →</span>
+        </a>
+        <a class="panel soil-panel" href="hobbies/garden/">
+          <div class="art photo"><img src="assets/photos/cards/garden-nightbloom.jpg" alt="A dragon fruit flower blooming at night" loading="lazy" decoding="async" width="720" height="540"><span class="cap">Dragon fruit flower, November 2021</span></div>
+          <div class="txt">
+            <h3>Gardening</h3>
+            <p>A garden grown entirely in pots. Vegetables first, then flowers, then fruit.</p>
+          </div>
+          <span class="go">Watch it grow →</span>
+        </a>
+        <article class="panel speed-panel">
+          <div class="art skate wheelset"><svg viewBox="6 48 344 258" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="ws-rim" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd7a8"/><stop offset=".45" stop-color="#ffb260" stop-opacity=".5"/><stop offset="1" stop-color="#ffb260" stop-opacity="0"/></linearGradient>
+              <radialGradient id="ws-tyre" cx=".72" cy=".22" r=".95"><stop offset="0" stop-color="#ffb260" stop-opacity=".95"/><stop offset=".28" stop-color="#a0501c"/><stop offset=".62" stop-color="#2a1a14"/><stop offset="1" stop-color="#0b0d14"/></radialGradient>
+              <linearGradient id="ws-frame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7dbe6"/><stop offset=".18" stop-color="#7d859b"/><stop offset="1" stop-color="#1e2334"/></linearGradient>
+              <linearGradient id="ws-line" x1="96" y1="0" x2="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffb260" stop-opacity=".9"/><stop offset="1" stop-color="#ffb260" stop-opacity="0"/></linearGradient>
+              <linearGradient id="ws-fade" x1="0" y1="232" x2="0" y2="312" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+              <mask id="ws-mask"><rect x="0" y="232" width="400" height="80" fill="url(#ws-fade)"/></mask>
+              <g id="ws-wheel">
+                <circle r="31" fill="url(#ws-tyre)"/><circle r="30.4" fill="none" stroke="url(#ws-rim)" stroke-width="1.2"/>
+                <circle r="18" fill="#090b12" stroke="rgba(255,255,255,.1)"/>
+                <g class="spin" stroke="#8e96ad" stroke-width="2.2" stroke-linecap="round"><circle r="16.5" fill="none" stroke="none"/><path d="M0-6V-15M5.7-1.9 14.3-4.6M3.5 4.9 8.8 12.1M-3.5 4.9-8.8 12.1M-5.7-1.9-14.3-4.6"/></g>
+                <circle r="5" fill="#d9dde7"/><circle r="2" fill="#4a5168"/>
+              </g>
+            </defs>
+            <g class="lines" stroke="url(#ws-line)" stroke-width="1.4" stroke-linecap="round">
+              <line x1="92" y1="124" x2="-210" y2="124"/><line x1="84" y1="146" x2="-210" y2="146"/><line x1="80" y1="176" x2="-210" y2="176"/><line x1="80" y1="200" x2="-210" y2="200"/><line x1="80" y1="224" x2="-210" y2="224"/>
+            </g>
+            <g id="ws-skate">
+              <path d="M96 136V124Q96 116 106 116H322Q334 116 334 128V136Z" fill="#141824" stroke="#ffb260" stroke-opacity=".3"/><path d="M104 120H322" stroke="#ffd7a8" stroke-opacity=".5"/>
+              <rect x="86" y="138" width="248" height="22" rx="8" fill="url(#ws-frame)"/>
+              <path d="M100 156H124L118 200H106ZM164 156H188L182 200H170ZM228 156H252L246 200H234ZM292 156H316L310 200H298Z" fill="#2a3044"/>
+              <ellipse cx="144" cy="149" rx="15" ry="4.5" fill="#07090f"/><ellipse cx="208" cy="149" rx="15" ry="4.5" fill="#07090f"/><ellipse cx="272" cy="149" rx="15" ry="4.5" fill="#07090f"/>
+              <use href="#ws-wheel" x="112" y="200"/><use href="#ws-wheel" x="176" y="200"/><use href="#ws-wheel" x="240" y="200"/><use href="#ws-wheel" x="304" y="200"/>
+            </g>
+            <line x1="30" y1="232" x2="390" y2="232" stroke="rgba(255,255,255,.08)"/>
+            <g mask="url(#ws-mask)"><use href="#ws-skate" transform="matrix(1 0 0 -1 0 464)" opacity=".55"/></g>
+          </svg></div>
+          <div class="txt">
+            <h3>Roller skating</h3>
+            <p>Raced for years, and won at the national level in 2013.</p>
+          </div>
+          <span class="go soon">Coming up</span>
+        </article>
+      </div>
+    </section>
+
+    <footer id="contact" class="contact">
+      <canvas id="sunrise" aria-hidden="true"></canvas>
+      <div class="wrap contact-inner">
+        <div class="closing">
+          <div class="intro">
+            <h2>Say hello</h2>
+            <p class="invite">Agents, robots, CAD, or the night sky. Any of them is a good reason to write. Email is the surest way to reach me.</p>
+          </div>
+          <ul class="links"><li><button type="button" class="say email-btn" aria-label="Show email address" data-goatcounter-click="email-footer" data-u="varshilgandhi28" data-d="gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><b>Email</b><span>Show address</span></button></li><li><a href="https://github.com/vjg28" data-goatcounter-click="out-github-footer"><svg aria-hidden="true"><use href="#i-github"/></svg><b>GitHub</b><i>vjg28</i></a></li><li><a href="https://www.linkedin.com/in/varshil-gandhi/" data-goatcounter-click="out-linkedin-footer"><svg aria-hidden="true"><use href="#i-linkedin"/></svg><b>LinkedIn</b><i>varshil-gandhi</i></a></li><li><a href="https://x.com/varshilgandhi28" data-goatcounter-click="out-x-footer"><svg aria-hidden="true"><use href="#i-x"/></svg><b>X</b><i>@varshilgandhi28</i></a></li><li><a href="https://www.instagram.com/variable.gandhi/" data-goatcounter-click="out-instagram-footer"><svg aria-hidden="true"><use href="#i-instagram"/></svg><b>Instagram</b><i>@variable.gandhi</i></a></li><li><a href="files/Varshil_Gandhi_Resume.pdf" data-goatcounter-click="out-doc-footer"><svg aria-hidden="true"><use href="#i-doc"/></svg><b>Résumé</b><i>PDF</i></a></li></ul>
+        </div>
+      </div>
+      <p class="fine">© 2026 Varshil Gandhi</p>
+    </footer>
+  </main>
+
+  <script src="assets/js/portrait.js?v=20261022015402"></script>
+  <script src="assets/js/blueprints.js?v=20261022015402"></script>
+  <script src="js/site.js?v=1794800000"></script>
+  <script data-goatcounter="https://varshilgandhi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

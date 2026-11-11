@@ -1,0 +1,26 @@
+/* About: readable body text, photo matched to the text column, Physical AI line as a pull-line.
+   Picked from versions/about (variant A, "Matched column"). */
+#about .about { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); gap: 64px; align-items: stretch; }
+
+/* photo fills the full height of the text, top on the greeting's cap line */
+#about .me { position: relative; top: auto; height: 100%; min-height: 0; margin: 0; }
+#about .me img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: 54% 30%; border-radius: 4px; }
+#about .me::after { content: ""; position: absolute; inset: 0; border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06); pointer-events: none; }
+
+/* text: regular weight, brighter, calmer rhythm */
+#about .prose { max-width: 62ch; gap: 0; font-size: 1.08rem; line-height: 1.72; }
+#about .prose p { color: #c3cadb; font-weight: 400; }
+#about .prose p + p { margin-top: 1.05em; }
+#about .prose p.hi { color: var(--ink); font-family: var(--display); font-weight: 400; font-size: clamp(1.9rem, 3.2vw, 2.5rem); line-height: 1.05; margin-top: -0.12em; margin-bottom: 0.15em; }
+
+
+/* where he's headed: display pull-line with a thin amber rule */
+#about .prose p.next { font-family: var(--display); font-weight: 400; color: var(--ink); font-size: clamp(1.3rem, 1.9vw, 1.5rem); line-height: 1.35; text-wrap: pretty; padding-left: 20px; border-left: 1px solid var(--sun); margin: 1.05em 0 0; }
+#about .prose p.next em { font-style: italic; color: var(--sun); }
+
+@media (max-width: 900px) {
+  #about .about { grid-template-columns: 1fr; gap: 28px; }
+  #about .me { height: auto; max-width: none; }
+  #about .me img { position: static; aspect-ratio: 4 / 3; height: auto; object-position: 54% 32%; }
+}
+#experience .rg { scroll-margin-top: 150px; }

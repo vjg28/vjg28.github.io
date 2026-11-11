@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at 'sha256-4ut+2IY7/k4z/HSYacI4JIKcM8/5stbuRMqfOOw/BQQ=' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self'; media-src 'self'; img-src 'self' data: https://varshilgandhi.goatcounter.com; connect-src 'self' https://varshilgandhi.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Gardening · Varshil Gandhi</title>
+  <meta name="description" content="A garden grown entirely in pots during COVID, rebuilt in 3D from two years of photos: from bare soil to a forest of vegetables, flowers and fruit.">
+  <meta name="theme-color" content="#04060d">
+  <meta property="og:title" content="Gardening · Varshil Gandhi">
+  <meta property="og:description" content="From bare soil to a forest in pots, June 2020 to April 2022.">
+  <meta property="og:url" content="https://varshilgandhi.com/hobbies/garden/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Varshil Gandhi">
+  <meta property="og:image" content="https://varshilgandhi.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Gardening · Varshil Gandhi">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@varshilgandhi28">
+  <meta name="twitter:creator" content="@varshilgandhi28">
+  <link rel="canonical" href="https://varshilgandhi.com/hobbies/garden/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/site.css?v=1794600200">
+  <link rel="stylesheet" href="../../css/page.css?v=20261103033346">
+  <link rel="stylesheet" href="garden.css?v=20261022015402">
+  <script type="importmap">
+    { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    } }
+  </script>
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+
+  <nav class="nav scrolled" aria-label="Main">
+    <a class="home" href="../../">Varshil Gandhi</a>
+    <div class="links">
+      <a href="../../#about">About</a>
+      <a href="../../#experience">Experience</a>
+      <a href="../../#projects">Projects</a>
+      <a href="../../#life">Life</a>
+    </div>
+  </nav>
+
+  <main class="wrap page garden-head">
+    <header class="page-head">
+      <a class="crumb" href="../../#life">← Life</a>
+      <h1>Gardening</h1>
+      <p class="dek">During COVID we had open space at home but no land to dig, so the whole garden lived in pots. Over two years it went from bare soil to something close to a forest. Vegetables came first because they grow fast, flowers came along with them, and the fruit plants, slow and stubborn, came last. Scroll down to watch it grow. Everything here is rebuilt from my own photos and videos.</p>
+    </header>
+  </main>
+
+  <section class="story" id="story" aria-label="The garden, growing over two years">
+    <div class="stage-sticky">
+      <div class="stage" id="stage">
+        <canvas id="garden3d" role="img" aria-label="A 3D reconstruction of the potted garden. The plant list below the story opens the same plant details."></canvas>
+        <div class="fallback" id="fallback" hidden>
+          <img src="../../assets/photos/soil/thumb/soil-078-2021-11-23.jpg" alt="The garden in November 2021, dense with potted plants and flowers" loading="lazy">
+        </div>
+        <div class="readout" aria-live="off">
+          <span class="when" id="when">Jun 2020</span>
+          <div class="ruler" id="ruler" aria-hidden="true"><i class="now" id="rulerNow"></i></div>
+        </div>
+        <div class="tip" id="tip" hidden></div>
+        <p class="stage-hint" id="stageHint" hidden>Drag to look around · click a plant</p>
+      </div>
+    </div>
+
+    <div class="chapters" id="chapters"></div>
+  </section>
+
+  <div class="wrap lower">
+    <section class="plants" aria-labelledby="plantsTitle">
+      <h2 id="plantsTitle">The plants</h2>
+      <p class="plants-intro">Every plant in the garden, with when it went in and its photos and videos.</p>
+      <div class="plant-groups" id="plantList"></div>
+    </section>
+
+    <section class="journal" aria-labelledby="journalTitle">
+      <h2 id="journalTitle">Garden journal</h2>
+      <p class="journal-intro">Every photo and video I posted of the garden, oldest first.</p>
+      <div id="journal"></div>
+    </section>
+
+    <footer class="page-foot">
+      <a href="../../">Home</a>
+      <a href="../../#life">Life</a>
+      <a href="../astro/">Astrophotography</a>
+      <a href="https://www.instagram.com/variable.gandhi/">Instagram</a>
+      <a href="../../#contact">Contact</a>
+    </footer>
+  </div>
+
+  <aside class="card" id="card" aria-labelledby="cardTitle" hidden>
+    <button type="button" class="card-close" id="cardClose">Close</button>
+    <div id="cardBody"></div>
+  </aside>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photo or video">
+    <figure>
+      <div class="lb-media" id="lbMedia"></div>
+      <figcaption id="lbCap"></figcaption>
+    </figure>
+    <div class="lb-controls">
+      <button type="button" id="lbPrev" aria-label="Previous">← Prev</button>
+      <span id="lbCount"></span>
+      <button type="button" id="lbNext" aria-label="Next">Next →</button>
+      <button type="button" id="lbClose" class="close">Close</button>
+    </div>
+  </dialog>
+
+  <script src="../../assets/data/garden.js?v=1794900000"></script>
+  <script src="garden.js?v=1794900000"></script>
+  <script src="../../js/site.js?v=1794700000"></script>
+  <script type="module" src="garden3d.js?v=20261022015402"></script>
+  <script data-goatcounter="https://varshilgandhi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

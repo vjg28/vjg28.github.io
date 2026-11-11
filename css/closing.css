@@ -1,0 +1,16 @@
+/* closing / sunrise refinements */
+
+/* Closing: a quiet sign-off. Small serif line, the email link and the icon row, centred over the sunrise */
+.contact .contact-inner { justify-content: center; }
+.contact .closing { justify-items: center; text-align: center; gap: 0; max-width: none; }
+.contact .closing h2 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); line-height: 1.1; letter-spacing: 0; font-weight: 400; }
+.contact .closing .ways { margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 22px; }
+.contact .closing .say { border: 0; padding: 4px 0; border-radius: 0; gap: 10px; font: 400 0.98rem/1.2 var(--sans); color: var(--ink); background: none; }
+.contact .closing .say span { background: linear-gradient(rgba(255, 178, 96, .6), rgba(255, 178, 96, .6)) 0 100% / 100% 1px no-repeat; padding-bottom: 4px; transition: color .3s; }
+.contact .closing .say svg { color: var(--sun); width: 16px; height: 16px; }
+.contact .closing .say:hover { color: var(--sun); }
+.contact .closing .elsewhere { margin: 0; padding-left: 20px; border-left: 1px solid var(--line); }
+@media (max-width: 640px) {
+  .contact .closing .ways { flex-direction: column; gap: 14px; }
+  .contact .closing .elsewhere { padding-left: 0; border-left: 0; }
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://gc.zgo.at; style-src 'self' 'unsafe-inline'; font-src 'self'; media-src 'self'; img-src 'self' data: https://varshilgandhi.goatcounter.com; connect-src 'self' https://varshilgandhi.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Kaggle Wins · Varshil Gandhi</title>
+  <meta name="description" content="A gold in American Express Default Prediction and a silver in Feedback Prize: Predicting Effective Arguments, and what each solution did.">
+  <meta name="theme-color" content="#04060d">
+  <meta property="og:title" content="Kaggle Wins">
+  <meta property="og:description" content="A gold in American Express Default Prediction and a silver in Feedback Prize: Predicting Effective Arguments, and what each solution did.">
+  <meta property="og:url" content="https://varshilgandhi.com/writing/kaggle-medals/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Varshil Gandhi">
+  <meta property="og:image" content="https://varshilgandhi.com/assets/projects/kaggle.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="1200">
+  <meta property="og:image:alt" content="Kaggle Wins">
+  <meta property="article:published_time" content="2022-09-01">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@varshilgandhi28">
+  <meta name="twitter:creator" content="@varshilgandhi28">
+  <link rel="canonical" href="https://varshilgandhi.com/writing/kaggle-medals/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="../../site.webmanifest">
+  <link rel="stylesheet" href="../../css/fonts.css">
+  <link rel="stylesheet" href="../../css/site.css?v=1794600200">
+  <link rel="stylesheet" href="../../css/page.css?v=1794410000">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Kaggle Wins", "description": "A gold in American Express Default Prediction and a silver in Feedback Prize: Predicting Effective Arguments, and what each solution did.", "datePublished": "2022-09-01", "url": "https://varshilgandhi.com/writing/kaggle-medals/", "mainEntityOfPage": "https://varshilgandhi.com/writing/kaggle-medals/", "image": "https://varshilgandhi.com/assets/projects/kaggle.jpg", "author": {"@type": "Person", "name": "Varshil Gandhi", "url": "https://varshilgandhi.com/"}}
+  </script>
+</head>
+<body class="vp">
+  <canvas id="sky" aria-hidden="true"></canvas>
+
+  <nav class="nav scrolled" aria-label="Main">
+    <a class="home" href="../../">Varshil Gandhi</a>
+    <div class="links">
+      <a href="../../#about">About</a>
+      <a href="../../#experience">Experience</a>
+      <a href="../../#projects">Projects</a>
+      <a href="../../#life">Life</a>
+    </div>
+  </nav>
+
+  <main class="wrap page">
+    <header class="page-head">
+      <a class="crumb" href="../../#projects">← Projects</a>
+            <h1>Kaggle Wins</h1>
+      <p class="dek">A gold in American Express Default Prediction and a silver in Feedback Prize, both as part of small teams.</p>
+      <div class="byline"><span class="when"><time datetime="2022-09-01">Aug – Sep 2022</time><span>6 min read</span></span></div>
+    </header>
+    <figure class="shot-bleed shot-hero"><img data-focus="top" src="../../assets/projects/kaggle.jpg?v=1794400000" alt="Dozens of white pins standing on a dark target engraved with concentric rings, two blue pins close to the centre" width="1600" height="1200"><figcaption>A competition as a target: every pin is one team’s best submission, scored by how close it lands to the truth. Ours are the two blue ones.</figcaption></figure>
+    <article class="article">
+      <p class="lede">In the summer of 2022 I spent my evenings on two very different Kaggle competitions: one about predicting credit default from tabular time series, the other about judging the quality of argumentative essays. Both ended with medals, and both were team efforts. Here's what each solution did.</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Competition</th><th>Finish</th><th>Medal</th><th>Team</th></tr></thead>
+        <tbody>
+          <tr><td>American Express – Default Prediction</td><td>16th</td><td>Gold</td><td>Shivam Gupta, Priyanshu Chaudhary, me</td></tr>
+          <tr><td>Feedback Prize – Predicting Effective Arguments</td><td>14th</td><td>Silver</td><td>Abhishek Thakur, Bhavya Dhingra, Shivam Gupta, Rai, me</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2>American Express: diversity over a single best model</h2>
+      <p>The task was to predict whether a customer would default, from monthly statement profiles. Our 16th-place solution leaned on two ideas: varied feature sets, and a diverse ensemble.</p>
+      <figure class="shot-wide"><img src="../../assets/projects/kaggle-amex.jpg?v=1794400000" alt="A blank payment card standing at the front of a row of glass panes, one per monthly statement, each marked with a data point, and a smooth blue rod threaded through them that rises toward the card" width="1920" height="1080" loading="lazy"><figcaption>Each customer is a card and the statements behind it, one per month. The features summarise that history: means, spreads, last values, differences, and Hull moving averages like the smooth line threaded through the monthly points.</figcaption></figure>
+      <h3>Feature engineering</h3>
+      <p>Mean, standard deviation and last-value features were common to every model. On top of that we trained in three ways:</p>
+      <ul>
+        <li>only Hull moving average (HMA) features,</li>
+        <li>only difference features,</li>
+        <li>HMA and difference features together, which only worked with CatBoost.</li>
+      </ul>
+      <p>Using every difference feature turned out to be the wrong call for some models: for neural networks and XGBoost they introduced leakage, and cross-validation stopped correlating with the leaderboard. HMA features proved much better than differences.</p>
+      <h3>Models</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Model</th><th>CV</th><th>Private LB</th><th>Public LB</th><th>Features</th></tr></thead>
+        <tbody>
+          <tr><td>LightGBM</td><td>0.7973</td><td>0.80687</td><td>0.79906</td><td>Diff + last</td></tr>
+          <tr><td>XGBoost</td><td>0.7972</td><td>0.80639</td><td>0.79718</td><td>HMA + last</td></tr>
+          <tr><td>CatBoost</td><td>0.7952</td><td>0.80468</td><td>0.79614</td><td>HMA + diff + last</td></tr>
+          <tr><td>NN 1</td><td>0.7923</td><td>0.80190</td><td>0.79240</td><td>HMA + last</td></tr>
+          <tr><td>NN 2</td><td>0.7921</td><td>0.80186</td><td>0.79188</td><td>Diff + last</td></tr>
+          <tr><td>TabNet</td><td>0.7933</td><td>–</td><td>–</td><td>HMA + last</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Ensemble</h3>
+      <p>Cross-validation and the leaderboard tracked each other well, so we used Optuna to pick ensemble weights and submitted a rank ensemble. A few strong public models had no out-of-fold predictions, so their weights were set by hand.</p>
+      <p>In hindsight, our best submission (0.80839) wasn't one we picked, and giving more weight to TabNet and LightGBM would have landed us 13th. Things we didn't get to try: predicting the missing values of B_29 and using them as features, LightGBM on HMA features, and pseudo-labelling on the private test data.</p>
+      <p>Thanks to the community notebooks from Chris Deotte, Raddar, Robert Hatch, Jiwei Liu and Ragnar that shaped the whole competition. <a href="https://www.kaggle.com/competitions/amex-default-prediction/writeups/www-tryninjastudy-com-16th-place-solution-features">Original write-up ↗</a></p>
+
+      <h2>Feedback Prize: one model, one clever embedding</h2>
+      <p>Here the task was to rate each argumentative element in a student essay (claim, evidence, rebuttal and so on) as ineffective, adequate or effective. Our 14th-place result came from a single strong model, run with a few variations and averaged.</p>
+      <figure class="shot-wide"><img src="../../assets/projects/kaggle-essay.jpg?v=1794400000" alt="Seven paper strips laid side by side, each mounted on a card of a different colour, with a small white token at the end of each showing one, two or three blue dots" width="1920" height="1080" loading="lazy"><figcaption>One essay, cut into its argument. Each element (lead, position, claim, evidence, counterclaim, rebuttal, conclusion) gets its own colour, and the model rates how well each one works: one dot for ineffective, two for adequate, three for effective.</figcaption></figure>
+      <h3>Domain pre-training</h3>
+      <p>First, DeBERTa-v3-large was further pre-trained as a masked language model on all the essays from the previous Feedback competition, reaching a perplexity of about 4.5.</p>
+      <h3>Framing it as token classification</h3>
+      <p>Inspired by a public kernel from Nicholas Broad, each essay became one sequence, with special tokens marking where each discourse element starts and ends:</p>
+<pre><code>[CLS] some text [CLS_CLAIM] the claim text [END_CLAIM] ... [SEP]</code></pre>
+      <p>Every token gets a discourse-type id. Only the start and end tokens of each element carry an effectiveness label; everything else is ignored in the loss.</p>
+      <h3>The lift: a discourse-type embedding</h3>
+      <p>The change that helped most was adding a second embedding table for discourse types inside DeBERTa's embedding layer and summing it with the word embeddings, so every token knows what kind of argument it belongs to:</p>
+<pre><code>self.disc_type_embeddings = nn.Embedding(9, self.embedding_size)
+...
+embeddings += self.disc_type_embeddings(disc_type_ids)</code></pre>
+      <p>Training used AdamW with a polynomial learning-rate schedule over five folds. At inference, the probabilities at each element's start and end tokens were averaged to get its label.</p>
+      <p>The write-up and full code were published by Abhishek Thakur, using his training library <a href="https://github.com/abhishekkrthakur/tez">tez</a>. <a href="https://www.kaggle.com/competitions/feedback-prize-effectiveness/writeups/0-577-single-model-with-full-code">Original write-up ↗</a></p>
+    </article>
+    <footer class="page-foot post-end">
+      <a class="pe-back" href="../../#projects"><span>Back to</span>All projects</a>
+      <a class="pe-next" href="../cadforge/"><span>Next</span>CADForge →</a>
+    </footer>
+  </main>
+  <script src="../../js/site.js?v=1794700000"></script>
+  <script data-goatcounter="https://varshilgandhi.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
