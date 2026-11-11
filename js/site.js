@@ -347,8 +347,16 @@
   }));
 
   // ---------- header gets a backdrop once you scroll past the top ----------
+  // Also as soon as the big name slides up under the links, so they never sit on
+  // bare hero text (on phones that happens well before 60% of a screen).
   const navEl = document.querySelector('.nav');
-  const onNav = () => navEl && document.querySelector('.hero') && navEl.classList.toggle('scrolled', scrollY > innerHeight * 0.6);
+  const navLinks = navEl?.querySelector('.links');
+  const nameWords = [...document.querySelectorAll('.hero .name-big i')];
+  const underLinks = () => {
+    const l = navLinks.getBoundingClientRect(), navBottom = navEl.getBoundingClientRect().bottom;
+    return nameWords.some(w => { const r = w.getBoundingClientRect(); return r.top < navBottom && r.right > l.left && r.left < l.right; });
+  };
+  const onNav = () => navEl && document.querySelector('.hero') && navEl.classList.toggle('scrolled', scrollY > innerHeight * 0.6 || underLinks());
   addEventListener('scroll', onNav, { passive: true }); onNav();
 
   // ---------- email: assembled only when asked for ----------
